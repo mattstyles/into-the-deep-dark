@@ -1,9 +1,35 @@
 
-import InfernoDOM from 'inferno-dom'
+import {render} from 'inferno-dom'
 
-const App = props => <h1>It’s Dark</h1>
+import {store} from 'stores/main'
+import Counter from 'components/counter'
 
-InfernoDOM.render(
-  <App />,
-  document.querySelector('.js-main')
+const App = props => (
+  <div>
+    <h1>It’s Dark</h1>
+    <Counter value={props.state.counter} />
+  </div>
 )
+
+store.subscribe(state => {
+  console.log(state)
+
+  render(
+    <App state={state} />,
+    document.querySelector('.js-main')
+  )
+})
+
+store.register((state, event) => {
+  if (event.type === 'add') {
+    state.counter += 1
+  }
+
+  if (event.type === 'subtract') {
+    state.counter -= 1
+  }
+
+  return state
+})
+
+window.store = store
