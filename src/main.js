@@ -32,4 +32,12 @@ store.register((state, event) => {
   return state
 })
 
+store.register((state, event) => {
+  if (event.type === 'display') {
+    console.log(state)
+  }
+
+  return state
+})
+
 window.store = store

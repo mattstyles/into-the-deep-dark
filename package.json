@@ -8,7 +8,7 @@
     "clean": "rimraf dist && mkdirp dist",
     "lint": "standard",
     "build-scripts": "NODE_PATH=src NODE_ENV=production browserify --extension=jsx src/main.js | uglifyjs -cm > dist/main.js",
-    "build-styles": "lessc src/styles.less --include-path=node_modules:src/styles --autoprefix='last 2 versions' --clean-css > dist/styles.css",
+    "build-styles": "lessc src/styles.less --include-path=node_modules:src/core/styles:src --autoprefix='last 2 versions' --clean-css > dist/styles.css",
     "build-html": "cpy src/*.html dist",
     "prebuild": "npm run clean",
     "build": "npm run build-scripts && npm run build-styles && npm run build-html",
