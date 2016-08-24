@@ -1,18 +1,18 @@
 
 import {store} from 'signals/main'
-import counterAction from 'actions/counter'
+import {reducer, ACTIONS} from 'actions/counter'
 
-store.register(counterAction)
+store.register(reducer)
 
 const onAdd = event => {
   store.emit({
-    type: 'add'
+    type: ACTIONS.ADD
   })
 }
 
 const onSubtract = event => {
   store.emit({
-    type: 'subtract'
+    type: ACTIONS.SUBTRACT
   })
 }
 
