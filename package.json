@@ -19,10 +19,13 @@
       "urban"
     ],
     "plugins": [
-      ["transform-react-require", {
-        "identifier": "Inferno",
-        "moduleName": "inferno"
-      }],
+      [
+        "transform-react-require",
+        {
+          "identifier": "Inferno",
+          "moduleName": "inferno"
+        }
+      ],
       "inferno"
     ]
   },

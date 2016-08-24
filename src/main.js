@@ -11,13 +11,18 @@ const App = props => (
   </div>
 )
 
+window.START = window.performance.now()
+
 store.subscribe(state => {
   console.log(state)
+  console.log('state time', (window.performance.now() - window.START).toFixed(2), 'ms')
 
   render(
     <App state={state} />,
     document.querySelector('.js-main')
   )
+
+  console.log('render time', (window.performance.now() - window.START).toFixed(2), 'ms')
 })
 
 window.store = store

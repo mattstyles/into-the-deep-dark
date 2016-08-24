@@ -2,21 +2,30 @@
 import most from 'most'
 import EventEmitter from 'eventemitter3'
 
+import {iteratorFold} from 'utils/functional'
+
+const uid = () => {
+  return (Math.random() * 10000000)
+    .toFixed(0)
+    .toString(16)
+}
+
 class Signal {
   constructor (initialState) {
     this.emitter = new EventEmitter()
-    this.reducers = []
+    this.reducers = new Map()
 
     this.source = most
       .fromEvent('action', this.emitter)
       .scan((state, event) => {
-        return this.reducers.reduce((state, fn) => {
-          return fn(state, event)
+        return iteratorFold(this.reducers.values(), (state, reducer) => {
+          return reducer(state, event)
         }, state)
       }, initialState)
   }
 
   emit = (payload) => {
+    window.START = window.performance.now()
     if (typeof payload !== 'object') {
       throw new Error('Incorrect payload type, expects object')
     }
@@ -32,8 +41,13 @@ class Signal {
     )
   }
 
-  register = (reducer) => {
-    this.reducers.push(reducer)
+  register = (reducer, key) => {
+    let k = key || uid()
+    this.reducers.set(k, reducer)
+
+    return function dispose () {
+      this.reducers.delete(k)
+    }
   }
 }
 
