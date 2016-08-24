@@ -1,5 +1,8 @@
 
-import {store} from 'stores/main'
+import {store} from 'signals/main'
+import counterAction from 'actions/counter'
+
+store.register(counterAction)
 
 const onAdd = event => {
   store.emit({

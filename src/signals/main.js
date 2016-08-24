@@ -1,5 +1,5 @@
 
-import Signal from 'signals/signal'
+import Signal from 'core/signal'
 
 export var initialState = {
   counter: 0

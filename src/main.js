@@ -1,7 +1,7 @@
 
 import {render} from 'inferno-dom'
 
-import {store} from 'stores/main'
+import {store} from 'signals/main'
 import Counter from 'components/counter'
 
 const App = props => (
@@ -18,26 +18,6 @@ store.subscribe(state => {
     <App state={state} />,
     document.querySelector('.js-main')
   )
-})
-
-store.register((state, event) => {
-  if (event.type === 'add') {
-    state.counter += 1
-  }
-
-  if (event.type === 'subtract') {
-    state.counter -= 1
-  }
-
-  return state
-})
-
-store.register((state, event) => {
-  if (event.type === 'display') {
-    console.log(state)
-  }
-
-  return state
 })
 
 window.store = store
