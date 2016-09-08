@@ -16,3 +16,32 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+.Tick {
+  position: fixed;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+  padding: 3px;
+  background: rgba(0,0,0,.75);
+  color: rgb(244,244,244);
+}
+
+.Resource {
+  position: relative;
+  display: block;
+  padding: 4px;
+  margin: 4px;
+  background: rgb(15,244,198);
+  color: rgb(252,253,255);
+  cursor: pointer;
+}
+.Resource-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  background: rgb(214,143,214);
+  transition: width 125ms linear;
+}
