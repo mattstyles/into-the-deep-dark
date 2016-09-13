@@ -110,7 +110,9 @@ export default props => {
   return (
     <div onAttached={onMounted}>
       <h1>Resources</h1>
-      <button onClick={onAdd}>Add</button>
+      {resourceNames.length
+        ? <button className='Btn' onClick={onAdd}>Add</button>
+        : null}
       {res}
     </div>
   )

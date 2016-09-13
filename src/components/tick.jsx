@@ -24,6 +24,7 @@ class Tick extends Component {
   }
 }
 
-export const UI = ({rate}) => <span className='Tick'>{rate} ms</span>
+export const TickUI = ({rate, children}) =>
+  <span className='Tick'>{rate} ms {children}</span>
 
 export default Tick
