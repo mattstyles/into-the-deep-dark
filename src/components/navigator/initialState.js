@@ -1,6 +1,9 @@
 
 // nav
+let initialRoute = '/'
+
 export default {
-  route: '/',
-  stack: ['/']
+  route: initialRoute,
+  stack: [initialRoute],
+  title: 'Index'
 }

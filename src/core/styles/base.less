@@ -8,13 +8,22 @@ html, body {
 }
 
 body {
+  display: flex;
   margin: 0;
   font-family: Raleway, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 10px;
   color: @--color-white10;
-  background: @--color-black;
+  background: @--color-black10;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.Main {
+  flex: 1;
+}
+
+.View {
+  flex: 1;
 }
 
 .Btn {

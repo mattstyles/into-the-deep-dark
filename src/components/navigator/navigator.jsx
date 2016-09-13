@@ -1,4 +1,6 @@
 
+import classnames from 'classnames'
+
 import {store} from 'signals/main'
 
 export const NAV_ACTIONS = {
@@ -8,17 +10,34 @@ export const NAV_ACTIONS = {
 }
 
 export const reducer = (state, event) => {
+  let {stack, route} = state.nav
+
   if (event.type === NAV_ACTIONS.PUSH) {
-    state.nav.route = event.route
-    state.nav.stack.push(event.route)
+    route = event.route
+    stack.push(route)
     return state
   }
+
+  if (event.type === NAV_ACTIONS.POP) {
+    if (stack.length === 1) {
+      return state
+    }
+
+    stack.pop()
+    route = getLast(stack)
+    return state
+  }
+
   return state
 }
 
 const getChild = (stack, id) => {
   let route = stack.find(route => route.attrs.route === id)
   return route
+}
+
+const getLast = stack => {
+  return stack[stack.length - 1]
 }
 
 const onPush = event => {
@@ -28,11 +47,71 @@ const onPush = event => {
   })
 }
 
-export const Navigator = ({children, state}) => {
-  const View = getChild(children, state.nav.stack[state.nav.stack.length - 1])
+const onPop = event => {
+  store.emit({
+    type: NAV_ACTIONS.POP
+  })
+}
+
+const LeftNav = ({stack}) => {
+  let text = stack.length > 1
+    ? 'Back'
+    : ''
+  let classes = classnames({
+    'Btn': true,
+    'Btn--isNav': true,
+    'Btn--isHidden': text.length === 0
+  })
+
   return (
-    <div>
-      <button className='Btn' onClick={onPush}>Push</button>
+    <div className='Nav-left'>
+      <button
+        className={classes}
+        onClick={onPop}
+      >{text}</button>
+    </div>
+  )
+}
+
+const RightNav = ({stack}) => {
+  let text = stack.length > 1
+    ? ''
+    : 'Next'
+  let classes = classnames({
+    'Btn': true,
+    'Btn--isNav': true,
+    'Btn--isHidden': text.length === 0
+  })
+
+  return (
+    <div className='Nav-right'>
+      <button
+        className={classes}
+        onClick={onPush}
+      >{text}</button>
+    </div>
+  )
+}
+
+export const Navigator = ({children, state}) => {
+  let {stack, title} = state.nav
+  const View = getChild(children, getLast(stack))
+  return (
+    <div className='Main'>
+      <nav className='Nav'>
+        <LeftNav stack={stack} />
+        <span className='Nav-Title'>{title}</span>
+        <RightNav stack={stack} />
+      </nav>
+      <button
+        className='Btn'
+        onClick={stack.length === 1
+            ? onPush
+            : onPop}>
+        {stack.length === 1
+          ? 'Push'
+          : 'Pop'}
+      </button>
       {View}
     </div>
   )
