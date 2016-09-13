@@ -1,7 +1,28 @@
 
 import classnames from 'classnames'
+import createHistory from 'history/createBrowserHistory'
 
 import {store} from 'signals/main'
+
+const history = createHistory()
+window.h = history
+
+history.listen((location, action) => {
+  if (action === 'PUSH') {
+    store.emit({
+      type: NAV_ACTIONS.PUSH,
+      route: location.pathname
+    })
+    return
+  }
+
+  if (action === 'POP') {
+    store.emit({
+      type: NAV_ACTIONS.POP
+    })
+    return
+  }
+})
 
 export const NAV_ACTIONS = {
   PUSH: 'navigator:push',
@@ -41,16 +62,18 @@ const getLast = stack => {
 }
 
 const onPush = event => {
-  store.emit({
-    type: NAV_ACTIONS.PUSH,
-    route: '/b'
-  })
+  // store.emit({
+  //   type: NAV_ACTIONS.PUSH,
+  //   route: '/b'
+  // })
+  history.push('/b')
 }
 
 const onPop = event => {
-  store.emit({
-    type: NAV_ACTIONS.POP
-  })
+  // store.emit({
+  //   type: NAV_ACTIONS.POP
+  // })
+  history.goBack()
 }
 
 const LeftNav = ({stack}) => {

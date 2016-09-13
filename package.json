@@ -77,6 +77,7 @@
     "axios": "^0.13.1",
     "classnames": "^2.2.5",
     "eventemitter3": "^1.2.0",
+    "history": "^4.0.1",
     "inferno": "^0.7.26",
     "inferno-component": "^0.7.26",
     "inferno-dom": "^0.7.26",
