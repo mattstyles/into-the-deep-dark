@@ -12,7 +12,7 @@ const SettingsView = props => {
   ]
   return (
     <View>
-      <Link route='/'>Home</Link>
+      <Link route='/' title='Home'>Home</Link>
       <List items={items} />
     </View>
   )

@@ -4,14 +4,16 @@ import createHistory from 'history/createBrowserHistory'
 
 import {store} from 'signals/main'
 
+const STACK_LENGTH = 9
+
 const history = createHistory()
 
 history.listen((location, action) => {
   if (action === 'PUSH') {
-    store.emit({
-      type: NAV_ACTIONS.PUSH,
-      route: location.pathname
-    })
+    // store.emit({
+    //   type: NAV_ACTIONS.PUSH,
+    //   route: location.pathname
+    // })
     return
   }
 
@@ -30,15 +32,22 @@ export const NAV_ACTIONS = {
 }
 
 export const reducer = (state, event) => {
-  let {stack, route} = state.nav
+  let {stack} = state.nav
+
+  console.log(event, state)
 
   if (event.type === NAV_ACTIONS.PUSH) {
-    if (event.route === route) {
+    let {pathname} = event.payload.pathname
+    if (pathname === getLast(stack).pathname) {
       return state
     }
 
-    route = event.route
-    stack.push(route)
+    stack.push(event.payload)
+
+    if (stack.length > STACK_LENGTH) {
+      stack.shift()
+    }
+
     return state
   }
 
@@ -48,7 +57,6 @@ export const reducer = (state, event) => {
     }
 
     stack.pop()
-    route = getLast(stack)
     return state
   }
 
@@ -56,7 +64,9 @@ export const reducer = (state, event) => {
 }
 
 const getChild = (stack, id) => {
+  console.log('finding', id)
   let route = stack.find(route => route.attrs.route === id)
+  // console.log('found', id, route.attrs)
   return route
 }
 
@@ -65,7 +75,12 @@ const getLast = stack => {
 }
 
 const onPush = event => {
-  history.push(event.route)
+  history.push(event.pathname)
+  console.log('pushing', event)
+  store.emit({
+    type: NAV_ACTIONS.PUSH,
+    payload: event
+  })
 }
 
 const onPop = event => {
@@ -103,7 +118,8 @@ const RightNav = ({stack}) => {
       <button
         className={classes}
         onClick={e => onPush({
-          route: '/settings'
+          pathname: '/settings',
+          title: 'Settings'
         })}
       >Settings</button>
     </div>
@@ -111,13 +127,14 @@ const RightNav = ({stack}) => {
 }
 
 export const Navigator = ({children, state}) => {
-  let {stack, title} = state.nav
-  const View = getChild(children, getLast(stack))
+  let {stack} = state.nav
+  let route = getLast(stack)
+  const View = getChild(children, route.pathname)
   return (
     <div className='Main'>
       <nav className='Nav'>
         <LeftNav stack={stack} />
-        <span className='Nav-Title'>{title}</span>
+        <span className='Nav-Title'>{route.title}</span>
         <RightNav stack={stack} />
       </nav>
       {View}
@@ -125,11 +142,11 @@ export const Navigator = ({children, state}) => {
   )
 }
 
-export const Link = ({route, children}) => {
+export const Link = ({route, title, children}) => {
   return (
     <button
       className='Btn Btn--isLink'
-      onClick={e => onPush({route})}
+      onClick={e => onPush({pathname: route, title})}
     >
       {children}
     </button>

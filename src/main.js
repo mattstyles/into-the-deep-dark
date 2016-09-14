@@ -28,7 +28,7 @@ var previous = 0
 const App = ({state}) => (
   <div className='Main'>
     <TickUI rate={previous}>
-      <Tick />
+      <Tick disabled />
     </TickUI>
     <Navigator state={state}>
       <HomeView route='/' title='Home' />

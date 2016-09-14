@@ -1,9 +1,12 @@
 
 // nav
-let initialRoute = window.location.pathname
+let initialRoute = {
+  pathname: window.location.pathname,
+  title: window.location.pathname
+    .replace(/^./, '')
+    .replace(/(^.)/, ch => ch.toUpperCase()) || 'Home'
+}
 
 export default {
-  route: initialRoute,
-  stack: [initialRoute],
-  title: 'Index'
+  stack: [initialRoute]
 }

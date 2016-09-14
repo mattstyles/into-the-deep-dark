@@ -8,6 +8,10 @@ const TICK_RATE = 1000 / 8
 class Tick extends Component {
   componentWillMount () {
     console.log('Starting tick')
+
+    if (this.props.disabled) {
+      return
+    }
     this.onTick()
   }
 
