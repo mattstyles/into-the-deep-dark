@@ -7,6 +7,8 @@ import Tick, {TickUI} from 'components/tick'
 // import Resources from 'components/resources'
 
 import {Navigator} from 'components/navigator/navigator'
+import SettingsView from 'views/settings/settings'
+import HomeView from 'views/home/home'
 
 var previous = 0
 
@@ -24,13 +26,13 @@ var previous = 0
 // )
 
 const App = ({state}) => (
-  <div>
+  <div className='Main'>
     <TickUI rate={previous}>
       <Tick />
     </TickUI>
     <Navigator state={state}>
-      <div route='/'>Nav Child Route Index</div>
-      <div route='/b'>Nav Child Route B</div>
+      <HomeView route='/' title='Home' />
+      <SettingsView route='/settings' title='Settings' />
     </Navigator>
   </div>
 )

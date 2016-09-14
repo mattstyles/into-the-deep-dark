@@ -1,6 +1,6 @@
 
 // nav
-let initialRoute = '/'
+let initialRoute = window.location.pathname
 
 export default {
   route: initialRoute,

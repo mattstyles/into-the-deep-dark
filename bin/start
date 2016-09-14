@@ -39,6 +39,7 @@ budo(entry.js, {
   },
   defaultIndex: opt => fs.createReadStream(path.join(__dirname, '../', entry.html)),
   open: argv.open,
-  host: '0.0.0.0'
+  host: '0.0.0.0',
+  pushstate: true
 })
   .on('error', err => console.error(err))

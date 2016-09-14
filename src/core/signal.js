@@ -3,12 +3,7 @@ import most from 'most'
 import EventEmitter from 'eventemitter3'
 
 import {iteratorFold} from 'utils/functional'
-
-const uid = () => {
-  return (Math.random() * 10000000)
-    .toFixed(0)
-    .toString(16)
-}
+import {uid} from 'utils/number'
 
 class Signal {
   constructor (initialState) {

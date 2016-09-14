@@ -5,7 +5,6 @@ import createHistory from 'history/createBrowserHistory'
 import {store} from 'signals/main'
 
 const history = createHistory()
-window.h = history
 
 history.listen((location, action) => {
   if (action === 'PUSH') {
@@ -34,6 +33,10 @@ export const reducer = (state, event) => {
   let {stack, route} = state.nav
 
   if (event.type === NAV_ACTIONS.PUSH) {
+    if (event.route === route) {
+      return state
+    }
+
     route = event.route
     stack.push(route)
     return state
@@ -62,17 +65,10 @@ const getLast = stack => {
 }
 
 const onPush = event => {
-  // store.emit({
-  //   type: NAV_ACTIONS.PUSH,
-  //   route: '/b'
-  // })
-  history.push('/b')
+  history.push(event.route)
 }
 
 const onPop = event => {
-  // store.emit({
-  //   type: NAV_ACTIONS.POP
-  // })
   history.goBack()
 }
 
@@ -97,21 +93,19 @@ const LeftNav = ({stack}) => {
 }
 
 const RightNav = ({stack}) => {
-  let text = stack.length > 1
-    ? ''
-    : 'Next'
   let classes = classnames({
     'Btn': true,
-    'Btn--isNav': true,
-    'Btn--isHidden': text.length === 0
+    'Btn--isNav': true
   })
 
   return (
     <div className='Nav-right'>
       <button
         className={classes}
-        onClick={onPush}
-      >{text}</button>
+        onClick={e => onPush({
+          route: '/settings'
+        })}
+      >Settings</button>
     </div>
   )
 }
@@ -126,17 +120,19 @@ export const Navigator = ({children, state}) => {
         <span className='Nav-Title'>{title}</span>
         <RightNav stack={stack} />
       </nav>
-      <button
-        className='Btn'
-        onClick={stack.length === 1
-            ? onPush
-            : onPop}>
-        {stack.length === 1
-          ? 'Push'
-          : 'Pop'}
-      </button>
       {View}
     </div>
+  )
+}
+
+export const Link = ({route, children}) => {
+  return (
+    <button
+      className='Btn Btn--isLink'
+      onClick={e => onPush({route})}
+    >
+      {children}
+    </button>
   )
 }
 
