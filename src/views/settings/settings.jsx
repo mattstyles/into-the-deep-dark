@@ -1,9 +1,9 @@
 
 import List from 'components/list/list'
 import View from 'components/view/view'
-import {Link} from 'components/navigator/navigator'
+import {Link} from 'components/navigator/link'
 
-const SettingsView = props => {
+var SettingsView = props => {
   let items = [
     'One',
     'Two',
@@ -17,5 +17,7 @@ const SettingsView = props => {
     </View>
   )
 }
+
+SettingsView.title = 'Settings'
 
 export default SettingsView

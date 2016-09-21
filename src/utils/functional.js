@@ -21,7 +21,11 @@ export const iteratorFold = (it, fn, initial) => {
  * @param stack <Array<any>>
  */
 export const head = (num, stack) => {
-  if (typeof num !== 'number' || num <= 1) {
+  if (typeof num !== 'number') {
+    return head(0, num)
+  }
+
+  if (num <= 1) {
     return stack[0]
   }
 
@@ -39,8 +43,13 @@ export const head = (num, stack) => {
  * @param stack <Array<any>>
  */
 export const tail = (num, stack) => {
+  if (typeof num !== 'number') {
+    return tail(0, num)
+  }
+
   let last = stack.length - 1
-  if (typeof num !== 'number' || num <= 1) {
+
+  if (num <= 1) {
     return stack[last]
   }
 

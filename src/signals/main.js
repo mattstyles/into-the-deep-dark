@@ -1,11 +1,17 @@
 
 import Signal from 'core/signal'
 
-import nav from 'components/navigator/initialState'
+import {initial as nav} from 'components/navigator/model'
 
-var initialState = {
-  counter: 0,
+// var initialState = {
+//   counter: 0,
+//   nav
+// }
+
+var initialState = Object.assign({}, ...[
   nav
-}
+])
+
+console.log(initialState)
 
 export const store = new Signal(initialState)
