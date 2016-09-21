@@ -7,6 +7,10 @@ import {getCurrentRoute} from './utils'
 
 export const history = createHistory()
 
+if (process.env.DEBUG) {
+  window.hist = history
+}
+
 // Listen for pop events from navigating using history
 history.listen((location, action) => {
   if (action === 'POP') {

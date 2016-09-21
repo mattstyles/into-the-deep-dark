@@ -1,11 +1,11 @@
 
-import {onPush} from './actions'
+import {push} from './actions'
 
 export const Link = ({route, title, children}) => {
   return (
     <button
       className='Btn Btn--isLink'
-      onClick={e => onPush({
+      onClick={e => push({
         route,
         state: {
           title

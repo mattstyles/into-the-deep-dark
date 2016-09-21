@@ -7,7 +7,6 @@ import {Route} from './model'
  * passed to Navigator
  */
 export const getChild = (children, id) => {
-  console.log('routing', id)
   let route = children.find(child => child.attrs.route === id)
   // console.log('found', id, route)
   if (!route) {

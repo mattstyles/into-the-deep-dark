@@ -1,7 +1,7 @@
 
 import classnames from 'classnames'
 
-import {onGoBack, onGoForward, onPush} from './actions'
+import {back, forward, push} from './actions'
 import {getChild} from './utils'
 
 import {store} from 'signals/main'
@@ -22,11 +22,11 @@ const LeftNav = ({stack, currentIndex}) => {
     <div className='Nav-left'>
       <button
         className={backClasses}
-        onClick={onGoBack}
+        onClick={back}
       >{'<'}</button>
       <button
         className={forwardClasses}
-        onClick={onGoForward}
+        onClick={forward}
       >{'>'}</button>
     </div>
   )
@@ -44,7 +44,7 @@ const RightNav = () => {
     <div className='Nav-right'>
       <button
         className={classes}
-        onClick={e => onPush({
+        onClick={e => push({
           route: '/settings',
           state: {
             title: undefined
@@ -63,11 +63,11 @@ export const Navigator = ({children, state}) => {
   let {stack, index} = state.nav
   let route = stack[index]
   const View = getChild(children, route.route)
-  console.log('--> Navigation Render')
-  console.log('view', View.attrs)
-  console.log('index', index, 'route', route)
-  console.log(`  [${state.nav.index}, ${stack.length - 1}]`)
-  console.log('<-- Navigation Render')
+
+  if (process.env.DEBUG) {
+    console.log('Rendering navigation')
+    console.log(`<${index}>`, stack)
+  }
 
   return (
     <div className='Main'>

@@ -2,23 +2,16 @@
 import {store} from 'signals/main'
 import {Route} from './model'
 import {history} from './history'
-import {getCurrentRoute} from './utils'
 
 export const NAV_ACTIONS = {
   PUSH: 'navigator:push',
-  POP: 'navigator:pop',
   REPLACE: 'navigator:replace',
   NAVIGATE: 'navigator:navigate',
   BACK: 'navigator:back',
   FORWARD: 'navigator:forward'
 }
 
-export const onPush = event => {
-  // store.emit({
-  //   type: NAV_ACTIONS.PUSH,
-  //   payload: new Route(event)
-  // })
-  // history.push(event.route, event.state)
+export const push = event => {
   const {route, state} = event
   store.emit({
     type: NAV_ACTIONS.PUSH,
@@ -26,13 +19,10 @@ export const onPush = event => {
   })
 }
 
-export const onGoBack = event => {
-  // store.emit({
-  //   type: NAV_ACTIONS.POP
-  // })
+export const back = event => {
   history.goBack()
 }
 
-export const onGoForward = event => {
+export const forward = event => {
   history.goForward()
 }
