@@ -11,6 +11,7 @@ const HomeView = props => {
     <View>
       <Link route='/settings'>Settings</Link>
       <Link route='/config'>Configuration</Link>
+      <Link route='/page4'>Page 4</Link>
       <List items={items} />
     </View>
   )

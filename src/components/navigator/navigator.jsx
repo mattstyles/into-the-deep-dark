@@ -1,40 +1,45 @@
 
 import classnames from 'classnames'
 
-import {tail} from 'utils/functional'
-import {onPush, onPop} from './actions'
+import {onGoBack, onGoForward, onPush} from './actions'
 import {getChild} from './utils'
 
 import {store} from 'signals/main'
 import {reducer} from './reducer'
 store.register(reducer)
 
-const LeftNav = ({stack}) => {
-  let text = stack.length > 1
-    ? 'Back'
-    : ''
-  let classes = classnames({
-    'Btn': true,
-    'Btn--isNav': true,
-    'Btn--isHidden': text.length === 0
+const LeftNav = ({stack, currentIndex}) => {
+  let common = ['Btn', 'Btn--isNav']
+  let backClasses = classnames(common, {
+    'Btn--isHidden': currentIndex === 0
+  })
+
+  let forwardClasses = classnames(common, {
+    'Btn--isHidden': currentIndex === stack.length - 1
   })
 
   return (
     <div className='Nav-left'>
       <button
-        className={classes}
-        onClick={onPop}
-      >{text}</button>
+        className={backClasses}
+        onClick={onGoBack}
+      >{'<'}</button>
+      <button
+        className={forwardClasses}
+        onClick={onGoForward}
+      >{'>'}</button>
     </div>
   )
 }
 
-const RightNav = ({stack}) => {
+const RightNav = () => {
   let classes = classnames({
     'Btn': true,
     'Btn--isNav': true
   })
 
+  // Should probably use a link here but its a good example of programmatically
+  // calling a route update.
   return (
     <div className='Nav-right'>
       <button
@@ -42,7 +47,7 @@ const RightNav = ({stack}) => {
         onClick={e => onPush({
           route: '/settings',
           state: {
-            title: 'Settings'
+            title: undefined
           }
         })}
       >Settings</button>
@@ -55,19 +60,21 @@ const NavTitle = ({text}) => {
 }
 
 export const Navigator = ({children, state}) => {
-  let {stack} = state.nav
-  let route = tail(stack)
+  let {stack, index} = state.nav
+  let route = stack[index]
   const View = getChild(children, route.route)
   console.log('--> Navigation Render')
   console.log('view', View.attrs)
-  console.log('route', route)
+  console.log('index', index, 'route', route)
+  console.log(`  [${state.nav.index}, ${stack.length - 1}]`)
   console.log('<-- Navigation Render')
+
   return (
     <div className='Main'>
       <nav className='Nav'>
-        <LeftNav stack={stack} />
+        <LeftNav stack={stack} currentIndex={index} />
         <NavTitle text={route.state.title || View.attrs.title} />
-        <RightNav stack={stack} />
+        <RightNav />
       </nav>
       {View}
     </div>

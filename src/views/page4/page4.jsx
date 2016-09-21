@@ -2,16 +2,16 @@
 import View from 'components/view/view'
 import {Link} from 'components/navigator/link'
 
-var ConfigView = props => {
+var Page4View = props => {
   return (
     <View>
       <Link route='/'>Home</Link>
       <Link route='/settings'>Settings</Link>
-      <Link route='/page4'>Page 4</Link>
+      <Link route='/config'>Configuration</Link>
     </View>
   )
 }
 
-ConfigView.title = 'Configuration'
+Page4View.title = 'Page 4'
 
-export default ConfigView
+export default Page4View

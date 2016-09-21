@@ -13,7 +13,22 @@ export class Route {
   }
 
   isEqual (route) {
-    return this.route === route.route && isEqual(this.state, route.state)
+    return this.isRouteEqual(route) && isEqual(this.state, route.state)
+  }
+
+  isRouteEqual (route) {
+    return this.route === route.route
+  }
+
+  /**
+   * Disregards route keys as these are only assigned when the route hits the
+   * browser history.
+   */
+  isStateEqual (route) {
+    return isEqual(
+      Object.assign({}, this.state, {key: null}),
+      Object.assign({}, route.state, {key: null})
+    )
   }
 }
 

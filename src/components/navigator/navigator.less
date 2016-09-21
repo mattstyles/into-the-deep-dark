@@ -18,6 +18,7 @@
   margin: 0;
   text-transform: none;
   letter-spacing: 0px;
+  transition: opacity .133s ease-out;
 
   &:focus {
     outline: none;
@@ -36,6 +37,11 @@
   display: block;
 }
 
+.Btn--isHidden {
+  opacity: 0;
+  cursor: auto;
+}
+
 .Nav-Title {
   flex: 1;
   line-height: 60px;
@@ -44,4 +50,15 @@
   color: #ffffff;
   text-align: center;
   font-family: 'League Gothic';
+}
+
+.Nav-left,
+.Nav-right {
+  width: 160px;
+}
+
+.Nav-left .Btn {
+  display: inline;
+  width: 80px;
+  min-width: auto;
 }

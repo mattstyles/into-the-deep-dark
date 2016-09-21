@@ -7,38 +7,13 @@ import {getCurrentRoute} from './utils'
 
 export const history = createHistory()
 
-window.h = history
-
+// Listen for pop events from navigating using history
 history.listen((location, action) => {
-  console.log('--> History event')
-  console.log('action', action)
-  console.log('location', location)
-  console.log('<-- History event')
-  if (action === 'PUSH') {
-    console.log('pushing', getCurrentRoute())
+  if (action === 'POP') {
     store.emit({
-      type: NAV_ACTIONS.PUSH,
+      type: NAV_ACTIONS.NAVIGATE,
       payload: getCurrentRoute()
     })
-    return
-  }
-
-  if (action === 'POP') {
-    console.log('  ** popdiping')
-    // store.emit({
-    //   type: NAV_ACTIONS.POP,
-    //   payload: new Route({
-    //     route: location.pathname,
-    //     state: location.state
-    //   })
-    // })
-    // store.emit({
-    //   type: NAV_ACTIONS.POP
-    // })
-    // onPop({
-    //   route: location.pathname,
-    //   state: location.state
-    // })
     return
   }
 })
