@@ -1,17 +1,6 @@
 
-const {location} = window
-
-const getInitialState = () => {
-  if (location.state) {
-    return location.state
-  }
-
-  return {
-    title: location.pathname
-      .replace(/^./, '')
-      .replace(/(^.)/, ch => ch.toUpperCase()) || 'Not Found'
-  }
-}
+import {isEqual} from 'lodash'
+import {getCurrentRoute} from './utils'
 
 export class Route {
   route = '/'
@@ -22,20 +11,16 @@ export class Route {
       this[key] = props[key]
     }
   }
+
+  isEqual (route) {
+    return this.route === route.route && isEqual(this.state, route.state)
+  }
 }
 
 // Initial state
 export const initial = {
   nav: {
-    stack: [new Route({
-      route: location.pathname,
-      state: getInitialState()
-      // state: {
-      //   // title: (location.state && location.state.title) || location.pathname
-      //   //   .replace(/^./, '')
-      //   //   .replace(/(^.)/, ch => ch.toUpperCase()) || 'Home'
-      // }
-    })],
+    stack: [getCurrentRoute()],
     index: 0
   }
 }

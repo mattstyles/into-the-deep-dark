@@ -1,19 +1,25 @@
 
-import {onPop} from './actions'
 import createHistory from 'history/createBrowserHistory'
+
+import {store} from 'signals/main'
+import {NAV_ACTIONS} from './actions'
+import {getCurrentRoute} from './utils'
 
 export const history = createHistory()
 
 window.h = history
 
 history.listen((location, action) => {
-  console.log(action, location)
+  console.log('--> History event')
+  console.log('action', action)
+  console.log('location', location)
+  console.log('<-- History event')
   if (action === 'PUSH') {
-    // store.emit({
-    //   type: NAV_ACTIONS.PUSH,
-    //   route: location.pathname
-    // })
-    console.log('  ** pushing')
+    console.log('pushing', getCurrentRoute())
+    store.emit({
+      type: NAV_ACTIONS.PUSH,
+      payload: getCurrentRoute()
+    })
     return
   }
 
@@ -29,10 +35,10 @@ history.listen((location, action) => {
     // store.emit({
     //   type: NAV_ACTIONS.POP
     // })
-    onPop({
-      route: location.pathname,
-      state: location.state
-    })
+    // onPop({
+    //   route: location.pathname,
+    //   state: location.state
+    // })
     return
   }
 })

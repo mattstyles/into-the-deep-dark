@@ -10,18 +10,24 @@ const STACK_LENGTH = 9
  * Event should contain an action and route descriptor model in the payload
  */
 export const reducer = (state, event) => {
-  let {stack} = state.nav
+  let {stack, index} = state.nav
   let route = event.payload
 
-  console.log(event, state)
+  console.log('--> nav:reducer')
+  console.log('action', event)
+  console.log('state', state)
+  console.log('route', route)
+  console.log('<-- nav:reducer')
 
   if (event.type === NAV_ACTIONS.PUSH) {
     // Don't push the same route on twice
-    if (route === tail(stack).route) {
-      return state
-    }
+    // if (route === tail(stack).route) {
+    //   return state
+    // }
 
-    history.push(route.route)
+    state.nav.index = index + 1
+
+    // history.push(route.route, route.state)
     stack.push(route)
 
     // Pop the first entry if we've hit stack limit

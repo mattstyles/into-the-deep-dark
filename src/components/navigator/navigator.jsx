@@ -3,20 +3,11 @@ import classnames from 'classnames'
 
 import {tail} from 'utils/functional'
 import {onPush, onPop} from './actions'
+import {getChild} from './utils'
 
 import {store} from 'signals/main'
 import {reducer} from './reducer'
 store.register(reducer)
-
-const getChild = (children, id) => {
-  console.log('routing', id)
-  let route = children.find(child => child.attrs.route === id)
-  // console.log('found', id, route)
-  if (!route) {
-    console.log('Route not found')
-  }
-  return route
-}
 
 const LeftNav = ({stack}) => {
   let text = stack.length > 1
@@ -50,22 +41,32 @@ const RightNav = ({stack}) => {
         className={classes}
         onClick={e => onPush({
           route: '/settings',
-          title: 'Settings'
+          state: {
+            title: 'Settings'
+          }
         })}
       >Settings</button>
     </div>
   )
 }
 
+const NavTitle = ({text}) => {
+  return <span className='Nav-Title'>{text}</span>
+}
+
 export const Navigator = ({children, state}) => {
   let {stack} = state.nav
   let route = tail(stack)
   const View = getChild(children, route.route)
+  console.log('--> Navigation Render')
+  console.log('view', View.attrs)
+  console.log('route', route)
+  console.log('<-- Navigation Render')
   return (
     <div className='Main'>
       <nav className='Nav'>
         <LeftNav stack={stack} />
-        <span className='Nav-Title'>{route.title || View.attrs.title}</span>
+        <NavTitle text={route.state.title || View.attrs.title} />
         <RightNav stack={stack} />
       </nav>
       {View}
