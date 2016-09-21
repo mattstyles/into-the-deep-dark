@@ -5,10 +5,10 @@ import {history} from './history'
 
 export const NAV_ACTIONS = {
   PUSH: 'navigator:push',
-  REPLACE: 'navigator:replace',
   NAVIGATE: 'navigator:navigate',
-  BACK: 'navigator:back',
-  FORWARD: 'navigator:forward'
+
+  // @TODO
+  REPLACE: 'navigator:replace'
 }
 
 export const push = event => {

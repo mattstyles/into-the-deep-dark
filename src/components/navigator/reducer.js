@@ -3,8 +3,6 @@ import {NAV_ACTIONS} from './actions'
 import {history} from './history'
 import {getRouteIndex, getCurrentRoute} from './utils'
 
-// const STACK_LENGTH = 9
-
 /**
  * Event should contain an action and route descriptor model in the payload.
  * A memory history is maintained in app state, primarily to display back and
