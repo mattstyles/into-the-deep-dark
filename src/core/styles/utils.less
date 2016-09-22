@@ -20,14 +20,18 @@
 .u-pullLeft {
   float: left !important;
 }
-
 .u-pullRight {
   float: right !important;
 }
-
 // Note this wont always centralise, quick and dirty
 .u-pullCenter {
   margin: 0 auto;
+}
+.u-screenCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /**
@@ -92,6 +96,9 @@
   opacity: 0 !important;
   pointer-events: none !important;
 }
+.u-perspective {
+  perspective: 1000px;
+}
 
 /*
  * Font rendering
@@ -103,6 +110,19 @@
 .u-typeOnLight {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * Font styling
+ */
+.u-strong {
+  font-weight: 700;
+}
+.u-em {
+  font-style: italic;
+}
+.u-caps {
+  font-variant: small-caps;
 }
 
 /*

@@ -83,6 +83,7 @@
     "inferno-dom": "^0.7.26",
     "lodash": "^4.16.1",
     "most": "^1.0.1",
-    "normalize.css": "^4.2.0"
+    "normalize.css": "^4.2.0",
+    "to-map": "^1.0.0"
   }
 }
