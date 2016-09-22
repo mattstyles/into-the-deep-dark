@@ -14,12 +14,13 @@ const HomeView = props => {
       <Link route='/config'>Configuration</Link>
       <Link route='/page4'>Page 4</Link>
       <div style={{
-        background: 'rgb(245,247,255)'
+        background: 'rgb(245,247,255)',
+        padding: 16
       }}>
-        <Icon icon='LOADING' />
-        <Icon icon='CHECK' />
-        <Icon icon='FACEBOOK' />
-        <Icon icon='TWITTER' />
+        <Icon classes='Icon--isInline' icon='LOADING' />
+        <Icon classes='Icon--isInline' icon='CHECK' />
+        <Icon classes='Icon--isInline' icon='ARROW' />
+        <Icon classes='Icon--isInline' icon='TWITTER' />
       </div>
       <List items={items} />
     </View>
