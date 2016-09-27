@@ -30,8 +30,11 @@ const HomeView = props => {
       </Button>
       <Button>Medium</Button>
       <Button large>Large</Button>
-      <Button icon='TWITTER' text='Icon Button' small circle />
-      <Button icon='FACEBOOK' />
+      <Button icon='TWITTER' circle large />
+      <Button icon='TWITTER' text='Icon Button' large circle />
+      <Button icon='TWITTER' circle small />
+      <Button icon='TWITTER' circle />
+      <Button icon='TWITTER' />
       <List items={items} />
     </View>
   )

@@ -27,8 +27,6 @@ const Button = def(props => {
     ? <span>{props.text || props.children}</span>
     : null
 
-  console.log(props)
-
   return (
     <button
       className={classes}

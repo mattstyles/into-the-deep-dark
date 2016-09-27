@@ -1,12 +1,14 @@
 
-@--btn-padding: 18px;
+@--btn-padding-v: 18px;
+@--btn-padding-h: 7px;
+@--btn-iconSize: 22px;
 
 .Btn {
-  padding: 0px @--btn-padding;
+  padding: @--btn-padding-h @--btn-padding-v;
   background: @--color-black40;
   color: @--color-white;
   font-size: 14px;
-  line-height: 2.5;
+  line-height: 1;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
@@ -15,60 +17,65 @@
   margin: 4px;
   cursor: pointer;
   box-sizing: border-box;
+  vertical-align: middle;
 
   span {
-    margin-left: @--btn-padding * .7;
+    margin-left: @--btn-padding-v * .7;
   }
 }
 
 .Btn--isIcon {
-  padding: 7px 7px 6px 6px;
+  padding: @--btn-padding-h;
   line-height: 1;
 }
 
 .Btn--isSmall {
-  padding: 0px @--btn-padding * .5;
+  padding: @--btn-padding-h * .5 @--btn-padding-v * .5;
   font-size: 11px;
-  line-height: 2.2;
+  line-height: 1;
 
   .Btn--icon {
-    width: 16px;
-    height: 16px;
+    width: @--btn-iconSize * .6;
+    height: @--btn-iconSize * .6;
   }
 
   span {
-    margin-left: @--btn-padding * .5;
+    margin-left: @--btn-padding-v * .5;
   }
 }
 
 .Btn--isLarge {
-  padding: 0px @--btn-padding;
+  padding: @--btn-padding-h * 1.25 @--btn-padding-v * 1.25;
   font-size: 21px;
-  line-height: 2.5;
+  line-height: 1;
 
   .Btn--icon {
-    width: 32px;
-    height: 32px;
+    width: @--btn-iconSize * 1.15;
+    height: @--btn-iconSize * 1.15;
   }
 
   span {
-    margin-left: @--btn-padding * .5;
+    margin-left: @--btn-padding-v * .5;
   }
 }
 
 .Btn--isCircular {
   .u-circular();
 
-  &.Btn--isSmall {
-    padding: 0px @--btn-padding * .75;
+  &.Btn--isIcon.Btn--isSmall {
+    padding: @--btn-padding-h * .7;
+  }
+
+  &.Btn--isIcon.Btn--isLarge {
+    padding: @--btn-padding-h * 1.25;
   }
 }
 
 .Btn--icon {
   display: inline-block;
   vertical-align: middle;
-  width: 22px;
-  height: 22px;
+  width: @--btn-iconSize;
+  height: @--btn-iconSize;
 
   svg {
     fill: @--color-white;
