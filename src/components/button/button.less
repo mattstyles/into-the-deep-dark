@@ -1,0 +1,80 @@
+
+@--btn-padding: 18px;
+
+.Btn {
+  padding: 0px @--btn-padding;
+  background: @--color-black40;
+  color: @--color-white;
+  font-size: 14px;
+  line-height: 2.5;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 3px;
+  margin: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  span {
+    margin-left: @--btn-padding * .7;
+  }
+}
+
+.Btn--isIcon {
+  padding: 7px 7px 6px 6px;
+  line-height: 1;
+}
+
+.Btn--isSmall {
+  padding: 0px @--btn-padding * .5;
+  font-size: 11px;
+  line-height: 2.2;
+
+  .Btn--icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  span {
+    margin-left: @--btn-padding * .5;
+  }
+}
+
+.Btn--isLarge {
+  padding: 0px @--btn-padding;
+  font-size: 21px;
+  line-height: 2.5;
+
+  .Btn--icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  span {
+    margin-left: @--btn-padding * .5;
+  }
+}
+
+.Btn--isCircular {
+  .u-circular();
+
+  &.Btn--isSmall {
+    padding: 0px @--btn-padding * .75;
+  }
+}
+
+.Btn--icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 22px;
+  height: 22px;
+
+  svg {
+    fill: @--color-white;
+  }
+}
+
+span:first-child {
+  margin-left: 0 !important;
+}

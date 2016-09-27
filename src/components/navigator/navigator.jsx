@@ -11,11 +11,11 @@ store.register(reducer)
 const LeftNav = ({stack, currentIndex}) => {
   let common = ['Btn', 'Btn--isNav']
   let backClasses = classnames(common, {
-    'Btn--isHidden': currentIndex === 0
+    'u-transparent': currentIndex === 0
   })
 
   let forwardClasses = classnames(common, {
-    'Btn--isHidden': currentIndex === stack.length - 1
+    'u-transparent': currentIndex === stack.length - 1
   })
 
   return (
@@ -65,8 +65,7 @@ export const Navigator = ({children, state}) => {
   const View = getChild(children, route.route)
 
   if (process.env.DEBUG) {
-    console.log('Rendering navigation')
-    console.log(`<${index}>`, stack)
+    console.log('Rendering navigation', `<${index}>`, stack)
   }
 
   return (

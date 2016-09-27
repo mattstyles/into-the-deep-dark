@@ -3,7 +3,7 @@ import {push} from './actions'
 
 export const Link = ({route, title, children}) => {
   return (
-    <button
+    <a
       className='Btn Btn--isLink'
       onClick={e => push({
         route,
@@ -13,6 +13,6 @@ export const Link = ({route, title, children}) => {
       })}
     >
       {children}
-    </button>
+    </a>
   )
 }

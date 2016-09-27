@@ -59,3 +59,8 @@ export const tail = (num, stack) => {
 
   return stack.slice(last - num, last)
 }
+
+/**
+ * Noop
+ */
+export const noop = () => {}
