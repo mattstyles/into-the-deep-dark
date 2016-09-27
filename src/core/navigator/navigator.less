@@ -1,8 +1,11 @@
 
+@--Nav-size: 54px;
+@--NavBtn-size: 32px;
+
 .Nav {
   display: flex;
   flex-direction: row;
-  height: 60px;
+  height: @--Nav-size;
   background: @--color-black20;
   border-bottom: @--color-black 1px solid;
 }
@@ -10,7 +13,7 @@
 .Btn--isNav {
   display: block;
   min-width: 160px;
-  line-height: 60px;
+  line-height: @--Nav-size;
   background: transparent;
   color: #23CE6B;
   padding-top: 0;
@@ -43,7 +46,6 @@
   font-size: 28px;
   font-weight: 300;
   color: #ffffff;
-  text-align: center;
   font-family: 'League Gothic';
 }
 

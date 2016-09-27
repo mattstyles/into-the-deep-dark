@@ -8,29 +8,7 @@ import {store} from 'signals/main'
 import {reducer} from './reducer'
 store.register(reducer)
 
-const LeftNav = ({stack, currentIndex}) => {
-  let common = ['Btn', 'Btn--isNav']
-  let backClasses = classnames(common, {
-    'u-transparent': currentIndex === 0
-  })
-
-  let forwardClasses = classnames(common, {
-    'u-transparent': currentIndex === stack.length - 1
-  })
-
-  return (
-    <div className='Nav-left'>
-      <button
-        className={backClasses}
-        onClick={back}
-      >{'<'}</button>
-      <button
-        className={forwardClasses}
-        onClick={forward}
-      >{'>'}</button>
-    </div>
-  )
-}
+import StackNavigator from './stackNavigator/stackNavigator'
 
 const RightNav = () => {
   let classes = classnames({
@@ -71,7 +49,7 @@ export const Navigator = ({children, state}) => {
   return (
     <div className='Main'>
       <nav className='Nav'>
-        <LeftNav stack={stack} currentIndex={index} />
+        <StackNavigator stack={stack} currentIndex={index} />
         <NavTitle text={route.state.title || View.attrs.title} />
         <RightNav />
       </nav>

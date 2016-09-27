@@ -6,7 +6,7 @@ import {store} from 'signals/main'
 import Tick, {TickUI} from 'components/tick'
 // import Resources from 'components/resources'
 
-import {Navigator} from 'components/navigator/navigator'
+import {Navigator} from 'core/navigator/navigator'
 import SettingsView from 'views/settings/settings'
 import HomeView from 'views/home/home'
 import ConfigView from 'views/config/config'
