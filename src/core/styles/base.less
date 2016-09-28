@@ -24,8 +24,15 @@ body {
   flex-direction: column;
 }
 
-.View {
-  flex: 1;
+.PageNav {
+  background: @--color-black20;
+  border-bottom: 1px solid @--color-black;
+  min-height: 32px;
+
+  .Link {
+    line-height: 32px;
+    margin-left: 16px;
+  }
 }
 
 .Tick {
@@ -36,22 +43,5 @@ body {
   padding: 3px;
   background: rgba(0,0,0,.75);
   color: rgb(244,244,244);
-}
-
-.Resource {
-  position: relative;
-  display: block;
-  padding: 4px;
-  margin: 4px;
-  background: rgb(23,184,144);
-  color: rgb(252,253,255);
-  cursor: pointer;
-}
-.Resource-bar {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 4px;
-  background: rgb(157,197,187);
-  transition: width 125ms linear;
+  z-index: 1000;
 }

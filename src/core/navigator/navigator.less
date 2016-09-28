@@ -1,5 +1,6 @@
 
 @--Nav-size: 54px;
+@--SubNav-size: 40px;
 @--NavBtn-size: 32px;
 @--Nav-background: rgb(46,50,51);
 
@@ -73,5 +74,16 @@
 
   .Link:hover {
     border-bottom: 1px solid @--color-white50;
+  }
+}
+
+.SubNav {
+  background: @--Nav-background;
+  min-height: @--SubNav-size;
+  font-size: 14px;
+
+  .Link {
+    line-height: @--SubNav-size;
+    margin-left: 16px;
   }
 }

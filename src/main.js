@@ -11,21 +11,9 @@ import SettingsView from 'views/settings/settings'
 import HomeView from 'views/home/home'
 import ConfigView from 'views/config/config'
 import Page4View from 'views/page4/page4'
+import Personnel from 'views/personnel/personnel'
 
 var previous = 0
-
-// const App = ({state}) => (
-//   <div>
-//     <h1>It’s Dark</h1>
-//     <Counter value={state.counter} />
-//     <Tick />
-//     <Resources resources={state.resources} />
-//     <UI rate={previous} />
-//     <Navigator state={state}>
-//       <div>Nav Child</div>
-//     </Navigator>
-//   </div>
-// )
 
 const App = ({state}) => (
   <div className='Main'>
@@ -37,6 +25,7 @@ const App = ({state}) => (
       <SettingsView route='/settings' title='Settings' />
       <ConfigView route='/config' title='Configuration' />
       <Page4View route='/page4' title='Page 4' />
+      <Personnel route='/personnel/:opt' state={state} />
     </Navigator>
   </div>
 )

@@ -1,6 +1,4 @@
 
-import classnames from 'classnames'
-
 import Icon from 'components/icon/icon'
 import {Link} from '../link'
 
@@ -8,7 +6,7 @@ const ViewNavigator = () => {
   return (
     <div className='NavView'>
       <div className='NavView-background u-fit'></div>
-      <Link route='/'>
+      <Link route='/personnel'>
         <Icon icon='VIEW_PERSONNEL' />
       </Link>
       <Link route='/'>

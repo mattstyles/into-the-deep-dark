@@ -3,16 +3,45 @@ const {location, history} = window
 import {Route} from './model'
 
 /**
+ * Compares actual url with route match based on length (including param length)
+ */
+function routeCompare (segments, route) {
+  let exact = segments.length === route.length
+  let paramMatch = segments.length === route.filter(r => !/^:/.test(r)).length
+  return exact || paramMatch
+}
+
+/**
  * Finds a child by its route id from the array of child elements
  * passed to Navigator
  */
 export const getChild = (children, id) => {
-  let route = children.find(child => child.attrs.route === id)
-  // console.log('found', id, route)
-  if (!route) {
+  let params = null
+  let view = children.find(child => {
+    let urlSegments = id.split('/').slice(1)
+    let route = child.attrs.route.split('/').slice(1)
+    params = {}
+
+    // Quick elimination on segment length
+    if (!routeCompare(urlSegments, route)) {
+      return false
+    }
+
+    // Collect params and return match or not
+    return route.reduce((res, segment, index) => {
+      if (/^:/.test(segment)) {
+        params[segment.replace(/^:/, '')] = urlSegments[index]
+        return true
+      }
+
+      return segment === urlSegments[index]
+    }, false)
+  })
+
+  if (!view) {
     console.log('Associated route view not found in navigator children')
   }
-  return route
+  return view
 }
 
 /**
@@ -43,4 +72,13 @@ export const getCurrentRoute = () => {
         key: null
       }
   })
+}
+
+/**
+ * Strips the root from the route and returns all subsequent parts as an array
+ * @TODO this could be smarter by mapping to the params that the matched child
+ * view requests
+ */
+export const generateParams = (route) => {
+  return route.split('/').slice(2)
 }
