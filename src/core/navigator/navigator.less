@@ -1,12 +1,13 @@
 
 @--Nav-size: 54px;
 @--NavBtn-size: 32px;
+@--Nav-background: rgb(46,50,51);
 
 .Nav {
   display: flex;
   flex-direction: row;
   height: @--Nav-size;
-  background: @--color-black20;
+  background: @--Nav-background;
   border-bottom: @--color-black 1px solid;
 }
 
@@ -28,34 +29,48 @@
   }
 }
 
-.Btn--isLink {
-  background: #23CE6B;
-  font-weight: 500;
-  border-radius: 0;
-  margin-left: 0;
-  margin-right: 0;
-  border-top: @--color-black 1px solid;
-  border-bottom: @--color-black 1px solid;
-  width: 100%;
-  display: block;
+.Link {
+  // display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid transparent;
+  transition: border @--t-defaultDuration @--t-defaultEasing;
+
+  &:hover {
+    // text-decoration: underline;
+    border-bottom: 1px solid @--color-white20;
+  }
 }
 
 .Nav-Title {
   flex: 1;
-  line-height: 60px;
-  font-size: 28px;
+}
+.Nav-Base {
+  display: block;
+  font-size: 21px;
+  line-height: 24px;
   font-weight: 300;
-  color: #ffffff;
   font-family: 'League Gothic';
-}
+  color: @--color-white;
+  margin-top: 8px;
+  margin-bottom: 0;
 
-.Nav-left,
-.Nav-right {
-  width: 160px;
+  .Link:hover {
+    border-bottom: 1px solid transparent;
+  }
 }
+.Nav-BaseDetails {
+  display: block;
+  font-size: 11px;
+  line-height: 15px;
+  color: @--color-white40;
+  margin: 0;
 
-.Nav-left .Btn {
-  display: inline;
-  width: 80px;
-  min-width: auto;
+  .BD-codename {
+    color: @--color-white40;
+  }
+
+  .Link:hover {
+    border-bottom: 1px solid @--color-white50;
+  }
 }

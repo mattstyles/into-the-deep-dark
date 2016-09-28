@@ -1,6 +1,6 @@
 
 import View from 'components/view/view'
-import {Link} from 'components/navigator/link'
+import {Link} from 'core/navigator/link'
 
 var ConfigView = props => {
   return (

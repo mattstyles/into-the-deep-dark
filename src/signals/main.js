@@ -1,7 +1,7 @@
 
 import Signal from 'core/signal'
 
-import {initial as nav} from 'components/navigator/model'
+import {initial as nav} from 'core/navigator/model'
 
 // var initialState = {
 //   counter: 0,
@@ -9,7 +9,14 @@ import {initial as nav} from 'components/navigator/model'
 // }
 
 var initialState = Object.assign({}, ...[
-  nav
+  nav,
+  { base: {
+    title: 'Tannhauser Gate',
+    type: 'Grade II Starbase',
+    codename: 'Copperhead',
+    star: 'Achenar',
+    planet: 'Achenar IV'
+  }}
 ])
 
 console.log(initialState)

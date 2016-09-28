@@ -1,7 +1,7 @@
 
 import List from 'components/list/list'
 import View from 'components/view/view'
-import {Link} from 'components/navigator/link'
+import {Link} from 'core/navigator/link'
 
 var SettingsView = props => {
   let items = [
@@ -12,7 +12,7 @@ var SettingsView = props => {
   ]
   return (
     <View>
-      <Link route='/' title='Home'>Home</Link>
+      <Link route='/' state={{title: 'Home'}}>Home</Link>
       <List items={items} />
     </View>
   )

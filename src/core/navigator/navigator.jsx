@@ -1,7 +1,7 @@
 
 import classnames from 'classnames'
 
-import {back, forward, push} from './actions'
+import {push} from './actions'
 import {getChild} from './utils'
 
 import {store} from 'signals/main'
@@ -9,6 +9,7 @@ import {reducer} from './reducer'
 store.register(reducer)
 
 import StackNavigator from './stackNavigator/stackNavigator'
+import NavTitle from './title'
 
 const RightNav = () => {
   let classes = classnames({
@@ -33,13 +34,10 @@ const RightNav = () => {
   )
 }
 
-const NavTitle = ({text}) => {
-  return <span className='Nav-Title'>{text}</span>
-}
-
 export const Navigator = ({children, state}) => {
   let {stack, index} = state.nav
   let route = stack[index]
+  let {base} = state
   const View = getChild(children, route.route)
 
   if (process.env.DEBUG) {
@@ -50,7 +48,7 @@ export const Navigator = ({children, state}) => {
     <div className='Main'>
       <nav className='Nav'>
         <StackNavigator stack={stack} currentIndex={index} />
-        <NavTitle text={route.state.title || View.attrs.title} />
+        <NavTitle base={base} />
         <RightNav />
       </nav>
       {View}
