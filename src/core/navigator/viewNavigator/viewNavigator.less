@@ -1,0 +1,30 @@
+
+.NavView {
+  @transitionScale: .8;
+  @linkMargin: 4px;
+
+  padding: (@--Nav-size - (@--NavBtn-size / @transitionScale)) * .5;
+
+  .Link {
+    display: inline-block;
+    border-bottom: none;
+    margin-left: @linkMargin;
+    margin-right: @linkMargin;
+
+    .Icon {
+      width: @--NavBtn-size / @transitionScale;
+      height: @--NavBtn-size / @transitionScale;
+      transform-origin: center;
+      transform: scale(@transitionScale);
+      transition: transform @--t-defaultDuration @--t-defaultEasing;
+    }
+
+    &:hover {
+      border-bottom: none;
+
+      .Icon {
+        transform: scale(1);
+      }
+    }
+  }
+}
