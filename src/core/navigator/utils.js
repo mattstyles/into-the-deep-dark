@@ -29,13 +29,17 @@ export const getChild = (children, id) => {
 
     // Collect params and return match or not
     return route.reduce((res, segment, index) => {
+      if (res === false) {
+        return false
+      }
+
       if (/^:/.test(segment)) {
         params[segment.replace(/^:/, '')] = urlSegments[index]
         return true
       }
 
       return segment === urlSegments[index]
-    }, false)
+    }, true)
   })
 
   if (!view) {
