@@ -84,6 +84,19 @@
 
   .Link {
     line-height: @--SubNav-size;
-    margin-left: 16px;
+    // margin-left: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: inline-block;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      border-bottom: 2px solid @--color-black40;
+    }
+
+    &.SubNav--isActive {
+      border-bottom: 2px solid @--color-white;
+    }
   }
 }

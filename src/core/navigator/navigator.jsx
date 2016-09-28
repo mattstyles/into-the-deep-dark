@@ -1,5 +1,5 @@
 
-import {getChild, generateParams} from './utils'
+import {getChild} from './utils'
 
 import {store} from 'signals/main'
 import {reducer} from './reducer'
@@ -14,14 +14,13 @@ export const Navigator = ({children, state}) => {
   let route = stack[index]
   let {base} = state
   const View = getChild(children, route.route)
-  const params = generateParams(route.route)
 
   if (process.env.DEBUG) {
     console.log('Rendering navigation', `<${index}>`, stack)
   }
 
   let SubNav = View.tag.SubNav
-    ? View.tag.SubNav({state, params})
+    ? View.tag.SubNav({state, params: View.attrs.params})
     : null
 
   return (

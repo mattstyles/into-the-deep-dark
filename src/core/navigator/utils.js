@@ -41,6 +41,10 @@ export const getChild = (children, id) => {
   if (!view) {
     console.log('Associated route view not found in navigator children')
   }
+
+  // Tack params on to component props
+  view.attrs.params = params
+
   return view
 }
 

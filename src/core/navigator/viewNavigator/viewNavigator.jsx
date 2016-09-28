@@ -6,7 +6,7 @@ const ViewNavigator = () => {
   return (
     <div className='NavView'>
       <div className='NavView-background u-fit'></div>
-      <Link route='/personnel'>
+      <Link route='/personnel/all'>
         <Icon icon='VIEW_PERSONNEL' />
       </Link>
       <Link route='/'>

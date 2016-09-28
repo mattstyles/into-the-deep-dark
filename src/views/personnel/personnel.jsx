@@ -21,28 +21,24 @@ const PersonnelView = ({state}) => {
 
 PersonnelView.title = 'Personnel'
 PersonnelView.SubNav = ({state, params}) => {
-  console.log('subnav', state, params)
   return (
     <div className='SubNav'>
       <Link
         route='/personnel/all'
-        className={classnames({'SubNav--isActive': getActive('all', params[0])})}
+        classes={classnames({'SubNav--isActive': getActive('all', params.subview)})}
       >All</Link>
       <Link
         route='/personnel/officers'
-        className={classnames({'SubNav--isActive': getActive('all', params[0])})}
+        classes={classnames({'SubNav--isActive': getActive('officers', params.subview)})}
       >Officers</Link>
       <Link
         route='/personnel/inhabitants'
-        className={classnames({'SubNav--isActive': getActive('all', params[0])})}
+        classes={classnames({'SubNav--isActive': getActive('inhabitants', params.subview)})}
       >Inhabitants</Link>
       <Link
-        route='/personnel/all'
-        className={classnames({'SubNav--isActive': getActive('all', params[0])})}
-      >All</Link>
-      <Link route='/personnel/officers'>Officers</Link>
-      <Link route='/personnel/inhabitants'>Inhabitants</Link>
-      <Link route='/personnel/visitors'>Visitors</Link>
+        route='/personnel/visitors'
+        classes={classnames({'SubNav--isActive': getActive('visitors', params.subview)})}
+      >Visitors</Link>
     </div>
   )
 }
