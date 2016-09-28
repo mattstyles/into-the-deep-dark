@@ -1,5 +1,5 @@
 
-import View from 'components/view/view'
+import {View} from 'components/view/view'
 import {Link} from 'core/navigator/link'
 
 var Page4View = props => {

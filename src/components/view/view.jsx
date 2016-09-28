@@ -1,10 +1,14 @@
 
-const View = ({children}) => {
+import classnames from 'classnames'
+
+export const View = ({children, classes, scroll, main}) => {
   return (
-    <div className='View'>
+    <div className={classnames({
+      'View': true,
+      'MainView': main,
+      'ScrollView': scroll
+    }, classes)}>
       {children}
     </div>
   )
 }
-
-export default View
