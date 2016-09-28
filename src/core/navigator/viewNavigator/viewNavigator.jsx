@@ -7,6 +7,7 @@ import {Link} from '../link'
 const ViewNavigator = () => {
   return (
     <div className='NavView'>
+      <div className='NavView-background u-fit'></div>
       <Link route='/'>
         <Icon icon='VIEW_PERSONNEL' />
       </Link>

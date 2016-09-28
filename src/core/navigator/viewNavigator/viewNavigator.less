@@ -3,7 +3,10 @@
   @transitionScale: .8;
   @linkMargin: 4px;
 
+  position: relative;
   padding: (@--Nav-size - (@--NavBtn-size / @transitionScale)) * .5;
+  padding-left: 16px;
+  padding-right: 16px;
 
   .Link {
     display: inline-block;
@@ -27,4 +30,11 @@
       }
     }
   }
+}
+
+.NavView-background {
+  background: @--color-black30;
+  transform: skewX(15deg);
+  width: 110%;
+  border-bottom-left-radius: 6px;
 }
