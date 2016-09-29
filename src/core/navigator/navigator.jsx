@@ -28,7 +28,7 @@ export const Navigator = ({children, state}) => {
       <nav className='Nav'>
         <StackNavigator stack={stack} currentIndex={index} />
         <NavTitle base={base} />
-        <ViewNavigator />
+        <ViewNavigator route={route} />
       </nav>
       {SubNav}
       {View}

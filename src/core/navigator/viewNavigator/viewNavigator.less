@@ -1,10 +1,11 @@
 
 .NavView {
   @transitionScale: .8;
-  @linkMargin: 4px;
+  @linkMargin: 6px;
+  @padding: (@--Nav-size - (@--NavBtn-size / @transitionScale)) * .5;
 
   position: relative;
-  padding: (@--Nav-size - (@--NavBtn-size / @transitionScale)) * .5;
+  padding: @padding;
   padding-left: 16px;
   padding-right: 16px;
 
@@ -30,6 +31,19 @@
       }
     }
   }
+
+  .NavView-id {
+    display: inline-block;
+    font-size: 14px;
+    line-height: @--Nav-size - @padding * 2;
+    color: @--color-white;
+    vertical-align: top;
+    margin-left: @linkMargin * 2;
+    margin-right: @linkMargin * 2;
+    // Necessary as due to Chrome compositing layers of accelerated and
+    // non-accelerated elements
+    transform: translate3d(0px,0px,0px);
+  }
 }
 
 .NavView-background {
@@ -37,4 +51,8 @@
   transform: skewX(15deg);
   width: 110%;
   border-bottom-left-radius: 6px;
+}
+
+.NavLink--isActive.Link .Icon {
+  transform: scale(1);
 }
