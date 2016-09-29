@@ -9,33 +9,6 @@ const getActive = (link, route) => {
   return re.test(route.split('/').slice(1)[0])
 }
 
-// const ViewNavigator = ({route}) => {
-//   console.log('VN:', route)
-//   return (
-//     <div className='NavView'>
-//       <div className='NavView-background u-fit'></div>
-//       <Link
-//         classes={{'NavView--isActive': getActive('personnel', route.route)}}
-//         route='/personnel/all'
-//       >
-//         <Icon icon='VIEW_PERSONNEL' />
-//       </Link>
-//       <Link route='/'>
-//         <Icon icon='VIEW_COMMS' />
-//       </Link>
-//       <Link route='/'>
-//         <Icon icon='VIEW_STOCK' />
-//       </Link>
-//       <Link route='/'>
-//         <Icon icon='VIEW_ENGINEERING' />
-//       </Link>
-//       <Link route='/'>
-//         <Icon icon='VIEW_EXPLORE' />
-//       </Link>
-//     </div>
-//   )
-// }
-
 class ViewNavigator extends Component {
   componentWillMount () {
     const {route} = this.props
@@ -69,13 +42,15 @@ class ViewNavigator extends Component {
 
   render () {
     const {route} = this.props
+
     return (
       <div className='NavView'>
         <div className='NavView-background u-fit'></div>
         <span className='NavView-id'>{this.state.text || this.getRoot(route.route)}</span>
         <Link
           classes={{'NavLink--isActive': getActive('personnel', route.route)}}
-          route='/personnel/all'
+          route='/personnel'
+          state={{filter: 0}}
           onHover={this.onMouseOver('Personnel')}
           onUnhover={this.onMouseOut()}
         >

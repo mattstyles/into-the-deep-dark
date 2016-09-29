@@ -4,6 +4,39 @@ import classnames from 'classnames'
 import {View} from 'components/view/view'
 import {Link} from 'core/navigator/link'
 
+/**
+ * Filter constants
+ */
+const FILTERS = {
+  ALL: 0,
+  OFFICERS: 1,
+  INHABITANTS: 2,
+  VISITORS: 3
+}
+
+/**
+ * Grabs the current filter, if available, from the app state.
+ * Defaults to 'all'
+ */
+const getFilter = nav => {
+  return nav.stack[nav.index].state.filter || FILTERS.ALL
+}
+
+/**
+ * Generate links for the subnav
+ */
+const generateLink = (text, filter, currentFilter) => {
+  return (
+    <Link
+      route='/personnel'
+      state={{filter}}
+      classes={classnames({
+        'SubNav--isActive': filter === currentFilter
+      })}
+    >{text}</Link>
+  )
+}
+
 const PersonnelView = ({state}) => {
   return (
     <View main>
@@ -21,30 +54,17 @@ const PersonnelView = ({state}) => {
 
 PersonnelView.title = 'Personnel'
 PersonnelView.SubNav = ({state, params}) => {
+  const {nav} = state
+  let filter = getFilter(nav)
+
   return (
     <div className='SubNav'>
-      <Link
-        route='/personnel/all'
-        classes={classnames({'SubNav--isActive': getActive('all', params.subview)})}
-      >All</Link>
-      <Link
-        route='/personnel/officers'
-        classes={classnames({'SubNav--isActive': getActive('officers', params.subview)})}
-      >Officers</Link>
-      <Link
-        route='/personnel/inhabitants'
-        classes={classnames({'SubNav--isActive': getActive('inhabitants', params.subview)})}
-      >Inhabitants</Link>
-      <Link
-        route='/personnel/visitors'
-        classes={classnames({'SubNav--isActive': getActive('visitors', params.subview)})}
-      >Visitors</Link>
+      {generateLink('All', FILTERS.ALL, filter)}
+      {generateLink('Officers', FILTERS.OFFICERS, filter)}
+      {generateLink('Inhabitants', FILTERS.INHABITANTS, filter)}
+      {generateLink('Visitors', FILTERS.VISITORS, filter)}
     </div>
   )
-}
-
-const getActive = (key, current) => {
-  return key === current
 }
 
 export default PersonnelView

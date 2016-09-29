@@ -25,7 +25,7 @@ const App = ({state}) => (
       <SettingsView route='/settings' title='Settings' />
       <ConfigView route='/config' title='Configuration' />
       <Page4View route='/page4' title='Page 4' />
-      <Personnel route='/personnel/:subview' state={state} />
+      <Personnel route='/personnel' state={state} />
     </Navigator>
   </div>
 )
