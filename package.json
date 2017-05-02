@@ -19,14 +19,9 @@
       "urban"
     ],
     "plugins": [
-      [
-        "transform-react-require",
-        {
-          "identifier": "Inferno",
-          "moduleName": "inferno"
-        }
-      ],
-      "inferno"
+      "transform-react-require",
+      "lodash",
+      "styled-jsx/babel"
     ]
   },
   "browserify": {
@@ -44,7 +39,6 @@
   },
   "keywords": [
     "game",
-    "inferno",
     "most",
     "text"
   ],
@@ -71,10 +65,12 @@
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.4",
     "simple-less-middleware": "^1.1.0",
-    "standard": "^7.1.2"
+    "standard": "^7.1.2",
+    "styled-jsx": "^0.5.7"
   },
   "dependencies": {
     "axios": "^0.13.1",
+    "babel-plugin-lodash": "^3.2.11",
     "classnames": "^2.2.5",
     "eventemitter3": "^1.2.0",
     "history": "^4.0.1",
@@ -84,6 +80,11 @@
     "lodash": "^4.16.1",
     "most": "^1.0.1",
     "normalize.css": "^4.2.0",
+    "raid": "^2.5.0",
+    "raid-addons": "^2.5.0",
+    "raid-navigator": "^2.6.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "to-map": "^1.0.0"
   }
 }
