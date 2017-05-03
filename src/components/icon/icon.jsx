@@ -1,12 +1,13 @@
 
-import classnames from 'classnames'
+import cx from 'classnames'
 
 import {fit} from 'core/styles/mixins'
 import getIcon from './icons'
 
-const Icon = ({icon, classes, inline}) => (
+const Icon = ({icon, classes, inline, strip}) => (
   <i
-    className={classnames('Icon', {
+    className={cx({
+      'Icon': !strip,
       'Icon--isInline': inline
     }, classes)}
   >
@@ -28,5 +29,9 @@ const Icon = ({icon, classes, inline}) => (
     `}</style>
   </i>
 )
+
+Icon.defaultProps = {
+  strip: false
+}
 
 export default Icon
