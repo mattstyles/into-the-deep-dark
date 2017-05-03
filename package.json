@@ -58,9 +58,6 @@
     "budo": "^9.2.1",
     "cpy-cli": "^1.0.1",
     "envify": "^4.0.0",
-    "less": "^2.7.1",
-    "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-clean-css": "^1.5.1",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.4",
@@ -81,6 +78,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-helmet": "^5.0.3",
+    "reselect": "^3.0.0",
     "to-map": "^1.0.0"
   }
 }

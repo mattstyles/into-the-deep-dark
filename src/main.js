@@ -35,6 +35,7 @@ import App from 'core/app'
 const el = document.querySelector('.js-main')
 const onErr = err => console.error(err)
 const onRender = state => {
+  console.log(state)
   render(<App />, el)
 }
 

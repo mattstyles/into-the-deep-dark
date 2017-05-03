@@ -1,5 +1,11 @@
 
+import {Helmet} from 'react-helmet'
+
 import {connect} from 'core/store'
+import {white, black} from 'core/styles/modules/colors'
+import {baseSize, fonts} from 'core/styles/modules/fonts'
+
+import {View} from 'components'
 
 // const App = ({state}) => (
 //   <div className='Main'>
@@ -17,12 +23,41 @@ import {connect} from 'core/store'
 // )
 
 const App = ({state}) => (
-  <div>
+  <View main>
+    <Helmet>
+      <meta charset='utf-8' />
+      <meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=0' />
+      <title>Into the Deep Dark</title>
+    </Helmet>
     <h1>Hello World</h1>
-  </div>
+    <pre>{JSON.stringify(state, null, '  ')}</pre>
+    <style jsx global>{`
+      html, body {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+      body {
+        display: flex;
+        margin: 0;
+        font-family: ${fonts.main}, ${fonts.fallback.join(', ')};
+        font-size: ${baseSize}px;
+        color: ${white[1]};
+        background: ${black[1]};
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .Main {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+    `}</style>
+  </View>
 )
 
 export default connect(
-  state => state,
+  state => ({state}),
   App
 )

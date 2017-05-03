@@ -1,7 +1,7 @@
 
 import classnames from 'classnames'
 
-export const View = ({children, classes, scroll, main}) => {
+const View = ({children, classes, scroll, main}) => {
   return (
     <div className={classnames({
       'View': true,
@@ -12,3 +12,5 @@ export const View = ({children, classes, scroll, main}) => {
     </div>
   )
 }
+
+export default View

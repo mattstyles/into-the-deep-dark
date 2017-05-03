@@ -3,7 +3,6 @@
 const fs = require('fs')
 const path = require('path')
 const budo = require('budo')
-const less = require('simple-less-middleware')
 const argv = require('minimist')(process.argv.slice(2), {
   alias: {
     o: 'open'
@@ -13,11 +12,7 @@ const argv = require('minimist')(process.argv.slice(2), {
 const entry = {
   js: 'src/main.js',
   html: 'src/index.html',
-  less: 'src/styles.less',
   dir: 'src'
-}
-const out = {
-  css: 'styles.css'
 }
 
 budo(entry.js, {
@@ -25,15 +20,6 @@ budo(entry.js, {
   watchGlob: path.join(entry.dir, '**/*.{html,less,json,js}'),
   dir: entry.dir,
   stream: process.stdout,
-  middleware: less(entry.less, out.css, {
-    compress: false,
-    autoprefixer: 'last 2 versions',
-    paths: [
-      path.join(__dirname, '../node_modules'),
-      path.join(__dirname, '../src/core/styles'),
-      path.join(__dirname, '../src')
-    ]
-  }),
   browserify: {
     extensions: ['.js', '.jsx']
   },
