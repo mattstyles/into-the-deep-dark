@@ -7,6 +7,7 @@ import {white, black} from 'core/styles/modules/colors'
 import {baseSize, fonts} from 'core/styles/modules/fonts'
 
 import {View} from 'components'
+import Header from 'components/header'
 
 // const App = ({state}) => (
 //   <div className='Main'>
@@ -30,9 +31,8 @@ const App = ({state}) => (
       <meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=0' />
       <title>Into the Deep Dark</title>
     </Helmet>
+    <Header />
     <Router />
-    <h1>Hello World</h1>
-    <pre>{JSON.stringify(state, null, '  ')}</pre>
     <style jsx global>{`
       html, body {
         position: relative;

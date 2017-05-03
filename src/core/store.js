@@ -21,6 +21,10 @@ import {adaptor} from 'raid-addons'
 // ])
 
 export const signal = new Signal({
+  navigation: {
+    stack: {},
+    index: 0
+  },
   base: {
     title: 'Tannhauser Gate',
     type: 'Grade II Starbase',

@@ -1,5 +1,5 @@
 
-import {Navigator} from 'raid-navigator'
+import {Navigator, push} from 'raid-navigator'
 
 import {signal, connect} from 'core/store'
 
@@ -9,4 +9,16 @@ export const Navigation = connect(
     signal
   }),
   Navigator
+)
+
+export const Link = ({children, route, state}) => (
+  <a
+    onClick={event => {
+      event.preventDefault()
+      push(route, state)
+    }}
+    href={route}
+  >
+    {children}
+  </a>
 )
