@@ -2,6 +2,7 @@
 import {Helmet} from 'react-helmet'
 
 import {connect} from 'core/store'
+import Router from 'core/router'
 import {white, black} from 'core/styles/modules/colors'
 import {baseSize, fonts} from 'core/styles/modules/fonts'
 
@@ -29,6 +30,7 @@ const App = ({state}) => (
       <meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=0' />
       <title>Into the Deep Dark</title>
     </Helmet>
+    <Router />
     <h1>Hello World</h1>
     <pre>{JSON.stringify(state, null, '  ')}</pre>
     <style jsx global>{`
