@@ -11,11 +11,18 @@ const Button = ({
   classes,
   iconClasses,
   naked,
+  disabled,
   children
 }) => (
-  <button onClick={onClick} className={cx({
-    'Btn--isNaked': naked
-  }, classes)}>
+  <button
+    onClick={event => {
+      if (disabled) return
+      onClick(event)
+    }}
+    className={cx({
+      'Btn--isNaked': naked
+    }, classes)}
+  >
     {icon && <Icon icon={icon} inline strip classes={iconClasses} />}
     {children}
     <style jsx>{`

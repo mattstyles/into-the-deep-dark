@@ -32,6 +32,7 @@ const StackNavigator = ({back, forward, head, tail}) => (
       icon='ARROW'
       onClick={back}
       naked
+      disabled={head}
       classes={['Btn--isStack', 'Left']}
       iconClasses={{disabled: head, StackIcon: true}}
     />
@@ -39,6 +40,7 @@ const StackNavigator = ({back, forward, head, tail}) => (
       icon='ARROW'
       onClick={forward}
       naked
+      disabled={tail}
       classes={['Btn--isStack', 'Right']}
       iconClasses={{disabled: tail, StackIcon: true}}
     />
