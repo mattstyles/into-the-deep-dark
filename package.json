@@ -12,6 +12,7 @@
     "build-html": "cpy src/*.html dist",
     "prebuild": "npm run clean",
     "build": "npm run build-scripts && npm run build-styles && npm run build-html",
+    "test": "NODE_PATH=src tape -r babel-register spec/*.test.js",
     "start": "DEBUG=true NODE_PATH=src bin/start"
   },
   "babel": {
@@ -53,6 +54,7 @@
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-react-require": "^1.0.1",
     "babel-preset-urban": "^1.0.0",
+    "babel-register": "^6.24.1",
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
     "budo": "^9.2.1",
@@ -63,7 +65,8 @@
     "rimraf": "^2.5.4",
     "simple-less-middleware": "^1.1.0",
     "standard": "^9.0.1",
-    "styled-jsx": "^0.5.7"
+    "styled-jsx": "^0.5.7",
+    "tape": "^4.6.3"
   },
   "dependencies": {
     "axios": "^0.15.3",
