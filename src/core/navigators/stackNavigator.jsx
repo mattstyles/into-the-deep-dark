@@ -3,25 +3,31 @@ import {createSelector} from 'reselect'
 import {back, forward} from 'raid-navigator'
 
 import {connect} from 'core/store'
-import {white} from 'core/styles/modules/colors'
 import {Button} from 'components'
 
-const selector = state => createSelector(
-  navigation => navigation,
-  ({stack, index}) => ({
-    stack,
-    index,
-    back,
-    forward,
-    head: index === 0,
-    tail: stack && stack.length
-      ? index === stack.length - 1
-      : true
-  })
-)(state.navigation)
+import {white} from 'core/styles/modules/colors'
+import {headerHeight} from 'core/styles/theme'
+
+const selector = createSelector(
+  ({navigation: {stack, index}}) => ({stack, index}),
+  ({stack, index}) => {
+    return {
+      stack,
+      index,
+      back,
+      forward,
+      head: index === 0,
+      tail: stack && stack.length
+        ? index === stack.length - 1
+        : true
+    }
+  }
+)
+
+const btnSize = 32
 
 const StackNavigator = ({back, forward, head, tail}) => (
-  <div>
+  <div className='NavStack'>
     <Button
       icon='ARROW'
       onClick={back}
@@ -37,10 +43,17 @@ const StackNavigator = ({back, forward, head, tail}) => (
       iconClasses={{disabled: tail, StackIcon: true}}
     />
     <style jsx>{`
+      .NavStack {
+        height: ${headerHeight}px;
+        padding: ${(headerHeight - btnSize) * 0.5}px;
+        box-sizing: border-box;
+      }
+
       div :global(.Btn--isStack) {
         padding: 0;
-        width: 32px;
-        height: 32px;
+        margin: 0;
+        width: ${btnSize}px;
+        height: ${btnSize}px;
       }
 
       div :global(.StackIcon) {

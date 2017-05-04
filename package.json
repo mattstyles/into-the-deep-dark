@@ -50,7 +50,7 @@
   "homepage": "https://github.com/mattstyles/into-the-deep-dark#readme",
   "devDependencies": {
     "babel-eslint": "^7.0.0",
-    "babel-plugin-inferno": "^0.7.7",
+    "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-react-require": "^1.0.1",
     "babel-preset-urban": "^1.0.0",
     "babelify": "^7.3.0",
@@ -67,7 +67,6 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "babel-plugin-lodash": "^3.2.11",
     "classnames": "^2.2.5",
     "eventemitter3": "^1.2.0",
     "lodash": "^4.17.4",

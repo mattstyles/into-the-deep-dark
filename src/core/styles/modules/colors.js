@@ -9,7 +9,7 @@ export const white = [
 export const black = [
   'rgb(0, 0, 0)',
   'rgb(18, 18, 18)',
-  'rgb(44, 44, 44)',
+  'rgb(44, 50, 52)',
   'rgb(64, 64, 64)',
   'rgb(110, 114, 116)'
 ]
