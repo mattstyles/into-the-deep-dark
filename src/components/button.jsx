@@ -8,6 +8,8 @@ import {fit} from 'core/styles/mixins'
 const Button = ({
   icon,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   classes,
   iconClasses,
   naked,
@@ -22,6 +24,8 @@ const Button = ({
     className={cx({
       'Btn--isNaked': naked
     }, classes)}
+    onMouseLeave={onMouseLeave}
+    onMouseEnter={onMouseEnter}
   >
     {icon && <Icon icon={icon} inline strip classes={iconClasses} />}
     {children}

@@ -2,6 +2,7 @@
 export const baseSize = 10
 export const fonts = {
   main: 'Raleway',
+  heading: 'League Gothic',
   fallback: [
     '-apple-system',
     'BlinkMacSystemFont',
