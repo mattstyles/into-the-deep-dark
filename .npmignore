@@ -1,0 +1,7 @@
+.gitignore
+.travis.yml
+*.log*
+src
+spec
+**/*.test.js
+

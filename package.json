@@ -1,89 +1,23 @@
 {
-  "name": "into-the-deep-dark",
+  "name": "@idd/monorepo",
   "version": "0.0.0",
-  "description": "Minimalist text based game",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf dist && mkdirp dist",
-    "lint": "standard",
-    "build-scripts": "NODE_PATH=src NODE_ENV=production browserify --extension=jsx src/main.js | uglifyjs -cm > dist/main.js",
-    "build-styles": "lessc src/styles.less --include-path=node_modules:src/core/styles:src --autoprefix='last 2 versions' --clean-css > dist/styles.css",
-    "build-html": "cpy src/*.html dist",
-    "prebuild": "npm run clean",
-    "build": "npm run build-scripts && npm run build-styles && npm run build-html",
-    "start": "DEBUG=true NODE_PATH=src bin/start"
-  },
-  "babel": {
-    "presets": [
-      "urban"
-    ],
-    "plugins": [
-      [
-        "transform-react-require",
-        {
-          "identifier": "Inferno",
-          "moduleName": "inferno"
-        }
-      ],
-      "inferno"
-    ]
-  },
-  "browserify": {
-    "transform": [
-      "babelify",
-      "envify"
-    ]
-  },
-  "standard": {
-    "parser": "babel-eslint"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mattstyles/into-the-deep-dark.git"
   },
-  "keywords": [
-    "game",
-    "inferno",
-    "most",
-    "text"
-  ],
   "author": "Matt Styles",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mattstyles/into-the-deep-dark/issues"
   },
   "homepage": "https://github.com/mattstyles/into-the-deep-dark#readme",
   "devDependencies": {
-    "babel-eslint": "^6.1.2",
-    "babel-plugin-inferno": "^0.7.7",
-    "babel-plugin-transform-react-require": "^1.0.1",
-    "babel-preset-urban": "^0.5.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.0",
-    "budo": "^9.0.0",
-    "cpy-cli": "^1.0.1",
-    "envify": "^3.4.1",
-    "less": "^2.7.1",
-    "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-clean-css": "^1.5.1",
-    "minimist": "^1.2.0",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.5.4",
-    "simple-less-middleware": "^1.1.0",
-    "standard": "^7.1.2"
-  },
-  "dependencies": {
-    "axios": "^0.13.1",
-    "classnames": "^2.2.5",
-    "eventemitter3": "^1.2.0",
-    "history": "^4.0.1",
-    "inferno": "^0.7.26",
-    "inferno-component": "^0.7.26",
-    "inferno-dom": "^0.7.26",
-    "lodash": "^4.16.1",
-    "most": "^1.0.1",
-    "normalize.css": "^4.2.0",
-    "to-map": "^1.0.0"
+    "lerna": "^2.4.0",
+    "standard": "^10.0.3"
   }
 }

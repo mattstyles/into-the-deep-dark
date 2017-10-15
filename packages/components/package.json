@@ -1,0 +1,57 @@
+{
+  "name": "@idd/components",
+  "version": "0.0.0",
+  "description": "Generic components for idd",
+  "main": "lib",
+  "scripts": {
+    "clean": "rimraf lib",
+    "prebuild": "npm run clean",
+    "build": "babel src --out-dir lib",
+    "watch": "babel --watch src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "author": "Matt Styles",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattstyles/into-the-deep-dark"
+  },
+  "bugs": "https://github.com/mattstyles/into-the-deep-dark/issues",
+  "babel": {
+    "presets": [
+      "urban"
+    ],
+    "plugins": [
+      "transform-react-require",
+      "styled-jsx/babel"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "keywords": [
+    "game",
+    "raid"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-transform-react-require": "^1.0.1",
+    "babel-preset-urban": "^1.0.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "rimraf": "^2.6.2",
+    "standard": "^10.0.3",
+    "styled-jsx": "^2.1.0",
+    "tape": "^4.8.0",
+    "@storybook/react": "^3.2.12",
+    "@storybook/addon-actions": "^3.2.12",
+    "@storybook/addon-links": "^3.2.12"
+  },
+  "peerDependencies": {
+    "react": "^16.x",
+    "styled-jsx": "^2.x"
+  }
+}
