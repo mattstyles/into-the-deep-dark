@@ -1,20 +1,27 @@
 
 import oc from 'open-color'
+import cx from 'classnames'
 
-const Button = ({children, onClick}) => (
-  <button className='Btn' onClick={onClick}>
+import theme from './theme'
+
+const Button = ({children, onClick, styles, classes}) => (
+  <button
+    className={cx(classes, 'Btn')}
+    style={styles}
+    onClick={onClick}
+  >
     {children}
     <style jsx>{`
       .Btn {
         background: ${oc.blue[5]};
         color: ${oc.white};
-        padding: 0 3rem;
-        font-size: 1.4rem;
+        padding: 0 ${theme.basePadding * 3}rem;
+        font-size: ${theme.baseFontSize}rem;
         line-height: 3;
         border: none;
-        border-radius: 4px;
+        border-radius: ${theme.borderRadius}px;
         cursor: pointer;
-        transition: background 150ms;
+        transition: background ${theme.transition.main}ms;
       }
       .Btn:hover {
         background: ${oc.blue[7]};
@@ -26,5 +33,11 @@ const Button = ({children, onClick}) => (
     `}</style>
   </button>
 )
+
+Button.defaultProps = {
+  onClick: () => {},
+  styles: null,
+  classes: null
+}
 
 export default Button

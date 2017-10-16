@@ -5,13 +5,51 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
 
-import {Button} from '../src'
+import oc from 'open-color'
+import {App, Button} from '../src'
 
 storiesOf('Button', module)
   .add('simple text', () => (
-    <Button onClick={action('Button clicked')}>
-      Click Me
-    </Button>
+    <App>
+      <Button onClick={action('Button clicked')}>
+        Click Me
+      </Button>
+    </App>
+  ))
+  .add('with custom class', () => (
+    <App>
+      <div>
+        <Button
+          onClick={action('Button clicked')}
+          classes='CustomBtn'
+        >
+          With custom class
+        </Button>
+        <style jsx>{`
+          div :global(.CustomBtn) {
+            background: ${oc.green[5]};
+          }
+          div :global(.CustomBtn:hover) {
+            background: ${oc.green[7]};
+          }
+          div :global(.CustomBtn:active) {
+            background: ${oc.green[8]};
+          }
+        `}</style>
+      </div>
+    </App>
+  ))
+  .add('with custom style', () => (
+    <App>
+      <Button
+        onClick={action('Button clicked')}
+        styles={{
+          background: `linear-gradient(30deg, ${oc.violet[5]}, ${oc.blue[6]})`
+        }}
+      >
+        With custom styling
+      </Button>
+    </App>
   ))
 
 // import { Button, Welcome } from '@storybook/react/demo'

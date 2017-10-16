@@ -46,6 +46,7 @@
     "styled-jsx": "^2.x"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "open-color": "^1.5.1"
   }
 }
