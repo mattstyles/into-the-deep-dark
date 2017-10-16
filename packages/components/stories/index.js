@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
 
-import {Button} from '../lib'
+import {Button} from '../src'
 
 storiesOf('Button', module)
   .add('simple text', () => (

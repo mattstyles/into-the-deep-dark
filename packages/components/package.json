@@ -19,15 +19,6 @@
     "url": "https://github.com/mattstyles/into-the-deep-dark"
   },
   "bugs": "https://github.com/mattstyles/into-the-deep-dark/issues",
-  "babel": {
-    "presets": [
-      "urban"
-    ],
-    "plugins": [
-      "transform-react-require",
-      "styled-jsx/babel"
-    ]
-  },
   "standard": {
     "parser": "babel-eslint"
   },
@@ -53,5 +44,8 @@
   "peerDependencies": {
     "react": "^16.x",
     "styled-jsx": "^2.x"
+  },
+  "dependencies": {
+    "open-color": "^1.5.1"
   }
 }
