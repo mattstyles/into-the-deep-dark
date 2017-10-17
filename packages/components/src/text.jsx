@@ -58,7 +58,7 @@ export const P = ({children}) => (
       p {
         font-size: ${theme.baseFontSize}rem;
         color: ${oc.gray[7]};
-        line-height: 1.6;
+        line-height: ${theme.baseLineHeight};
         margin-bottom: ${theme.baseFontSize * 0.6}rem;
         margin-top: 0;
       }
@@ -77,4 +77,17 @@ export const TextBlock = ({children, styles}) => (
       }
     `}</style>
   </div>
+)
+
+export const Text = ({children, styles}) => (
+  <span style={styles}>
+    {children}
+    <style jsx>{`
+      span {
+        font-size: ${theme.baseFontSize}rem;
+        line-height: ${theme.baseLineHeight};
+        color: ${oc.gray[7]};
+      }
+    `}</style>
+  </span>
 )
