@@ -7,12 +7,12 @@ export const H1 = ({children}) => (
     {children}
     <style jsx>{`
       h1 {
-        font-size: ${theme.baseFontSize * 2.4}rem;
+        font-size: ${theme.baseFontSize * 2.5}rem;
         font-weight: 300;
         color: ${oc.gray[7]};
         line-height: 1.1;
-        margin-top: 2.4rem;
-        margin-bottom: 1.4rem;
+        margin-top: 0rem;
+        margin-bottom: ${theme.baseFontSize * 1.2}rem;
       }
     `}</style>
   </h1>
@@ -23,12 +23,12 @@ export const H2 = ({children}) => (
     {children}
     <style jsx>{`
       h2 {
-        font-size: ${theme.baseFontSize * 1.8}rem;
+        font-size: ${theme.baseFontSize * 1.6}rem;
         font-weight: 300;
         color: ${oc.gray[7]};
         line-height: 1.2;
-        margin-top: 2.4rem;
-        margin-bottom: 1rem;
+        margin-top: 0rem;
+        margin-bottom: ${theme.baseFontSize * 0.8}rem;
       }
     `}</style>
   </h2>
@@ -43,8 +43,8 @@ export const H3 = ({children}) => (
         font-weight: 300;
         color: ${oc.gray[6]};
         line-height: 1.2;
-        margin-top: 1.8rem;
-        margin-bottom: 1.2rem;
+        margin-top: 0rem;
+        margin-bottom: ${theme.baseFontSize}rem;
         text-transform: uppercase;
       }
     `}</style>
@@ -58,10 +58,23 @@ export const P = ({children}) => (
       p {
         font-size: ${theme.baseFontSize}rem;
         color: ${oc.gray[7]};
-        line-height: 1.4;
-        margin-bottom: 0.6rem;
+        line-height: 1.6;
+        margin-bottom: ${theme.baseFontSize * 0.6}rem;
         margin-top: 0;
       }
     `}</style>
   </p>
+)
+
+export const TextBlock = ({children, styles}) => (
+  <div style={styles}>
+    {children}
+    <style jsx>{`
+      div :global(p + h1),
+      div :global(p + h2),
+      div :global(p + h3) {
+        margin-top: ${theme.baseFontSize * 2}rem
+      }
+    `}</style>
+  </div>
 )

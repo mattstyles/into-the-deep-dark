@@ -2,8 +2,8 @@
 import theme from './theme'
 import oc from 'open-color'
 
-const App = ({children}) => (
-  <div>
+const App = ({children, styles}) => (
+  <div style={styles}>
     {children}
     <style jsx global>{`
       html {

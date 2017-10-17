@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "open-color": "^1.5.1"
+    "open-color": "^1.5.1",
+    "prop-types": "^15.6.0"
   }
 }
