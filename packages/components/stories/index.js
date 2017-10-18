@@ -2,6 +2,7 @@
 import './button'
 import './text'
 import './layout'
+import './icons'
 
 import {isIosSafari} from '../src'
 

@@ -64,3 +64,15 @@ storiesOf('Button', module)
       </P>
     </App>
   ))
+  .add('circular', () => (
+    <App styles={{padding: 30}}>
+      <div>
+        <Button
+          circular
+          onClick={action('Button clicked')}
+        >
+          Circularised button
+        </Button>
+      </div>
+    </App>
+  ))

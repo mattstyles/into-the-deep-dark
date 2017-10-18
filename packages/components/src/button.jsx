@@ -10,11 +10,15 @@ const Button = ({
   onClick,
   styles,
   classes,
-  inline
+  inline,
+  circular,
+  icon
 }) => (
   <button
     className={cx(classes, 'Btn', {
-      'Btn--inline': inline
+      'Btn--inline': inline,
+      'Btn--circular': circular,
+      'Btn--icon': icon
     })}
     style={styles}
     onClick={onClick}
@@ -60,6 +64,22 @@ const Button = ({
       .Btn--inline:active {
         background: transparent;
       }
+      .Btn--circular {
+        border-radius: 200px;
+      }
+      .Btn--icon {
+        padding: ${theme.basePadding * 10}px;
+        line-height: 1;
+      }
+      .Btn--icon :global(svg) {
+        fill: ${oc.white};
+      }
+      .Btn--icon :global(span + span) {
+        margin-left: ${theme.basePadding * 4}px;
+      }
+      .Btn--icon :global(span) {
+        vertical-align: middle;
+      }
     `}</style>
   </button>
 )
@@ -68,11 +88,13 @@ Button.defaultProps = {
   onClick: () => {},
   styles: null,
   classes: null,
-  inline: false
+  inline: false,
+  icon: false
 }
 
 Button.propTypes = {
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+  icon: PropTypes.bool
 }
 
 export default Button

@@ -5,8 +5,12 @@ const theme = {
   basePadding: 1.2,
   borderRadius: 3,
 
+  baseIconSize: 6,
+  baseIconTextSize: 1.6,
+
   transition: {
-    main: 150
+    main: 150,
+    spin: 1250
   },
 
   fonts: {

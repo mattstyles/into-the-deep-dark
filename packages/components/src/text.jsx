@@ -1,5 +1,8 @@
 
 import oc from 'open-color'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import theme from './theme'
 
 export const H1 = ({children}) => (
@@ -79,8 +82,10 @@ export const TextBlock = ({children, styles}) => (
   </div>
 )
 
-export const Text = ({children, styles}) => (
-  <span style={styles}>
+export const Text = ({children, styles, align}) => (
+  <span className={cx({
+    align: align
+  })}style={styles}>
     {children}
     <style jsx>{`
       span {
@@ -88,6 +93,16 @@ export const Text = ({children, styles}) => (
         line-height: ${theme.baseLineHeight};
         color: ${oc.gray[7]};
       }
+      .align {
+        vertical-align: middle;
+      }
     `}</style>
   </span>
 )
+
+Text.defaultProps = {
+  align: false
+}
+Text.propTypes = {
+  align: PropTypes.bool
+}
