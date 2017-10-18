@@ -50,6 +50,7 @@
   },
   "homepage": "https://mattstyles.github.io/into-the-deep-dark",
   "devDependencies": {
+    "@idd/components": "file:../components",
     "babel-eslint": "^7.2.3",
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-react-require": "^1.0.1",

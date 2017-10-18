@@ -1,9 +1,10 @@
 
 import {render} from 'react-dom'
+import {App} from '@idd/components'
 
 import {signal} from 'signals'
-import App from 'views/app'
 import {debug} from 'core/updates'
+import Router from './router'
 
 const el = document.querySelector('.js-main')
 
@@ -13,7 +14,9 @@ if (process.env.DEBUG) {
 
 signal.observe(state => {
   render(
-    <App state={state} />,
+    <App>
+      <Router />
+    </App>,
     el
   )
 }, err => console.error(err))
