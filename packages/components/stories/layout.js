@@ -5,9 +5,6 @@ import oc from 'open-color'
 
 import {App, View, P, H1, H2, H3, TextBlock, Text} from '../src'
 
-var _navigator = {}
-for (var i in navigator) _navigator[i] = navigator[i]
-
 storiesOf('Layout', module)
   .add('Scroll View', () => (
     <App>

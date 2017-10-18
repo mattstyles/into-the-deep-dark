@@ -6,6 +6,8 @@ export {default as Button} from './button'
 export * from './text'
 export {default as Icon} from './icon'
 
+export {default as theme} from './theme'
+
 export const isIosSafari = () => {
   const {userAgent} = window.navigator
   // Mobile Safari targets ios

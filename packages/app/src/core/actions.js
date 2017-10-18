@@ -1,6 +1,17 @@
 
-const actions = {
-  anAction: 'app:anAction'
-}
+import {connect} from 'raid-fl'
+import {zipObject} from 'lodash'
 
-export default actions
+import {signal} from 'signals'
+
+const createActions = connect(signal)
+
+const actions = [
+  'test',
+  'test1'
+]
+
+export default zipObject(
+  actions,
+  createActions(actions)
+)

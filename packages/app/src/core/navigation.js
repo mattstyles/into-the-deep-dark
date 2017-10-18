@@ -2,6 +2,7 @@
 import {createSelector} from 'reselect'
 import {connect, signal} from 'signals'
 import {Navigator, push} from 'raid-navigator'
+import {Button} from '@idd/components'
 
 const getNavigation = state => state.navigation
 
@@ -17,9 +18,12 @@ export const Navigation = connect(
 )
 
 export const Link = ({children, route, state}) => (
-  <button onClick={event => push(route, state)}>
+  <Button
+    onClick={event => push(route, state)}
+    inline
+  >
     {children}
-  </button>
+  </Button>
 )
 
 export const getCurrentPath = createSelector(

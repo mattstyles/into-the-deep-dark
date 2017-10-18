@@ -20,15 +20,6 @@ const View = ({children, styles, main, scroll, isBottom}) => (
       }
       .Scroll {
         overflow-y: scroll;
-
-        /* only required for ios safari */
-        /* as the menu bar is locked visible it obscures the view */
-        /* should only be present on scrollable that touch the bottom
-        of the page and only for ios safari */
-        /*
-        padding-bottom: 44px;
-        box-sizing: border-box;
-        */
       }
       .Main {
         display: flex;

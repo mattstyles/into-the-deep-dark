@@ -21,8 +21,8 @@ const App = ({children, styles}) => (
       }
       body {
         margin: 0;
-        background: ${oc.gray[0]};
-        color: ${oc.gray[7]};
+        background: ${oc.gray[9]};
+        color: ${oc.gray[0]};
         font-family: ${theme.fonts.main};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

@@ -26,7 +26,7 @@ const Button = ({
     {children}
     <style jsx>{`
       .Btn {
-        background: ${oc.blue[5]};
+        background: ${oc.green[5]};
         color: ${oc.white};
         padding: 0 ${theme.basePadding * 3}rem;
         font-size: ${theme.baseFontSize}rem;
@@ -38,11 +38,11 @@ const Button = ({
         text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
       }
       .Btn:hover {
-        background: ${oc.blue[7]};
+        background: ${oc.green[7]};
         text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
       }
       .Btn:active {
-        background: ${oc.blue[8]};
+        background: ${oc.green[8]};
       }
       .Btn--inline {
         color: inherit;
@@ -52,14 +52,14 @@ const Button = ({
         line-height: 1.4rem;
         display: inline;
         border-radius: 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        border-bottom: 1px solid ${oc.gray[6]};
         transition: color ${theme.transition.main}ms, border-color ${theme.transition.main}ms;
       }
       .Btn--inline:hover {
         background: transparent;
         text-shadow: none;
         color: ${oc.green[4]};
-        border-color: ${oc.green[4]};
+        border-color: ${oc.green[7]};
       }
       .Btn--inline:active {
         background: transparent;
