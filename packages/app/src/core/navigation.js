@@ -7,9 +7,13 @@ import {Navigator, push, back, forward} from 'raid-navigator'
 import {Icon, Button} from '@idd/components'
 
 const getNavigation = state => state.navigation
-const getNavParts = ({navigation}) => ({
-  index: navigation.index,
-  stack: navigation.stack
+const getCurrentStackIndex = ({navigation}) => navigation.index
+const getStack = ({navigation}) => navigation.stack
+const isFirst = (index) => ({
+  isDisabled: index === 0
+})
+const isLast = (index, stack) => ({
+  isDisabled: index === stack.length - 1
 })
 
 export const Navigation = connect(
@@ -81,10 +85,9 @@ NavButton.propTypes = {
 
 export const Back = connect(
   createSelector(
-    getNavParts,
-    ({index}) => ({
-      isDisabled: index === 0
-    })
+    getCurrentStackIndex,
+    getStack,
+    isFirst
   ),
   ({isDisabled}) => (
     <NavButton
@@ -96,10 +99,9 @@ export const Back = connect(
 
 export const Forward = connect(
   createSelector(
-    getNavParts,
-    ({index, stack}) => ({
-      isDisabled: index === stack.length - 1
-    })
+    getCurrentStackIndex,
+    getStack,
+    isLast
   ),
   ({isDisabled}) => (
     <NavButton
