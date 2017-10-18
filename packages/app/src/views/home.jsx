@@ -2,7 +2,7 @@
 import {View, H1, Button, Icon} from '@idd/components'
 
 import {connect} from 'signals'
-import {Link, getCurrentPath} from 'core/navigation'
+import {Link, getCurrentPath, Forward, Back} from 'core/navigation'
 import actions from 'core/actions'
 import getIcon from 'components/icons'
 
@@ -10,6 +10,10 @@ const {test, test1} = actions
 
 const HomeView = ({currentPath}) => (
   <View main>
+    <div>
+      <Back />
+      <Forward />
+    </div>
     <H1>{`Home View: ${currentPath}`}</H1>
     <div style={{marginBottom: 20}}>
       <Link route='/settings'>Settings</Link>

@@ -41,7 +41,12 @@
   },
   "keywords": [
     "raid",
-    "react"
+    "react",
+    "deepest",
+    "darkest",
+    "game",
+    "deep",
+    "dark"
   ],
   "author": "mattstyles",
   "license": "MIT",
@@ -54,6 +59,7 @@
     "babel-eslint": "^7.2.3",
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-react-require": "^1.0.1",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-urban": "^1.0.0",
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
@@ -69,9 +75,9 @@
     "styled-jsx": "^2.0.0"
   },
   "dependencies": {
-    "babel-preset-env": "^1.6.1",
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
+    "open-color": "^1.5.1",
     "prop-types": "^15.5.10",
     "raid": "^2.10.0",
     "raid-addons": "^2.10.0",
