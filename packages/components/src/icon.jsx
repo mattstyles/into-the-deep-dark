@@ -13,10 +13,11 @@ const Icon = ({
   spin,
   rotate,
   small,
-  inText
+  inText,
+  from
 }) => {
   let svg = {
-    __html: get(icon)
+    __html: from(icon)
   }
 
   return (
@@ -80,14 +81,16 @@ Icon.defaultProps = {
   inline: false,
   spin: false,
   rotate: 0,
-  small: false
+  small: false,
+  from: get
 }
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
   inline: PropTypes.bool,
   rotate: PropTypes.number,
-  small: PropTypes.bool
+  small: PropTypes.bool,
+  from: PropTypes.func
 }
 
 export default Icon
