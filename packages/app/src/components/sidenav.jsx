@@ -1,13 +1,18 @@
 
+import cx from 'classnames'
 import oc from 'open-color'
 import {theme, Icon, Text} from '@idd/components'
 import {push} from 'raid-navigator'
 import get from 'components/icons'
 
+import {connect} from 'signals'
+import {getCurrentRoute} from 'core/navigation'
+
 const styling = {
   width: 4.4,
   background: 'rgb(27, 31, 34)',
-  backgroundHover: oc.gray[9],
+  backgroundHover: 'rgba(255, 255, 255, 0.1)',
+  backgroundSelected: 'rgba(0, 0, 0, 0.2)',
   iconSize: 2.2,
   itemHeight: 3.6
 }
@@ -15,13 +20,19 @@ const styling = {
 const Navigate = ({
   route,
   icon,
-  option
+  option,
+  pathname
 }) => (
-  <li>
+  <li className={cx({
+    isSelected: pathname === route
+  })}>
     <a
       href={route}
       onClick={event => {
         event.preventDefault()
+        if (pathname === route) {
+          return
+        }
         push(route)
       }}
     >
@@ -66,6 +77,9 @@ const Navigate = ({
       li:hover {
         background: ${styling.backgroundHover};
       }
+      li.isSelected {
+        background: ${styling.backgroundSelected};
+      }
     `}</style>
   </li>
 )
@@ -73,14 +87,39 @@ Navigate.defaultProps = {
   route: ''
 }
 
-const SideNav = () => (
+const SideNav = ({route: {pathname}}) => (
   <nav>
     <ul>
-      <Navigate icon='VIEW_PERSONNEL' route='/personnel' option='Personnel' />
-      <Navigate icon='VIEW_COMMS' route='/comms' option='Comms' />
-      <Navigate icon='VIEW_STOCK' route='/settings' option='Stock' />
-      <Navigate icon='VIEW_ENGINEERING' route='/engineering' option='Engineering' />
-      <Navigate icon='VIEW_EXPLORE' route='/' option='Exploration' />
+      <Navigate
+        icon='VIEW_PERSONNEL'
+        route='/personnel'
+        option='Personnel'
+        pathname={pathname}
+      />
+      <Navigate
+        icon='VIEW_COMMS'
+        route='/comms'
+        option='Comms'
+        pathname={pathname}
+      />
+      <Navigate
+        icon='VIEW_STOCK'
+        route='/settings'
+        option='Stock'
+        pathname={pathname}
+      />
+      <Navigate
+        icon='VIEW_ENGINEERING'
+        route='/engineering'
+        option='Engineering'
+        pathname={pathname}
+      />
+      <Navigate
+        icon='VIEW_EXPLORE'
+        route='/'
+        option='Exploration'
+        pathname={pathname}
+      />
     </ul>
     <style jsx>{`
       nav {
@@ -96,4 +135,7 @@ const SideNav = () => (
   </nav>
 )
 
-export default SideNav
+export default connect(
+  getCurrentRoute,
+  SideNav
+)

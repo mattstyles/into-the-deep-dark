@@ -16,6 +16,13 @@ const isFirst = (index) => ({
 const isLast = (index, stack) => ({
   isDisabled: index === stack.length - 1
 })
+export const getCurrentRoute = createSelector(
+  getCurrentStackIndex,
+  getStack,
+  (index, stack) => ({
+    route: stack[index]
+  })
+)
 
 export const Navigation = connect(
   createSelector(
