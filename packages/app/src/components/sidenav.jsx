@@ -1,6 +1,5 @@
 
 import cx from 'classnames'
-import oc from 'open-color'
 import {theme, Icon, Text} from '@idd/components'
 import {push} from 'raid-navigator'
 import get from 'components/icons'
