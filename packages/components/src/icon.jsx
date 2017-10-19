@@ -14,18 +14,27 @@ const Icon = ({
   rotate,
   small,
   inText,
-  from
+  from,
+  width,
+  height
 }) => {
   let svg = {
     __html: from(icon)
   }
+
+  let sizeStyles = {}
+  if (width) sizeStyles.width = `${width}rem`
+  if (height) sizeStyles.height = `${height}rem`
 
   return (
     <span className={cx({
       'Icon--isInline': inline
     })}>
       <i
-        style={styles}
+        style={{
+          ...sizeStyles,
+          ...styles
+        }}
         className={cx('Icon', {
           'Icon--isSpinning': spin,
           'Icon--rotate': rotate,

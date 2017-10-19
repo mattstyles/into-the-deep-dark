@@ -1,11 +1,10 @@
 
 import {render} from 'react-dom'
-import {App, isIosSafari} from '@idd/components'
+import {isIosSafari} from '@idd/components'
 
 import {signal} from 'signals'
 import {debug} from 'core/updates'
-import Router from './router'
-import Navigation from 'components/navigation'
+import Layout from './layout'
 
 isIosSafari()
 
@@ -17,10 +16,7 @@ if (process.env.DEBUG) {
 
 signal.observe(state => {
   render(
-    <App>
-      <Navigation />
-      <Router />
-    </App>,
+    <Layout />,
     el
   )
 }, err => console.error(err))

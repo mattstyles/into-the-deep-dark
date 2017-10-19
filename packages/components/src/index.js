@@ -1,6 +1,7 @@
 
 export {default as App} from './app'
 export {default as View} from './view'
+export {default as Pane} from './pane'
 
 export {default as Button} from './button'
 export * from './text'
