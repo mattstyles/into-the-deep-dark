@@ -1,26 +1,27 @@
 
-import {App} from '@idd/components'
+import {App, Pane} from '@idd/components'
 
 import Router from './router'
 import Header from 'components/header'
-
-// const Layout = () => (
-//   <App>
-//     <Pane split>
-//       <SideNav />
-//       <Pane>
-//         <Navigation />
-//         <Router />
-//       </Pane>
-//     </Pane>
-//   </App>
-// )
+import SideNav from 'components/sidenav'
 
 const Layout = () => (
   <App>
-    <Header />
-    <Router />
+    <Pane split>
+      <SideNav />
+      <Pane>
+        <Header />
+        <Router />
+      </Pane>
+    </Pane>
   </App>
 )
+
+// const Layout = () => (
+//   <App>
+//     <Header />
+//     <Router />
+//   </App>
+// )
 
 export default Layout

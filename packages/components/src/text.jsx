@@ -86,10 +86,10 @@ export const TextBlock = ({children, styles}) => (
   </div>
 )
 
-export const Text = ({children, styles, align}) => (
+export const Text = ({children, styles, classes, align}) => (
   <span className={cx({
     align: align
-  })}style={styles}>
+  }, classes)}style={styles}>
     {children}
     <style jsx>{`
       span {

@@ -2,7 +2,7 @@
 import oc from 'open-color'
 
 import {Back, Forward} from 'core/navigation'
-import ScreenNavigation from './navigation'
+// import ScreenNavigation from './navigation'
 
 export const theme = {
   height: 5.4,
@@ -16,7 +16,7 @@ const Header = () => (
       <Back />
       <Forward />
     </nav>
-    <ScreenNavigation height={theme.height} />
+    {/* <ScreenNavigation height={theme.height} /> */}
     <style jsx>{`
       header {
         min-height: ${theme.height}rem;
