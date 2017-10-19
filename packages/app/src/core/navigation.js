@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import {createSelector} from 'reselect'
 import {connect, signal} from 'signals'
 import {Navigator, push, back, forward} from 'raid-navigator'
-import {Icon, Button} from '@idd/components'
+import {theme, Icon, Button} from '@idd/components'
+import {theme as navTheme} from 'components/navigation'
 
 const getNavigation = state => state.navigation
 const getCurrentStackIndex = ({navigation}) => navigation.index
@@ -28,12 +29,29 @@ export const Navigation = connect(
 )
 
 export const Link = ({children, route, state}) => (
-  <Button
-    onClick={event => push(route, state)}
-    inline
+  <a
+    href={route}
+    onClick={event => {
+      event.preventDefault()
+      push(route, state)
+    }}
   >
     {children}
-  </Button>
+    <style jsx>{`
+      a {
+        text-decoration: none;
+        border-bottom: 1px solid ${oc.gray[6]};
+        transition: color ${theme.transition.main}ms, border-color ${theme.transition.main}ms;
+      }
+      a:visited {
+        color: inherit;
+      }
+      a:hover {
+        color: ${oc.green[4]};
+        border-color: ${oc.green[7]};
+      }
+    `}</style>
+  </a>
 )
 
 export const getCurrentPath = createSelector(
@@ -64,10 +82,17 @@ const NavButton = ({isDisabled, rotation, onClick}) => (
         small />
     </Button>
     <style jsx>{`
+      span {
+        display: inline-block;
+      }
       span :global(.Btn) {
         display: inline-block;
-        padding: 0.4rem;
+        padding: ${navTheme.linkPadding}rem;
         border-bottom: none;
+      }
+      span :global(.Icon) {
+        width: ${navTheme.height - navTheme.linkPadding * 2}rem;
+        height: ${navTheme.height - navTheme.linkPadding * 2}rem;
       }
       span :global(.Icon svg) {
         fill: ${isDisabled ? oc.gray[6] : oc.white}
