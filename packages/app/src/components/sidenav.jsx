@@ -6,7 +6,7 @@ import get from 'components/icons'
 
 const styling = {
   width: 4.4,
-  background: oc.gray[8],
+  background: 'rgb(27, 31, 34)',
   backgroundHover: oc.gray[9],
   iconSize: 2.2,
   itemHeight: 3.6
@@ -57,6 +57,7 @@ const Navigate = ({
         line-height: ${styling.itemHeight}rem;
         margin-right: ${theme.basePadding * 4}rem;
         font-size: ${theme.baseFontSize * 0.85}rem;
+        vertical-align: middle;
       }
       li {
         background: ${styling.background};
