@@ -26,6 +26,8 @@ const Icon = ({
   if (width) sizeStyles.width = `${width}rem`
   if (height) sizeStyles.height = `${height}rem`
 
+  console.log(sizeStyles, styles, width)
+
   return (
     <span className={cx({
       'Icon--isInline': inline

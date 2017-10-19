@@ -1,25 +1,77 @@
 
 import oc from 'open-color'
+import {theme, Icon} from '@idd/components'
+import {push} from 'raid-navigator'
+import get from 'components/icons'
 
-import {Back, Forward} from 'core/navigation'
-
-export const theme = {
-  height: 5.4,
-  padding: 0.8,
-  linkPadding: 1.4
+const styling = {
+  padding: 0.6
 }
 
-const Navigation = () => (
-  <nav>
-    <Back />
-    <Forward />
+const Navigate = ({
+  route,
+  icon,
+  iconSize
+}) => (
+  <a
+    href={route}
+    onClick={event => {
+      event.preventDefault()
+      push(route)
+    }}
+  >
+    <Icon
+      icon={icon}
+      width={iconSize}
+      height={iconSize}
+      from={get}
+    />
     <style jsx>{`
-      nav {
-        min-height: ${theme.height};
-        background: ${oc.gray[8]};
+      a {
+        display: inline-block;
+        text-decoration: none;
+        transition: background ${theme.transition.main}ms;
+        margin-left: ${styling.padding}rem;
+      }
+      a:first-of-type {
+        margin-left: 0;
+      }
+      a :global(i) {
+        transform-origin: center;
+        transform: scale(0.8);
+        transition: transform ${theme.transition.main}ms;
+      }
+      a :global(i:hover) {
+        transform-origin: center;
+        transform: scale(1);
+        transition: transform ${theme.transition.main}ms;
       }
     `}</style>
-  </nav>
+  </a>
 )
+Navigate.defaultProps = {
+  route: ''
+}
 
-export default Navigation
+const ScreenNavigation = ({height}) => {
+  const iconSize = height - (styling.padding * 2)
+  return (
+    <nav>
+      <Navigate icon='VIEW_PERSONNEL' route='/personnel' iconSize={iconSize} />
+      <Navigate icon='VIEW_COMMS' route='/comms' iconSize={iconSize} />
+      <Navigate icon='VIEW_STOCK' route='/settings' iconSize={iconSize} />
+      <Navigate icon='VIEW_ENGINEERING' route='/engineering' iconSize={iconSize} />
+      <Navigate icon='VIEW_EXPLORE' route='/' iconSize={iconSize} />
+      <style jsx>{`
+        nav {
+          background: ${oc.gray[7]};
+          height: ${height}rem;
+          padding: ${styling.padding}rem;
+          box-sizing: border-box;
+        }
+      `}</style>
+    </nav>
+  )
+}
+
+export default ScreenNavigation
