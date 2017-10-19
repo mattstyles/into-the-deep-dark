@@ -10,14 +10,16 @@ const {test, test1} = actions
 
 const HomeView = ({currentPath}) => (
   <View main>
-    <H1>{`Home View: ${currentPath}`}</H1>
-    <div style={{marginBottom: 20}}>
-      <Text><Link route='/settings'>Settings</Link></Text>
-      <Text> more text</Text>
+    <div style={{padding: 20}}>
+      <H1>{`Home View: ${currentPath}`}</H1>
+      <div style={{marginBottom: 20}}>
+        <Text><Link route='/settings'>Settings</Link></Text>
+        <Text> more text</Text>
+      </div>
+      <Button onClick={event => test.of('test')}>Dispatch action test</Button>
+      <Button onClick={event => test1.of('1')}>Dispatch action test1</Button>
+      <Icon icon='VIEW_EXPLORE' from={getIcon} />
     </div>
-    <Button onClick={event => test.of('test')}>Dispatch action test</Button>
-    <Button onClick={event => test1.of('1')}>Dispatch action test1</Button>
-    <Icon icon='VIEW_EXPLORE' from={getIcon} />
   </View>
 )
 

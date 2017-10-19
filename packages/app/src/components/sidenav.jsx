@@ -90,15 +90,15 @@ const SideNav = ({route: {pathname}}) => (
   <nav>
     <ul>
       <Navigate
-        icon='VIEW_PERSONNEL'
-        route='/personnel'
-        option='Personnel'
+        icon='VIEW_COMMS'
+        route='/'
+        option='Comms'
         pathname={pathname}
       />
       <Navigate
-        icon='VIEW_COMMS'
-        route='/comms'
-        option='Comms'
+        icon='VIEW_PERSONNEL'
+        route='/personnel'
+        option='Personnel'
         pathname={pathname}
       />
       <Navigate
@@ -115,7 +115,7 @@ const SideNav = ({route: {pathname}}) => (
       />
       <Navigate
         icon='VIEW_EXPLORE'
-        route='/'
+        route='/exploration'
         option='Exploration'
         pathname={pathname}
       />
