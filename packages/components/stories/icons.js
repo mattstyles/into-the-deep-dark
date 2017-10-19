@@ -44,10 +44,10 @@ storiesOf('Icon', module)
   ))
   .add('Rotation', () => (
     <App>
-      <Icon icon='ARROW' rotate='0' />
-      <Icon icon='ARROW' rotate='90' />
-      <Icon icon='ARROW' rotate='-90' />
-      <Icon icon='ARROW' rotate='180' />
+      <Icon icon='ARROW' rotate={0} />
+      <Icon icon='ARROW' rotate={90} />
+      <Icon icon='ARROW' rotate={-90} />
+      <Icon icon='ARROW' rotate={180} />
     </App>
   ))
   .add('Icon button', () => (

@@ -26,6 +26,7 @@ const Button = ({
     {children}
     <style jsx>{`
       .Btn {
+        font-family: ${theme.fonts.main};
         background: ${oc.green[5]};
         color: ${oc.white};
         padding: 0 ${theme.basePadding * 3}rem;
@@ -74,9 +75,10 @@ const Button = ({
       .Btn--icon :global(svg) {
         fill: ${oc.white};
       }
-      .Btn--icon :global(span + span) {
+      .Btn--icon :global(div + span) {
         margin-left: ${theme.basePadding * 4}px;
       }
+      .Btn--icon :global(div),
       .Btn--icon :global(span) {
         vertical-align: middle;
       }

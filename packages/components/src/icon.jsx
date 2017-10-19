@@ -1,4 +1,5 @@
 
+import oc from 'open-color'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -26,10 +27,8 @@ const Icon = ({
   if (width) sizeStyles.width = `${width}rem`
   if (height) sizeStyles.height = `${height}rem`
 
-  console.log(sizeStyles, styles, width)
-
   return (
-    <span className={cx({
+    <div className={cx({
       'Icon--isInline': inline
     })}>
       <i
@@ -50,18 +49,19 @@ const Icon = ({
           from { transform: rotateZ( 0deg ) }
           to { transform: rotateZ( 360deg ) }
         }
-        .Icon {
-          position: relative;
-          display: block;
-          width: ${theme.baseIconSize}rem;
-          height: ${theme.baseIconSize}rem;
-        }
-        .Icon svg {
+        i :global(svg) {
+          fill: ${oc.white};
           position: absolute;
           left: 0;
           top: 0;
           right: 0;
           bottom: 0;
+        }
+        .Icon {
+          position: relative;
+          display: block;
+          width: ${theme.baseIconSize}rem;
+          height: ${theme.baseIconSize}rem;
         }
         .Icon--isInline {
           display: inline-block;
@@ -82,7 +82,7 @@ const Icon = ({
           height: ${theme.baseIconTextSize}rem;
         }
       `}</style>
-    </span>
+    </div>
   )
 }
 

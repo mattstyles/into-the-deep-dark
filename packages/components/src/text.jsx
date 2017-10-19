@@ -10,6 +10,7 @@ export const H1 = ({children}) => (
     {children}
     <style jsx>{`
       h1 {
+        font-family: ${theme.fonts.heading};
         font-size: ${theme.baseFontSize * 2.5}rem;
         font-weight: 300;
         color: ${oc.gray[0]};
@@ -26,6 +27,7 @@ export const H2 = ({children}) => (
     {children}
     <style jsx>{`
       h2 {
+        font-family: ${theme.fonts.heading};
         font-size: ${theme.baseFontSize * 1.6}rem;
         font-weight: 300;
         color: ${oc.gray[0]};
@@ -42,9 +44,10 @@ export const H3 = ({children}) => (
     {children}
     <style jsx>{`
       h3 {
+        font-family: ${theme.fonts.main};
         font-size: ${theme.baseFontSize * 1.1}rem;
-        font-weight: 300;
-        color: ${oc.gray[2]};
+        font-weight: 500;
+        color: ${oc.gray[3]};
         line-height: 1.2;
         margin-top: 0rem;
         margin-bottom: ${theme.baseFontSize}rem;
@@ -59,6 +62,7 @@ export const P = ({children}) => (
     {children}
     <style jsx>{`
       p {
+        font-family: ${theme.fonts.main};
         font-size: ${theme.baseFontSize}rem;
         color: ${oc.gray[0]};
         line-height: ${theme.baseLineHeight};
@@ -89,6 +93,7 @@ export const Text = ({children, styles, align}) => (
     {children}
     <style jsx>{`
       span {
+        font-family: ${theme.fonts.main};
         font-size: ${theme.baseFontSize}rem;
         line-height: ${theme.baseLineHeight};
         color: ${oc.gray[0]};
@@ -111,6 +116,7 @@ export const Block = ({children, styles}) => (
     {children}
     <style jsx>{`
       span {
+        font-family: ${theme.fonts.main};
         font-size: ${theme.baseFontSize}rem;
         line-height: ${theme.baseLineHeight};
         color: ${oc.gray[0]};

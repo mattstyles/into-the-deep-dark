@@ -23,7 +23,7 @@ const App = ({children, styles}) => (
         margin: 0;
         background: ${oc.gray[9]};
         color: ${oc.gray[0]};
-        font-family: ${theme.fonts.main};
+        font-family: ${theme.fonts.fb};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         display: flex;
