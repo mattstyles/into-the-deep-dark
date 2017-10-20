@@ -1,4 +1,5 @@
 
+import oc from 'open-color'
 import cx from 'classnames'
 import {theme, Icon, Text} from '@idd/components'
 import {push} from 'raid-navigator'
@@ -66,8 +67,15 @@ const Navigate = ({
       a :global(.Option) {
         line-height: ${styling.itemHeight}rem;
         margin-right: ${theme.basePadding * 4}rem;
-        font-size: ${theme.baseFontSize * 0.85}rem;
+        font-size: ${theme.baseFontSize * 0.8}rem;
         vertical-align: middle;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: ${oc.gray[5]};
+        transition: color ${theme.transition.main}ms;
+      }
+      a:hover :global(.Option) {
+        color: ${oc.gray[0]};
       }
       li {
         background: ${styling.background};
@@ -78,6 +86,9 @@ const Navigate = ({
       }
       li.isSelected {
         background: ${styling.backgroundSelected};
+      }
+      li.isSelected :global(.Option) {
+        color: ${oc.gray[0]};
       }
     `}</style>
   </li>
