@@ -7,6 +7,7 @@ export {default as Button} from './button'
 export * from './text'
 export {default as Icon} from './icon'
 export {default as OptionSelected} from './optionSelected'
+export * from './optionList'
 
 export {default as theme} from './theme'
 
