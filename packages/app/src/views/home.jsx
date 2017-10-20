@@ -18,7 +18,11 @@ const HomeView = ({currentPath}) => (
       </div>
       <Button onClick={event => test.of('test')}>Dispatch action test</Button>
       <Button onClick={event => test1.of('1')}>Dispatch action test1</Button>
-      <Icon icon='VIEW_EXPLORE' from={getIcon} />
+      <Icon icon='VIEW_EXPLORE' from={getIcon} large />
+      <Icon icon='VIEW_COMMS' from={getIcon} large />
+      <Icon icon='VIEW_PERSONNEL' from={getIcon} large />
+      <Icon icon='VIEW_ENGINEERING' from={getIcon} large />
+      <Icon icon='VIEW_STOCK' from={getIcon} large />
     </div>
   </View>
 )

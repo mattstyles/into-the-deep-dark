@@ -96,12 +96,6 @@ const SideNav = ({route: {pathname}}) => (
         pathname={pathname}
       />
       <Navigate
-        icon='VIEW_PERSONNEL'
-        route='/personnel'
-        option='Personnel'
-        pathname={pathname}
-      />
-      <Navigate
         icon='VIEW_STOCK'
         route='/settings'
         option='Stock'
@@ -111,6 +105,12 @@ const SideNav = ({route: {pathname}}) => (
         icon='VIEW_ENGINEERING'
         route='/engineering'
         option='Engineering'
+        pathname={pathname}
+      />
+      <Navigate
+        icon='VIEW_PERSONNEL'
+        route='/personnel'
+        option='Personnel'
         pathname={pathname}
       />
       <Navigate

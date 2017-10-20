@@ -14,6 +14,7 @@ const Icon = ({
   spin,
   rotate,
   small,
+  large,
   inText,
   from,
   width,
@@ -40,6 +41,7 @@ const Icon = ({
           'Icon--isSpinning': spin,
           'Icon--rotate': rotate,
           'Icon--isSmall': small,
+          'Icon--isLarge': large,
           'Icon--withText': inText
         }, classes)}
         dangerouslySetInnerHTML={svg}
@@ -77,6 +79,10 @@ const Icon = ({
           width: ${theme.baseIconSize * 0.75}rem;
           height: ${theme.baseIconSize * 0.75}rem;
         }
+        .Icon--isLarge {
+          width: ${theme.baseIconSize * 1.25}rem;
+          height: ${theme.baseIconSize * 1.25}rem;
+        }
         .Icon--withText {
           width: ${theme.baseIconTextSize}rem;
           height: ${theme.baseIconTextSize}rem;
@@ -93,6 +99,7 @@ Icon.defaultProps = {
   spin: false,
   rotate: 0,
   small: false,
+  large: false,
   from: get
 }
 
@@ -101,6 +108,7 @@ Icon.propTypes = {
   inline: PropTypes.bool,
   rotate: PropTypes.number,
   small: PropTypes.bool,
+  large: PropTypes.bool,
   from: PropTypes.func
 }
 
