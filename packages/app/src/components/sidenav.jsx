@@ -1,7 +1,7 @@
 
 import oc from 'open-color'
 import cx from 'classnames'
-import {theme, Icon, Text} from '@idd/components'
+import {theme, Icon, Text, OptionSelected} from '@idd/components'
 import {push} from 'raid-navigator'
 import get from 'components/icons'
 
@@ -36,6 +36,7 @@ const Navigate = ({
         push(route)
       }}
     >
+      <OptionSelected isSelected={pathname === route} />
       <Icon
         icon={icon}
         width={styling.iconSize}
@@ -78,6 +79,8 @@ const Navigate = ({
         color: ${oc.gray[0]};
       }
       li {
+        position: relative;
+        padding-left: 2px;
         background: ${styling.background};
         transition: background ease-out ${theme.transition.main}ms;
       }
