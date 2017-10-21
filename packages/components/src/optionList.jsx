@@ -10,24 +10,26 @@ import Icon from './icon'
 import theme from './theme'
 import OptionSelected from './optionSelected'
 
-const OptionIcon = ({icon, iconSet, iconSize}) => (
+const OptionIcon = ({icon, iconSet, iconSize, inline}) => (
   <Icon
     icon={icon}
     width={iconSize}
     height={iconSize}
     from={iconSet}
-    inline
+    inline={inline}
   />
 )
 OptionIcon.defaultProps = {
   icon: '_default',
   iconSet: get,
-  iconSize: 2.2
+  iconSize: 2.2,
+  inline: true
 }
 OptionIcon.propTypes = {
   icon: PropTypes.string,
   iconSet: PropTypes.func,
-  iconSize: PropTypes.number
+  iconSize: PropTypes.number,
+  inline: PropTypes.bool
 }
 
 export const NavOption = ({
@@ -59,7 +61,6 @@ export const NavOption = ({
     <style jsx>{`
       a {
         text-decoration: none;
-        transition: background ${theme.transition.main}ms;
         display: block;
         width: 100%;
       }
@@ -144,6 +145,86 @@ NavOption.propTypes = {
   onClick: PropTypes.func,
   height: PropTypes.number,
   margin: PropTypes.number
+}
+
+export const IconOption = ({
+  icon,
+  iconSet,
+  iconSize,
+  isSelected,
+  route,
+  height,
+  onClick
+}) => (
+  <li key={`${route}`} className={cx({
+    isSelected
+  })}>
+    <a href={route} onClick={event => {
+      if (!onClick) return
+      event.preventDefault()
+      if (isSelected) return
+      onClick(route)
+    }}>
+      <OptionIcon
+        icon={icon}
+        iconSet={iconSet}
+        iconSize={iconSize}
+        inline={false}
+      />
+    </a>
+    <style jsx>{`
+      a {
+        text-decoration: none;
+        display: block;
+        padding: ${(height - iconSize) * 0.5}rem 0;
+        box-sizing: border-box;
+      }
+      a :global(i) {
+        display: block;
+        margin: auto;
+      }
+      a:hover :global(i) {
+        fill: ${oc.white};
+      }
+      li {
+        position: relative;
+        flex: 1;
+        height: ${height}rem;
+        background: rgba(0, 0, 0, 0);
+        transition: background ease-out ${theme.transition.main}ms;
+      }
+      li:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      li :global(svg) {
+        fill: ${oc.gray[5]};
+        transition: fill ease-out ${theme.transition.main}ms;
+      }
+      li:hover :global(svg) {
+        fill: ${oc.white};
+      }
+      li.isSelected :global(svg) {
+        fill: ${theme.color.primary};
+      }
+    `}</style>
+  </li>
+)
+IconOption.defaultProps = {
+  icon: null,
+  iconSet: get,
+  iconSize: 2.6,
+  isSelected: false,
+  onClick: null,
+  height: 4.4
+}
+IconOption.propTypes = {
+  icon: PropTypes.string,
+  iconSet: PropTypes.func,
+  iconSize: PropTypes.number,
+  route: PropTypes.string.isRequired,
+  isSelected: PropTypes.bool,
+  onClick: PropTypes.func,
+  height: PropTypes.number
 }
 
 // @TODO
