@@ -123,7 +123,7 @@ export const NavOption = ({
   </li>
 )
 NavOption.defaultProps = {
-  icon: false,
+  icon: null,
   text: '',
   iconSet: get,
   iconSize: 2.6,
@@ -134,7 +134,7 @@ NavOption.defaultProps = {
   margin: 1
 }
 NavOption.propTypes = {
-  icon: PropTypes.bool,
+  icon: PropTypes.string,
   text: PropTypes.string,
   iconSet: PropTypes.func,
   iconSize: PropTypes.number,
@@ -145,6 +145,11 @@ NavOption.propTypes = {
   height: PropTypes.number,
   margin: PropTypes.number
 }
+
+// @TODO
+export const DropdownOption = () => (
+  <div />
+)
 
 export const OptionList = ({children, height, isHorizontal, margin}) => (
   <nav>
