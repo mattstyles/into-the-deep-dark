@@ -6,7 +6,7 @@ import {getCurrentPath} from 'core/navigation'
 
 const HomeView = ({currentPath}) => (
   <View main>
-    <h1>Home</h1>
+    <h1>Home {currentPath}</h1>
   </View>
 )
 

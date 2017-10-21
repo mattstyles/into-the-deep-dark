@@ -23,6 +23,13 @@ export const getCurrentRoute = createSelector(
     route: stack[index]
   })
 )
+export const getCurrentPath = createSelector(
+  getCurrentStackIndex,
+  getStack,
+  (index, stack) => ({
+    currentPath: stack[index].pathname
+  })
+)
 
 export const Navigation = connect(
   createSelector(
@@ -59,13 +66,6 @@ export const Link = ({children, route, state}) => (
       }
     `}</style>
   </a>
-)
-
-export const getCurrentPath = createSelector(
-  getNavigation,
-  ({index, stack}) => ({
-    currentPath: stack[index].pathname
-  })
 )
 
 const onNavClick = (isDisabled, onClick) => event => {

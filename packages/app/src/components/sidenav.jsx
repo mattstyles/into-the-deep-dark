@@ -11,7 +11,7 @@ const styling = {
 }
 
 const options = [
-  {icon: 'VIEW_COMMS', route: '/', text: 'Comms'},
+  {icon: 'VIEW_COMMS', route: '/comms', text: 'Comms'},
   {icon: 'VIEW_STOCK', route: '/stock', text: 'Stock'},
   {icon: 'VIEW_ENGINEERING', route: '/engineering', text: 'Engineeering'},
   {icon: 'VIEW_PERSONNEL', route: '/personnel', text: 'Personnel'},
@@ -19,9 +19,8 @@ const options = [
 ]
 
 const footerOptions = [
-  {icon: 'ARROW', route: '/'},
-  {icon: 'LOADING', route: '/settings'},
-  {icon: 'CHECK', route: '/personnel'}
+  {icon: 'HOME', route: '/'},
+  {icon: 'SETTINGS', route: '/settings'}
 ]
 
 const SideNav = ({route: {pathname}}) => (
@@ -51,6 +50,7 @@ const SideNav = ({route: {pathname}}) => (
             <IconOption
               key={opt.icon}
               icon={opt.icon}
+              iconSize={1.6}
               route={opt.route}
               isSelected={pathname === opt.route}
               onClick={push}

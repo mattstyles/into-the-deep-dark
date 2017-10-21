@@ -24,7 +24,8 @@ const theme = {
   color: {
     primary: oc.green[5],
     primaryDark: oc.green[7],
-    primaryLight: oc.green[4]
+    primaryLight: oc.green[4],
+    header: oc.gray[8]
   }
 }
 
