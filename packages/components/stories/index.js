@@ -4,6 +4,7 @@ import './text'
 import './layout'
 import './icons'
 import './optionList'
+import './badge'
 
 import {isIosSafari} from '../src'
 

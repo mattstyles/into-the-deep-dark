@@ -18,7 +18,8 @@ const Icon = ({
   inText,
   from,
   width,
-  height
+  height,
+  fit
 }) => {
   let svg = {
     __html: from(icon)
@@ -29,21 +30,25 @@ const Icon = ({
   if (height) sizeStyles.height = `${height}rem`
 
   return (
-    <div className={cx({
-      'Icon--isInline': inline
-    })}>
+    <div
+      className={cx({
+        'Icon': true,
+        'Icon--isInline': inline,
+        'Icon--isSmall': small,
+        'Icon--isLarge': large,
+        'Icon--isSpinning': spin,
+        'Icon--rotate': rotate,
+        'Icon--withText': inText,
+        'Icon--fit': fit
+      }, classes)}
+      style={{
+        ...sizeStyles,
+        ...styles
+      }}
+    >
       <i
-        style={{
-          ...sizeStyles,
-          ...styles
-        }}
-        className={cx('Icon', {
-          'Icon--isSpinning': spin,
-          'Icon--rotate': rotate,
-          'Icon--isSmall': small,
-          'Icon--isLarge': large,
-          'Icon--withText': inText
-        }, classes)}
+        className={cx({
+        })}
         dangerouslySetInnerHTML={svg}
       />
       <style jsx>{`
@@ -51,7 +56,7 @@ const Icon = ({
           from { transform: rotateZ( 0deg ) }
           to { transform: rotateZ( 360deg ) }
         }
-        i :global(svg) {
+        i, i :global(svg) {
           fill: ${oc.white};
           position: absolute;
           left: 0;
@@ -68,6 +73,13 @@ const Icon = ({
         .Icon--isInline {
           display: inline-block;
           vertical-align: middle;
+        }
+        .Icon--fit {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
         }
         .Icon--isSpinning {
           animation: spinZ ${theme.transition.spin}ms infinite linear;
@@ -100,7 +112,8 @@ Icon.defaultProps = {
   rotate: 0,
   small: false,
   large: false,
-  from: get
+  from: get,
+  fit: false
 }
 
 Icon.propTypes = {
@@ -109,7 +122,8 @@ Icon.propTypes = {
   rotate: PropTypes.number,
   small: PropTypes.bool,
   large: PropTypes.bool,
-  from: PropTypes.func
+  from: PropTypes.func,
+  fit: PropTypes.bool
 }
 
 export default Icon

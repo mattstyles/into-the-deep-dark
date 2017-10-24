@@ -64,7 +64,7 @@ export const NavOption = ({
         display: block;
         width: 100%;
       }
-      a :global(i) {
+      a :global(.Icon) {
         transform-origin: center;
         transform: scale(0.8);
         transition: transform ${theme.transition.main}ms;
@@ -111,7 +111,7 @@ export const NavOption = ({
         margin-right: ${theme.basePadding * margin}rem;
         text-align: center;
       }
-      li.isHorizontal :global(i) {
+      li.isHorizontal :global(.Icon) {
         margin-left: 0;
       }
       li.isSelected.isHorizontal {

@@ -6,6 +6,7 @@ export {default as Pane} from './pane'
 export {default as Button} from './button'
 export * from './text'
 export {default as Icon} from './icon'
+export {default as Badge} from './badge'
 export {default as OptionSelected} from './optionSelected'
 export * from './optionList'
 
