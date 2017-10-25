@@ -86,9 +86,10 @@ export const TextBlock = ({children, styles}) => (
   </div>
 )
 
-export const Text = ({children, styles, classes, align}) => (
+export const Text = ({children, styles, classes, align, block}) => (
   <span className={cx({
-    align: align
+    align: align,
+    block: block
   }, classes)}style={styles}>
     {children}
     <style jsx>{`
@@ -101,14 +102,19 @@ export const Text = ({children, styles, classes, align}) => (
       .align {
         vertical-align: middle;
       }
+      .block {
+        display: block;
+      }
     `}</style>
   </span>
 )
 Text.defaultProps = {
-  align: false
+  align: false,
+  block: false
 }
 Text.propTypes = {
-  align: PropTypes.bool
+  align: PropTypes.bool,
+  block: PropTypes.bool
 }
 
 export const Block = ({children, styles}) => (

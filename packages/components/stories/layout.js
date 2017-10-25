@@ -78,18 +78,25 @@ storiesOf('Layout', module)
   ))
   .add('Scrollable', () => (
     <App>
-      <Scrollable horizontal vertical styles={{
-        width: 400,
-        height: 300,
-        margin: 20,
-        background: `linear-gradient(30deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1))`
-      }}>
-        <div style={{
-          width: 800,
-          height: 400
+      <View>
+        <Text block styles={{margin: 20}}>
+          Scrollable view with scoped scrollable component with custom scrollbars
+        </Text>
+        <Scrollable horizontal vertical styles={{
+          width: 400,
+          height: 300,
+          margin: 20,
+          background: `linear-gradient(30deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1))`
         }}>
-          <SomeText />
-        </div>
-      </Scrollable>
+          <div style={{
+            width: 800,
+            height: 400
+          }}>
+            <SomeText />
+          </div>
+        </Scrollable>
+        <SomeText />
+        <SomeText />
+      </View>
     </App>
   ))
