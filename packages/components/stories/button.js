@@ -1,11 +1,70 @@
 
-import React from 'react'
+import React, {Component} from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 import oc from 'open-color'
-import {App, Button, P} from '../src'
+import {App, Button, WorkButton, P, Icon} from '../src'
+
+class DoWork extends Component {
+  constructor () {
+    super()
+    this.state = {
+      progress: 0
+    }
+
+    this.animate = this.animate.bind(this)
+    this.onClick = this.onClick.bind(this)
+  }
+
+  animate () {
+    if (this.state.progress >= 1) {
+      this.setState(state => ({
+        ...state,
+        progress: 0
+      }))
+      return
+    }
+
+    this.setState(state => {
+      const newProgress = this.state.progress + this.props.increment
+      return {
+        ...state,
+        progress: newProgress > 1 ? 1 : newProgress
+      }
+    })
+    window.requestAnimationFrame(this.animate)
+  }
+
+  onClick () {
+    this.setState(state => ({
+      ...state,
+      progress: 0
+    }))
+    this.animate()
+  }
+
+  render () {
+    const {progress} = this.state
+    return (
+      <WorkButton
+        progress={progress}
+        icon={!!progress}
+        onClick={this.onClick}
+      >
+        {progress > 0
+          ? <Icon icon='LOADING' spin inline inText styles={{marginRight: 4}} />
+          : null
+        }
+        {progress === 0 || progress === 1
+          ? 'Start'
+          : 'Working'
+        }
+      </WorkButton>
+    )
+  }
+}
 
 storiesOf('Button', module)
   .add('simple text', () => (
@@ -74,5 +133,22 @@ storiesOf('Button', module)
           Circularised button
         </Button>
       </div>
+    </App>
+  ))
+  .add('Basic work button', () => (
+    <App styles={{padding: 30}}>
+      <div>
+        <WorkButton
+          progress={0.3}
+          onClick={action('Button clicked')}
+        >
+          Circularised button
+        </WorkButton>
+      </div>
+    </App>
+  ))
+  .add('Work button', () => (
+    <App styles={{padding: 30}}>
+      <DoWork increment={0.01} />
     </App>
   ))

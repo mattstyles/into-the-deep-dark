@@ -3,9 +3,10 @@ import oc from 'open-color'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import {toPerc, propRange} from './utils'
 import theme from './theme'
 
-const Button = ({
+export const Button = ({
   children,
   onClick,
   styles,
@@ -26,6 +27,7 @@ const Button = ({
     {children}
     <style jsx>{`
       .Btn {
+        position: relative;
         font-family: ${theme.fonts.main};
         background: ${oc.green[5]};
         color: ${oc.white};
@@ -69,7 +71,7 @@ const Button = ({
         border-radius: 200px;
       }
       .Btn--icon {
-        padding: ${theme.basePadding * 10}px;
+        padding: 13px;
         line-height: 1;
       }
       .Btn--icon :global(svg) {
@@ -91,12 +93,59 @@ Button.defaultProps = {
   styles: null,
   classes: null,
   inline: false,
-  icon: false
+  icon: false,
+  circular: false
 }
-
 Button.propTypes = {
   inline: PropTypes.bool,
-  icon: PropTypes.bool
+  icon: PropTypes.bool,
+  circular: PropTypes.bool
 }
 
-export default Button
+export const WorkButton = ({
+  children,
+  onClick,
+  styles,
+  classes,
+  inline,
+  circular,
+  icon,
+  progress
+}) => (
+  <Button
+    onClick={onClick}
+    styles={styles}
+    classes={classes}
+    inline={inline}
+    circular={circular}
+    icon={icon}
+  >
+    <div className='Worker' style={{
+      width: `${toPerc(progress)}%`
+    }} />
+    {children}
+    <style jsx>{`
+      .Worker {
+        position: absolute;
+        left: 0;
+        top:0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.25);
+      }
+    `}</style>
+  </Button>
+)
+WorkButton.defaultProps = {
+  onClick: () => {},
+  styles: null,
+  classes: null,
+  inline: false,
+  icon: false,
+  circular: false
+}
+WorkButton.propTypes = {
+  inline: PropTypes.bool,
+  icon: PropTypes.bool,
+  circular: PropTypes.bool,
+  progress: propRange(0, 1)
+}
