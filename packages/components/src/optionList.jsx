@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import get from './icons'
 import {Text} from './text'
 import Icon from './icon'
+import Badge from './badge'
 import theme from './theme'
 import OptionSelected from './optionSelected'
 
@@ -42,7 +43,8 @@ export const NavOption = ({
   isHorizontal,
   onClick,
   height,
-  margin
+  margin,
+  badge
 }) => (
   <li key={`${text}-${route}`} className={cx({
     isSelected,
@@ -57,6 +59,15 @@ export const NavOption = ({
       <OptionSelected isSelected={isSelected} isHorizontal={isHorizontal} />
       {icon && <OptionIcon icon={icon} iconSet={iconSet} iconSize={iconSize} />}
       {text && <Text classes='Option'>{text}</Text>}
+      <Badge
+        classes={cx('Badge', {
+          'Badge--isVisible': badge
+        })}
+        background={theme.color.error}
+        inline
+        >
+        <Text classes='Badge-text'>{badge}</Text>
+      </Badge>
     </a>
     <style jsx>{`
       a {
@@ -80,16 +91,30 @@ export const NavOption = ({
         display: inline-block;
         line-height: ${height}rem;
         margin-left: ${theme.basePadding * (icon ? 0.5 : 1)}rem;
-        margin-right: ${theme.basePadding * 4}rem;
         font-size: ${theme.baseFontSize * 0.8}rem;
         vertical-align: middle;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: ${oc.gray[5]};
-        transition: color ${theme.transition.main}ms;
+        transition: color ease-out ${theme.transition.main}ms;
       }
       a:hover :global(.Option) {
         color: ${oc.gray[0]};
+      }
+      a :global(.Badge) {
+        opacity: 0;
+        transition: opacity ease-out ${theme.transition.main}ms;
+        width: ${iconSize * 0.75}rem;
+        height: ${iconSize * 0.75}rem;
+        margin-left: ${theme.basePadding * 2}rem;
+        margin-right: ${theme.basePadding * 2}rem;
+      }
+      a :global(.Badge--isVisible) {
+        opacity: 1;
+      }
+      a :global(.Badge-text) {
+        font-size: ${theme.baseFontSize * 0.8}rem;
+        font-family: ${theme.fonts.fb};
       }
       li {
         position: relative;
@@ -114,6 +139,9 @@ export const NavOption = ({
       li.isHorizontal :global(.Icon) {
         margin-left: 0;
       }
+      li.isHorizontal :global(.Badge) {
+        display: none;
+      }
       li.isSelected.isHorizontal {
         background: rgba(0, 0, 0, 0);
       }
@@ -132,7 +160,8 @@ NavOption.defaultProps = {
   isHorizontal: false,
   onClick: null,
   height: 4.4,
-  margin: 1
+  margin: 1,
+  badge: ''
 }
 NavOption.propTypes = {
   icon: PropTypes.string,
@@ -144,7 +173,11 @@ NavOption.propTypes = {
   isHorizontal: PropTypes.bool,
   onClick: PropTypes.func,
   height: PropTypes.number,
-  margin: PropTypes.number
+  margin: PropTypes.number,
+  badge: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ])
 }
 
 export const IconOption = ({

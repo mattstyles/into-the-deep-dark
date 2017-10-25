@@ -9,7 +9,7 @@ storiesOf('Layout', module)
   .add('Scroll View', () => (
     <App>
       <View main>
-        <div style={{background: oc.gray[1], padding: 30}}>
+        <div style={{background: oc.green[7], padding: 30}}>
           <Text>Title Block</Text>
         </div>
         <View scroll isBottom>

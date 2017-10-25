@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import { storiesOf } from '@storybook/react'
 // import { action } from '@storybook/addon-actions'
 
-import {App, OptionList, NavOption} from '../src'
+import {App, OptionList, NavOption, Button} from '../src'
 
 class SelectableList extends Component {
   constructor () {
@@ -54,6 +54,43 @@ class SelectableList extends Component {
   }
 }
 
+class BadgeSelectableList extends Component {
+  constructor () {
+    super()
+    this.state = {
+      value: 0
+    }
+  }
+
+  onSelect (amount) {
+    return event => {
+      this.setState(state => ({
+        ...state,
+        value: state.value + amount
+      }))
+    }
+  }
+
+  render () {
+    const {value} = this.state
+    return (
+      <App>
+        <OptionList>
+          <NavOption text='Inbox' route='#' badge={value} />
+        </OptionList>
+        <div><Button onClick={this.onSelect(1)}>Add</Button></div>
+        <div><Button onClick={this.onSelect(-1)}>Subtract</Button></div>
+        <style jsx>{`
+          div {
+            width: 200px;
+            margin: 12px;
+          }
+        `}</style>
+      </App>
+    )
+  }
+}
+
 storiesOf('Option List', module)
   .add('Vertical', () => (
     <App>
@@ -74,9 +111,7 @@ storiesOf('Option List', module)
     </App>
   ))
   .add('Vertical Selectable', () => (
-    <App>
-      <SelectableList />
-    </App>
+    <SelectableList />
   ))
   .add('Horizontal', () => (
     <App>
@@ -97,7 +132,17 @@ storiesOf('Option List', module)
     </App>
   ))
   .add('Horizontal Selectable', () => (
+    <SelectableList isHorizontal />
+  ))
+  .add('Vertical w/ badge', () => (
     <App>
-      <SelectableList isHorizontal />
+      <OptionList>
+        <NavOption text='foo' icon='LOADING' route='#' badge='23' />
+        <NavOption text='two words' icon='ARROW' route='#' isSelected />
+        <NavOption text='verylongword' icon='CHECK' route='#' badge='1' />
+      </OptionList>
     </App>
+  ))
+  .add('Change badge', () => (
+    <BadgeSelectableList />
   ))
