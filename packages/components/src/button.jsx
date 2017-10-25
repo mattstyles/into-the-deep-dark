@@ -71,7 +71,7 @@ export const Button = ({
         border-radius: 200px;
       }
       .Btn--icon {
-        padding: 13px;
+        padding: 13px 14px;
         line-height: 1;
       }
       .Btn--icon :global(svg) {

@@ -38,6 +38,9 @@ class DoWork extends Component {
   }
 
   onClick () {
+    if (this.state.progress > 0) {
+      return
+    }
     this.setState(state => ({
       ...state,
       progress: 0
@@ -85,13 +88,13 @@ storiesOf('Button', module)
         </Button>
         <style jsx>{`
           div :global(.CustomBtn) {
-            background: ${oc.green[5]};
+            background: ${oc.blue[5]};
           }
           div :global(.CustomBtn:hover) {
-            background: ${oc.green[7]};
+            background: ${oc.blue[7]};
           }
           div :global(.CustomBtn:active) {
-            background: ${oc.green[8]};
+            background: ${oc.blue[8]};
           }
         `}</style>
       </div>
@@ -149,6 +152,6 @@ storiesOf('Button', module)
   ))
   .add('Work button', () => (
     <App styles={{padding: 30}}>
-      <DoWork increment={0.01} />
+      <div><DoWork increment={0.01} /></div>
     </App>
   ))
