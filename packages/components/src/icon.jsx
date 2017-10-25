@@ -19,7 +19,8 @@ const Icon = ({
   from,
   width,
   height,
-  fit
+  fit,
+  color
 }) => {
   let svg = {
     __html: from(icon)
@@ -57,7 +58,7 @@ const Icon = ({
           to { transform: rotateZ( 360deg ) }
         }
         i, i :global(svg) {
-          fill: ${oc.white};
+          fill: ${color};
           position: absolute;
           left: 0;
           top: 0;
@@ -113,7 +114,8 @@ Icon.defaultProps = {
   small: false,
   large: false,
   from: get,
-  fit: false
+  fit: false,
+  color: oc.white
 }
 
 Icon.propTypes = {
@@ -123,7 +125,8 @@ Icon.propTypes = {
   small: PropTypes.bool,
   large: PropTypes.bool,
   from: PropTypes.func,
-  fit: PropTypes.bool
+  fit: PropTypes.bool,
+  color: PropTypes.string
 }
 
 export default Icon
