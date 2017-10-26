@@ -130,8 +130,8 @@ class Table extends Component {
   }
 
   // These calculations are performed to reduce rendering time
-  prepareHeaders () {
-    const {columns} = this.props
+  prepareHeaders (props) {
+    const {columns} = props
     let headerData = Object
       .keys(columns)
       .reduce((headers, key) => ({
@@ -149,9 +149,8 @@ class Table extends Component {
   }
 
   // These calculations are performed to reduce rendering time
-  prepareRows () {
-    const {columns, data, isStriped, onRowClick} = this.props
-
+  prepareRows (props) {
+    const {columns, data, isStriped, onRowClick} = props
     this.rows = data.map((row, i) => (
       <Row
         key={`row${i}`}
@@ -166,15 +165,19 @@ class Table extends Component {
   }
 
   componentWillMount () {
-    this.prepareHeaders()
-    this.prepareRows()
+    this.prepareHeaders(this.props)
+    this.prepareRows(this.props)
   }
 
   componentWillReceiveProps (next) {
-    console.log('will receive props', this.props, next, this.props === next)
+    // console.log('will receive props', this.props, next, this.props === next)
     // @TODO only recalculate rows and headers if they change
-    this.prepareHeaders()
-    this.prepareRows()
+    // if (this.props.data === next.data && this.props.columns === next.columns) {
+    //   return
+    // }
+
+    this.prepareHeaders(next)
+    this.prepareRows(next)
   }
 
   render () {
