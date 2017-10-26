@@ -10,6 +10,7 @@ export {default as Icon} from './icon'
 export {default as Badge} from './badge'
 export {default as OptionSelected} from './optionSelected'
 export * from './optionList'
+export {default as Table} from './table'
 
 export {default as theme} from './theme'
 

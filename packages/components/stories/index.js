@@ -1,10 +1,11 @@
 
 import './button'
-import './text'
-import './layout'
 import './icons'
-import './optionList'
+import './text'
 import './badge'
+import './layout'
+import './optionList'
+import './table'
 
 import {isIosSafari} from '../src'
 
