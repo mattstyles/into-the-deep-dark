@@ -7,7 +7,7 @@ import oc from 'open-color'
 import theme from './theme'
 import {noop} from './utils'
 
-const Cell = ({value, meta}) => (
+const StyledCell = ({value, meta}) => (
   <div className='Cell'>
     {value}
     <style jsx>{`
@@ -17,9 +17,16 @@ const Cell = ({value, meta}) => (
     `}</style>
   </div>
 )
+
+const Cell = ({value, meta, component: Element}) => {
+  return (
+    <Element value={value} meta={meta} />
+  )
+}
 Cell.defaultProps = {
   value: '',
-  meta: {}
+  meta: {},
+  component: StyledCell
 }
 Cell.propTypes = {
   value: PropTypes.oneOfType([
@@ -31,23 +38,30 @@ Cell.propTypes = {
 
 const Row = ({
   data,
-  meta,
+  columns,
   classes,
+  isHeader,
   onClick
 }) => (
   <div
-    className={cx('Row', classes)}
+    className={cx('Row', {
+      'Header': isHeader,
+      'Row--isClickable': onClick !== noop
+    }, classes)}
     onClick={event => onClick(data)}
   >
-    <pre>{JSON.stringify(meta)}</pre>
     {
       Object
-        .keys(data)
+        .keys(columns)
         .map(key => (
           <Cell
             key={key}
             value={data[key]}
-            meta={meta[key]}
+            meta={columns[key]}
+            component={isHeader
+              ? columns[key].headerComponent
+              : columns[key].cellComponent
+            }
           />
         ))
     }
@@ -56,11 +70,13 @@ const Row = ({
         display: flex;
         flex-direction: row;
         padding: ${theme.basePadding * 0.5}rem ${theme.basePadding * 2}rem;
-        cursor: pointer;
       }
       .Row:hover,
       .Striped:nth-child(2n + 1):hover {
         background: rgba(255, 255, 255, 0.05);
+      }
+      .Row--isClickable {
+        cursor: pointer;
       }
       .Striped:nth-child(2n + 1) {
         background: rgba(0, 0, 0, 0.15);
@@ -72,6 +88,10 @@ const Row = ({
         font-size: ${theme.baseFontSize * 0.7}rem;
         font-weight: 500;
         border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+        cursor: auto;
+      }
+      .Header:hover {
+        background: ${oc.gray[9]};
       }
     `}</style>
   </div>
@@ -79,12 +99,14 @@ const Row = ({
 Row.defaultProps = {
   data: {},
   meta: {},
-  onClick: noop
+  onClick: noop,
+  isHeader: false
 }
 Row.propTypes = {
   data: PropTypes.object,
   meta: PropTypes.object,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  isHeader: PropTypes.bool
 }
 
 class Table extends Component {
@@ -95,21 +117,71 @@ class Table extends Component {
   }
   static propTypes = {
     data: PropTypes.array.isRequired,
-    headers: PropTypes.object.isRequired,
+    columns: PropTypes.object.isRequired,
     isStriped: PropTypes.bool,
     showHeader: PropTypes.bool,
     onRowClick: PropTypes.func
+  }
+
+  constructor () {
+    super()
+    this.headers = []
+    this.rows = []
+  }
+
+  // These calculations are performed to reduce rendering time
+  prepareHeaders () {
+    const {columns} = this.props
+    let headerData = Object
+      .keys(columns)
+      .reduce((headers, key) => ({
+        ...headers,
+        [key]: columns[key].value
+      }), {})
+
+    this.headers = (
+      <Row
+        isHeader
+        data={headerData}
+        columns={columns}
+      />
+    )
+  }
+
+  // These calculations are performed to reduce rendering time
+  prepareRows () {
+    const {columns, data, isStriped, onRowClick} = this.props
+
+    this.rows = data.map((row, i) => (
+      <Row
+        key={`row${i}`}
+        classes={cx({
+          'Striped': isStriped
+        })}
+        data={row}
+        columns={columns}
+        onClick={onRowClick}
+      />
+    ))
+  }
+
+  componentWillMount () {
+    this.prepareHeaders()
+    this.prepareRows()
+  }
+
+  componentWillReceiveProps (next) {
+    console.log('will receive props', this.props, next, this.props === next)
+    // @TODO only recalculate rows and headers if they change
+    this.prepareHeaders()
+    this.prepareRows()
   }
 
   render () {
     const {
       styles,
       classes,
-      data,
-      headers,
-      showHeader,
-      isStriped,
-      onRowClick
+      showHeader
     } = this.props
 
     return (
@@ -117,33 +189,8 @@ class Table extends Component {
         style={styles}
         className={cx('Table', classes)}
       >
-        {
-          showHeader && <Row
-            classes='Header'
-            data={Object
-              .keys(headers)
-              .reduce((obj, key) => ({
-                ...obj,
-                [key]: headers[key].value
-              }), {})
-            }
-            meta={headers}
-          />
-        }
-        {
-          data
-            .map((item, n) =>
-              <Row
-                classes={cx({
-                  'Striped': isStriped
-                })}
-                key={`item${n}`}
-                data={item}
-                meta={headers}
-                onClick={onRowClick}
-              />
-            )
-        }
+        {showHeader && this.headers}
+        {this.rows}
         <style jsx>{`
           .Table {
             font-family: ${theme.fonts.main};
