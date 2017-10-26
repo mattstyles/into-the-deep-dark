@@ -1,10 +1,28 @@
 
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 // import oc from 'open-color'
 
 import {App, View, Table} from '../src'
 
+const headers = {
+  name: {
+    value: 'name',
+    flex: 0.5,
+    onClick: action('name')
+  },
+  age: {
+    value: 'age',
+    flex: 0.25,
+    onClick: action('age')
+  },
+  occupation: {
+    value: 'occupation',
+    flex: 1,
+    onClick: action('occupation')
+  }
+}
 const data = [
   {
     name: 'Dave',
@@ -113,7 +131,11 @@ storiesOf('Table', module)
   .add('Basic table', () => (
     <App>
       <View main>
-        <Table data={data} />
+        <Table
+          headers={headers}
+          data={data}
+          onRowClick={action('row click')}
+        />
       </View>
     </App>
   ))
@@ -122,6 +144,7 @@ storiesOf('Table', module)
       <View main>
         <Table
           isStriped
+          showHeader
           headers={headers2}
           data={data2}
         />

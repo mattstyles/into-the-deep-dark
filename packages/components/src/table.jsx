@@ -5,6 +5,7 @@ import cx from 'classnames'
 import oc from 'open-color'
 
 import theme from './theme'
+import {noop} from './utils'
 
 const Cell = ({value, meta}) => (
   <div className='Cell'>
@@ -21,19 +22,32 @@ Cell.defaultProps = {
   meta: {}
 }
 Cell.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   meta: PropTypes.object
 }
 
-const Row = ({data, header, classes}) => (
-  <div className={cx('Row', classes)}>
+const Row = ({
+  data,
+  meta,
+  classes,
+  onClick
+}) => (
+  <div
+    className={cx('Row', classes)}
+    onClick={event => onClick(data)}
+  >
+    <pre>{JSON.stringify(meta)}</pre>
     {
-      Object.keys(data)
+      Object
+        .keys(data)
         .map(key => (
           <Cell
             key={key}
             value={data[key]}
-            meta={header[key]}
+            meta={meta[key]}
           />
         ))
     }
@@ -42,6 +56,7 @@ const Row = ({data, header, classes}) => (
         display: flex;
         flex-direction: row;
         padding: ${theme.basePadding * 0.5}rem ${theme.basePadding * 2}rem;
+        cursor: pointer;
       }
       .Row:hover,
       .Striped:nth-child(2n + 1):hover {
@@ -63,23 +78,27 @@ const Row = ({data, header, classes}) => (
 )
 Row.defaultProps = {
   data: {},
-  header: {}
+  meta: {},
+  onClick: noop
 }
 Row.propTypes = {
   data: PropTypes.object,
-  header: PropTypes.header
+  meta: PropTypes.object,
+  onClick: PropTypes.func
 }
 
 class Table extends Component {
   static defaultProps = {
-    data: [],
-    headers: {},
-    isStriped: false
+    isStriped: false,
+    showHeader: false,
+    onRowClick: noop
   }
   static propTypes = {
-    data: PropTypes.array,
-    headers: PropTypes.object,
-    isStriped: PropTypes.bool
+    data: PropTypes.array.isRequired,
+    headers: PropTypes.object.isRequired,
+    isStriped: PropTypes.bool,
+    showHeader: PropTypes.bool,
+    onRowClick: PropTypes.func
   }
 
   render () {
@@ -88,7 +107,9 @@ class Table extends Component {
       classes,
       data,
       headers,
-      isStriped
+      showHeader,
+      isStriped,
+      onRowClick
     } = this.props
 
     return (
@@ -97,28 +118,31 @@ class Table extends Component {
         className={cx('Table', classes)}
       >
         {
-          <Row
+          showHeader && <Row
             classes='Header'
-            data={Object.keys(headers)
+            data={Object
+              .keys(headers)
               .reduce((obj, key) => ({
                 ...obj,
                 [key]: headers[key].value
               }), {})
             }
-            header={headers}
+            meta={headers}
           />
         }
         {
-          data.map((item, n) =>
-            <Row
-              classes={cx({
-                'Striped': isStriped
-              })}
-              key={`item${n}`}
-              data={item}
-              header={headers}
-            />
-          )
+          data
+            .map((item, n) =>
+              <Row
+                classes={cx({
+                  'Striped': isStriped
+                })}
+                key={`item${n}`}
+                data={item}
+                meta={headers}
+                onClick={onRowClick}
+              />
+            )
         }
         <style jsx>{`
           .Table {

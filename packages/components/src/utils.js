@@ -13,3 +13,5 @@ export const propRange = (min, max) => (props, propName, componentName) => {
     return new Error(propValidationMsg(propName, componentName))
   }
 }
+
+export const noop = () => {}
