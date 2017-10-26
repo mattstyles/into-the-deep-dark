@@ -6,6 +6,7 @@ import oc from 'open-color'
 
 import theme from './theme'
 import {noop} from './utils'
+import Scrollable from './scrollable'
 
 const StyledCell = ({value, meta}) => (
   <div className='Cell'>
@@ -82,6 +83,8 @@ const Row = ({
         background: rgba(0, 0, 0, 0.15);
       }
       .Header {
+        position: sticky;
+        top: 0;
         background: ${oc.gray[9]};
         color: ${oc.gray[6]};
         text-transform: uppercase;
@@ -113,7 +116,8 @@ class Table extends Component {
   static defaultProps = {
     isStriped: false,
     showHeader: false,
-    onRowClick: noop
+    onRowClick: noop,
+    bodyHeight: null
   }
   static propTypes = {
     data: PropTypes.array.isRequired,
@@ -184,7 +188,8 @@ class Table extends Component {
     const {
       styles,
       classes,
-      showHeader
+      showHeader,
+      bodyHeight
     } = this.props
 
     return (
@@ -193,7 +198,12 @@ class Table extends Component {
         className={cx('Table', classes)}
       >
         {showHeader && this.headers}
-        {this.rows}
+        <Scrollable vertical styles={{
+          height: bodyHeight
+        }}>
+          {this.rows}
+        </Scrollable>
+
         <style jsx>{`
           .Table {
             font-family: ${theme.fonts.main};

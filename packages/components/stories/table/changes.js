@@ -92,18 +92,24 @@ class ControlledTable extends Component {
     this.state = {
       showHeader: false,
       isStriped: false,
+      height: null,
       data,
       columns
     }
   }
 
-  toggle = key => {
-    return event => {
-      this.setState(state => ({
-        ...state,
-        [key]: !state[key]
-      }))
-    }
+  toggle = key => event => {
+    this.setState(state => ({
+      ...state,
+      [key]: !state[key]
+    }))
+  }
+
+  setValue = (key, value) => event => {
+    this.setState(state => ({
+      ...state,
+      [key]: value
+    }))
   }
 
   sort = key => event => {
@@ -116,7 +122,7 @@ class ControlledTable extends Component {
   }
 
   render () {
-    const {showHeader, isStriped, columns, data} = this.state
+    const {showHeader, isStriped, columns, data, height} = this.state
     return (
       <View main>
         <div className='Root'>
@@ -138,6 +144,15 @@ class ControlledTable extends Component {
           </Button>
           <Button onClick={this.sort('name')}>Sort by name</Button>
           <Button onClick={this.sort('assignment')}>Sort by assignment</Button>
+          <Button
+            classes={cx({
+              isSelected: height
+            })}
+            onClick={this.setValue('height', 190)}
+          >Set height</Button>
+          <Button
+            onClick={this.setValue('height', null)}
+          >Clear height</Button>
           <style jsx>{`
             .Root {
               padding: 10px;
@@ -160,6 +175,7 @@ class ControlledTable extends Component {
             columns={columns}
             data={data}
             onRowClick={action('row click')}
+            bodyHeight={height}
           />
           <style jsx>{`
             .Root {
