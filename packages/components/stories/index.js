@@ -6,6 +6,7 @@ import './badge'
 import './layout'
 import './optionList'
 import './table'
+import './gradients'
 
 import {isIosSafari} from '../src'
 

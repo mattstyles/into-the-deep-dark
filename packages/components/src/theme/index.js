@@ -44,7 +44,12 @@ const theme = {
       rgba(0, 0, 0, 0.1) 0,
       rgba(0, 0, 0, 0.3) 60%,
       rgba(0, 0, 0, 0.4) 100%
-    )`
+    )`,
+    primary: `linear-gradient(30deg, ${oc.green[8]}, ${oc.green[4]})`,
+    primaryShift: `linear-gradient(30deg, ${oc.teal[5]}, ${oc.green[4]})`,
+    primaryLight: `linear-gradient(30deg, ${oc.lime[3]}, ${oc.green[7]})`,
+    blue: `linear-gradient(30deg, ${oc.violet[5]}, ${oc.blue[6]})`,
+    sunset: `linear-gradient(30deg, ${oc.orange[3]}, ${oc.red[7]} 75%)`
   }
 }
 
