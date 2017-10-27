@@ -83,8 +83,6 @@ const Row = ({
         background: rgba(0, 0, 0, 0.15);
       }
       .Header {
-        position: sticky;
-        top: 0;
         background: ${oc.gray[9]};
         color: ${oc.gray[6]};
         text-transform: uppercase;
