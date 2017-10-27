@@ -4,7 +4,7 @@ import {isIosSafari} from '@idd/components'
 
 import {signal} from 'signals'
 import {debug} from 'core/updates'
-import Layout from './layout'
+import AppContainer from './appContainer'
 
 isIosSafari()
 
@@ -16,7 +16,7 @@ if (process.env.DEBUG) {
 
 signal.observe(state => {
   render(
-    <Layout />,
+    <AppContainer />,
     el
   )
 }, err => console.error(err))

@@ -87,6 +87,7 @@
     "raid-streams": "^2.10.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-helmet": "^5.2.0",
     "reselect": "^2.5.4"
   }
 }
