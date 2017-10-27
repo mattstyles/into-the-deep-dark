@@ -198,9 +198,13 @@ class Table extends Component {
         className={cx('Table', classes)}
       >
         {showHeader && this.headers}
-        <Scrollable vertical styles={{
-          height: bodyHeight
-        }}>
+        <Scrollable
+          hidden={!bodyHeight}
+          vertical
+          styles={{
+            height: bodyHeight
+          }}
+        >
           {this.rows}
         </Scrollable>
 

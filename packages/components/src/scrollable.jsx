@@ -7,14 +7,16 @@ import theme from './theme'
 const Scrollable = ({
   children,
   classes,
+  styles,
   horizontal,
   vertical,
-  styles
+  hidden
 }) => (
   <div
     style={styles}
     className={cx('Scrollable', {
-      'Scrollbars': vertical || horizontal
+      'Scrollbars': vertical || horizontal,
+      'Scroll--isHidden': hidden
     }, classes)}
   >
     {children}
@@ -36,6 +38,10 @@ const Scrollable = ({
         border-radius: 0;
         background: ${theme.color.primaryDark};
       }
+      .Scroll--isHidden::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
     `}</style>
   </div>
 )
@@ -43,11 +49,13 @@ Scrollable.defaultProps = {
   classes: null,
   styles: null,
   horizontal: false,
-  vertical: false
+  vertical: false,
+  hidden: false
 }
 Scrollable.propTypes = {
   horizontal: PropTypes.bool,
-  vertical: PropTypes.bool
+  vertical: PropTypes.bool,
+  hidden: PropTypes.bool
 }
 
 export default Scrollable
