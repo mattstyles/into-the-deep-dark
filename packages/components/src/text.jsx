@@ -5,8 +5,11 @@ import PropTypes from 'prop-types'
 
 import theme from './theme'
 
-export const H1 = ({children}) => (
-  <h1>
+export const H1 = ({children, styles, classes}) => (
+  <h1
+    className={cx(classes)}
+    style={styles}
+  >
     {children}
     <style jsx>{`
       h1 {
@@ -22,8 +25,11 @@ export const H1 = ({children}) => (
   </h1>
 )
 
-export const H2 = ({children}) => (
-  <h2>
+export const H2 = ({children, styles, classes}) => (
+  <h2
+    className={cx(classes)}
+    style={styles}
+  >
     {children}
     <style jsx>{`
       h2 {
@@ -39,8 +45,11 @@ export const H2 = ({children}) => (
   </h2>
 )
 
-export const H3 = ({children}) => (
-  <h3>
+export const H3 = ({children, styles, classes}) => (
+  <h3
+    className={cx(classes)}
+    style={styles}
+  >
     {children}
     <style jsx>{`
       h3 {
@@ -58,8 +67,11 @@ export const H3 = ({children}) => (
   </h3>
 )
 
-export const P = ({children}) => (
-  <p>
+export const P = ({children, styles, classes}) => (
+  <p
+    className={cx(classes)}
+    style={styles}
+  >
     {children}
     <style jsx>{`
       p {
@@ -74,8 +86,11 @@ export const P = ({children}) => (
   </p>
 )
 
-export const TextBlock = ({children, styles}) => (
-  <div style={styles}>
+export const TextBlock = ({children, styles, classes}) => (
+  <div
+    className={cx(classes)}
+    style={styles}
+  >
     {children}
     <style jsx>{`
       div :global(p + h1),
@@ -88,10 +103,13 @@ export const TextBlock = ({children, styles}) => (
 )
 
 export const Text = ({children, styles, classes, align, block}) => (
-  <span className={cx({
-    align: align,
-    block: block
-  }, classes)}style={styles}>
+  <span
+    className={cx({
+      align: align,
+      block: block
+    }, classes)}
+    style={styles}
+  >
     {children}
     <style jsx>{`
       span {
@@ -118,8 +136,11 @@ Text.propTypes = {
   block: PropTypes.bool
 }
 
-export const Block = ({children, styles}) => (
-  <div style={styles}>
+export const Block = ({children, classes, styles}) => (
+  <div
+    className={cx(classes)}
+    style={styles}
+  >
     {children}
     <style jsx>{`
       div {

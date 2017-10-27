@@ -21,8 +21,11 @@ storiesOf('Layout', module)
   .add('Scroll View', () => (
     <App>
       <View main>
-        <div style={{background: oc.green[7], padding: 30}}>
-          <Text>Title Block</Text>
+        <div style={{background: oc.green[5], padding: 30}}>
+          <H1 styles={{
+            textShadow: '0px 1px rgba(0, 0, 0, 0.25)',
+            margin: 0
+          }}>Title Block</H1>
         </div>
         <View scroll isBottom>
           <SomeText />
