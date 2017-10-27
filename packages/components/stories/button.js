@@ -77,6 +77,24 @@ storiesOf('Button', module)
       </Button>
     </App>
   ))
+  .add('standard types', () => (
+    <App>
+      <div>
+        <Button onClick={action('primary clicked')}>
+          Primary
+        </Button>
+        <Button transparent onClick={action('primary clicked')}>
+          Transparent
+        </Button>
+        <style jsx>{`
+          div :global(.Btn) {
+            margin-left: 20px;
+            margin-top: 20px;
+          }
+        `}</style>
+      </div>
+    </App>
+  ))
   .add('with custom class', () => (
     <App>
       <div>

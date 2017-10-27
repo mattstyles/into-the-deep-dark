@@ -13,13 +13,15 @@ export const Button = ({
   classes,
   inline,
   circular,
-  icon
+  icon,
+  transparent
 }) => (
   <button
     className={cx(classes, 'Btn', {
       'Btn--inline': inline,
       'Btn--circular': circular,
-      'Btn--icon': icon
+      'Btn--icon': icon,
+      'Btn--isTransparent': transparent
     })}
     style={styles}
     onClick={onClick}
@@ -29,7 +31,7 @@ export const Button = ({
       .Btn {
         position: relative;
         font-family: ${theme.fonts.main};
-        background: ${oc.green[5]};
+        background: ${theme.color.button.primary};
         color: ${oc.white};
         padding: 0 ${theme.basePadding * 3}rem;
         font-size: ${theme.baseFontSize}rem;
@@ -41,11 +43,20 @@ export const Button = ({
         text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
       }
       .Btn:hover {
-        background: ${oc.green[7]};
+        background: ${theme.color.button.primaryHover};
         text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
       }
       .Btn:active {
-        background: ${oc.green[8]};
+        background: ${theme.color.button.primarySelect};
+      }
+      .Btn--isTransparent {
+        background: ${theme.color.button.transparent};
+      }
+      .Btn--isTransparent:hover {
+        background: ${theme.color.button.transparentHover};
+      }
+      .Btn--isTransparent:active {
+        background: ${theme.color.button.transparentSelect};
       }
       .Btn--inline {
         color: inherit;
