@@ -54,6 +54,7 @@ const SideNav = ({route: {pathname}}) => (
               route={opt.route}
               isSelected={pathname === opt.route}
               onClick={push}
+              iconClasses='FooterOption'
             />
           ))
         }
@@ -64,10 +65,13 @@ const SideNav = ({route: {pathname}}) => (
         display: flex;
         flex-direction: column;
         background: ${styling.background};
-        border-right: 2px solid rgba(0, 0, 0, 0.25);
+        box-shadow: -1px 0px 4px rgba(0, 0, 0, 0.25) inset;
       }
       .main {
         flex: 1;
+      }
+      footer :global(.FooterOption) {
+        margin: auto;
       }
     `}</style>
   </div>

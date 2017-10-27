@@ -11,8 +11,9 @@ import Badge from './badge'
 import theme from './theme'
 import OptionSelected from './optionSelected'
 
-const OptionIcon = ({icon, iconSet, iconSize, inline}) => (
+const OptionIcon = ({icon, iconSet, iconSize, inline, classes}) => (
   <Icon
+    classes={classes}
     icon={icon}
     width={iconSize}
     height={iconSize}
@@ -187,7 +188,8 @@ export const IconOption = ({
   isSelected,
   route,
   height,
-  onClick
+  onClick,
+  iconClasses
 }) => (
   <li key={`${route}`} className={cx({
     isSelected
@@ -199,6 +201,7 @@ export const IconOption = ({
       onClick(route)
     }}>
       <OptionIcon
+        classes={iconClasses}
         icon={icon}
         iconSet={iconSet}
         iconSize={iconSize}
@@ -248,7 +251,8 @@ IconOption.defaultProps = {
   iconSize: 2.6,
   isSelected: false,
   onClick: null,
-  height: 4.4
+  height: 4.4,
+  classes: null
 }
 IconOption.propTypes = {
   icon: PropTypes.string,
