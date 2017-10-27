@@ -41,9 +41,21 @@ const theme = {
   gradients: {
     background: `radial-gradient(
       circle at 50% 90%,
-      rgba(0, 0, 0, 0.1) 0,
+      rgba(0, 0, 0, 0.05) 0,
       rgba(0, 0, 0, 0.3) 60%,
       rgba(0, 0, 0, 0.4) 100%
+    )`,
+    backgroundSubtle: `radial-gradient(
+      circle at 50% 90%,
+      rgba(0, 0, 0, 0.01) 0,
+      rgba(0, 0, 0, 0.1) 60%,
+      rgba(0, 0, 0, 0.15) 100%
+    )`,
+    primaryRadial: `radial-gradient(
+      circle at 50% 90%,
+      ${oc.green[5]} 0,
+      ${oc.green[7]} 60%,
+      ${oc.green[8]} 100%
     )`,
     primary: `linear-gradient(30deg, ${oc.green[8]}, ${oc.green[4]})`,
     primaryShift: `linear-gradient(30deg, ${oc.teal[5]}, ${oc.green[4]})`,

@@ -156,6 +156,8 @@ storiesOf('Gradients', module)
     <App>
       <View>
         <Swatch name='Background' gradient={theme.gradients.background} />
+        <Swatch name='Background Subtle' gradient={theme.gradients.backgroundSubtle} />
+        <Swatch name='Primary Radial' gradient={theme.gradients.primaryRadial} />
         <Swatch name='Primary' gradient={theme.gradients.primary} />
         <Swatch name='Primary Shift' gradient={theme.gradients.primaryShift} />
         <Swatch name='Primary Light' gradient={theme.gradients.primaryLight} />
