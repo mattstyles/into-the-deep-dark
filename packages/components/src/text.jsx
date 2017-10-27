@@ -11,8 +11,8 @@ export const H1 = ({children}) => (
     <style jsx>{`
       h1 {
         font-family: ${theme.fonts.heading};
-        font-size: ${theme.baseFontSize * 2.5}rem;
-        font-weight: 300;
+        font-size: ${theme.baseFontSize * 2.6}rem;
+        font-weight: 500;
         color: ${oc.gray[0]};
         line-height: 1.1;
         margin-top: 0rem;
@@ -28,8 +28,8 @@ export const H2 = ({children}) => (
     <style jsx>{`
       h2 {
         font-family: ${theme.fonts.heading};
-        font-size: ${theme.baseFontSize * 1.6}rem;
-        font-weight: 300;
+        font-size: ${theme.baseFontSize * 2}rem;
+        font-weight: 500;
         color: ${oc.gray[0]};
         line-height: 1.2;
         margin-top: 0rem;
@@ -47,11 +47,12 @@ export const H3 = ({children}) => (
         font-family: ${theme.fonts.main};
         font-size: ${theme.baseFontSize * 1.1}rem;
         font-weight: 500;
-        color: ${oc.gray[3]};
-        line-height: 1.2;
+        color: ${oc.gray[4]};
+        line-height: 1.3;
         margin-top: 0rem;
         margin-bottom: ${theme.baseFontSize}rem;
         text-transform: uppercase;
+        letter-spacing: 1px;
       }
     `}</style>
   </h3>
@@ -121,7 +122,7 @@ export const Block = ({children, styles}) => (
   <div style={styles}>
     {children}
     <style jsx>{`
-      span {
+      div {
         font-family: ${theme.fonts.main};
         font-size: ${theme.baseFontSize}rem;
         line-height: ${theme.baseLineHeight};
