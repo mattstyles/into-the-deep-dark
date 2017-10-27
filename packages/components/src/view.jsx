@@ -2,13 +2,16 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const View = ({children, styles, main, scroll, isBottom}) => (
+import theme from './theme'
+
+const View = ({children, styles, main, scroll, isBottom, isPadded}) => (
   <div
     style={styles}
     className={cx('View', {
       'Main': main,
       'Scroll': scroll,
-      'isBottom': isBottom
+      'isBottom': isBottom,
+      'isPadded': isPadded
     })}
   >
     {children}
@@ -25,6 +28,9 @@ const View = ({children, styles, main, scroll, isBottom}) => (
         display: flex;
         flex: 1;
       }
+      .isPadded {
+        padding: ${theme.basePadding}rem;
+      }
     `}</style>
     <style jsx global>{`
       .isIosSafari .Scroll.isBottom {
@@ -38,13 +44,15 @@ const View = ({children, styles, main, scroll, isBottom}) => (
 View.defaultProps = {
   main: false,
   scroll: false,
-  isBottom: false
+  isBottom: false,
+  isPadded: false
 }
 
 View.propTypes = {
   main: PropTypes.bool,
   scroll: PropTypes.bool,
-  isBottom: PropTypes.bool
+  isBottom: PropTypes.bool,
+  isPadded: PropTypes.bool
 }
 
 export default View

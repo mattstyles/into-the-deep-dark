@@ -41,7 +41,9 @@ const CommsNav = ({currentPath}) => (
 const CommsView = ({currentPath}) => (
   <View main>
     <CommsNav currentPath={currentPath} />
-    <H1>{`Comms ${currentPath} ${currentPath === options[0].route}`}</H1>
+    <View isPadded>
+      <H1>{`Comms ${currentPath} ${currentPath === options[0].route}`}</H1>
+    </View>
   </View>
 )
 
