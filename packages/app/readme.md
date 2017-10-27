@@ -1,7 +1,7 @@
 
-# into-the-deep-dark
+# Into the deep dark
 
-Basic description
+> It’s dark, really dark... and it’s cold.
 
 ```sh
 npm install

@@ -7,7 +7,8 @@
   "scripts": {
     "setup": "lerna bootstrap",
     "precommit": "lerna run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "(cd packages/app && npm start -- -o)"
   },
   "repository": {
     "type": "git",

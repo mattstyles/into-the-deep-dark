@@ -5,6 +5,8 @@
 
 # [into-the-deep-dark](https://mattstyles.github.io/into-the-deep-dark)
 
+It’s getting darker out there...
+
 ## Getting Started
 
 ```sh
