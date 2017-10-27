@@ -1,5 +1,5 @@
 
-import {View, OptionList, NavOption, theme} from '@idd/components'
+import {View, OptionList, NavOption, theme, H1} from '@idd/components'
 import {push} from 'raid-navigator'
 
 import {connect} from 'signals'
@@ -10,34 +10,38 @@ const options = [
   {text: 'Diplomacy', route: '/comms/diplomacy'}
 ]
 
+const CommsNav = ({currentPath}) => (
+  <div>
+    <OptionList isHorizontal height={3.6}>
+      {
+        options.map(opt => (
+          <NavOption
+            key={opt.text}
+            route={opt.route}
+            text={opt.text}
+            isSelected={currentPath === opt.route}
+            onClick={push}
+          />
+        ))
+      }
+    </OptionList>
+    <style jsx>{`
+      div {
+        background: ${theme.color.header};
+      }
+      div :global(.Option) {
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 1.2rem;
+      }
+    `}</style>
+  </div>
+)
+
 const CommsView = ({currentPath}) => (
   <View main>
-    <div>
-      <OptionList isHorizontal height={3.6}>
-        {
-          options.map(opt => (
-            <NavOption
-              key={opt.text}
-              route={opt.route}
-              text={opt.text}
-              isSelected={currentPath === opt.route}
-              onClick={push}
-            />
-          ))
-        }
-      </OptionList>
-      <style jsx>{`
-        div {
-          background: ${theme.color.header};
-        }
-        div :global(.Option) {
-          text-transform: none;
-          letter-spacing: 0;
-          font-size: 1.2rem;
-        }
-      `}</style>
-    </div>
-    <h1>{`Comms ${currentPath} ${currentPath === options[0].route}`}</h1>
+    <CommsNav currentPath={currentPath} />
+    <H1>{`Comms ${currentPath} ${currentPath === options[0].route}`}</H1>
   </View>
 )
 
