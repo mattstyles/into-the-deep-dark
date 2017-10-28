@@ -5,7 +5,7 @@ import {connect} from 'signals'
 import {getCurrentPath} from 'core/navigation'
 
 const HomeView = ({currentPath}) => (
-  <View main>
+  <View main isPadded>
     <h1>Home {currentPath}</h1>
   </View>
 )

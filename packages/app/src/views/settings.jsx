@@ -33,10 +33,10 @@ const SettingsView = ({currentPath}) => (
         }
       `}</style>
     </div>
-    <div style={{padding: 20}}>
+    <View isPadded>
       <H1>{`Home View: ${currentPath}`}</H1>
       <div style={{marginBottom: 20}}>
-        <Text><Link route='/settings'>Settings</Link></Text>
+        <Text><Link route='/'>Home</Link></Text>
         <Text> more text</Text>
       </div>
       <Button onClick={event => test.of('test')}>Dispatch action test</Button>
@@ -46,7 +46,7 @@ const SettingsView = ({currentPath}) => (
       <Icon icon='VIEW_PERSONNEL' from={getIcon} large />
       <Icon icon='VIEW_ENGINEERING' from={getIcon} large />
       <Icon icon='VIEW_STOCK' from={getIcon} large />
-    </div>
+    </View>
   </View>
 )
 

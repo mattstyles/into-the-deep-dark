@@ -1,12 +1,13 @@
 
-import {View, OptionList, NavOption, theme, H1} from '@idd/components'
+import {View, Pane, OptionList, NavOption, Scrollable, theme, H1} from '@idd/components'
 import {push} from 'raid-navigator'
 
 import {connect} from 'signals'
 import {getCurrentPath} from 'core/navigation'
+import MessagePump from 'components/messagePump'
 
 const options = [
-  {text: 'Inbox', route: '/comms'},
+  {text: 'Overview', route: '/comms'},
   {text: 'Diplomacy', route: '/comms/diplomacy'}
 ]
 
@@ -41,9 +42,18 @@ const CommsNav = ({currentPath}) => (
 const CommsView = ({currentPath}) => (
   <View main>
     <CommsNav currentPath={currentPath} />
-    <View isPadded>
-      <H1>{`Comms ${currentPath} ${currentPath === options[0].route}`}</H1>
-    </View>
+    <Pane split>
+      <Pane flex={0.3} styles={{minWidth: '25rem'}}>
+        <Scrollable vertical styles={{
+          height: '100%'
+        }}>
+          <MessagePump />
+        </Scrollable>
+      </Pane>
+      <View isPadded>
+        <H1>{`Comms ${currentPath} ${currentPath === options[0].route}`}</H1>
+      </View>
+    </Pane>
   </View>
 )
 

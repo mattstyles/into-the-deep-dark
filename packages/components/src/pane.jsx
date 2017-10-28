@@ -2,12 +2,12 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const Pane = ({children, styles, split, flex}) => (
+const Pane = ({children, styles, classes, split, flex}) => (
   <div
     style={styles}
     className={cx('Pane', {
       'Split': split
-    })}
+    }, classes)}
   >
     {children}
     <style jsx>{`

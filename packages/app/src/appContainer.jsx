@@ -6,6 +6,10 @@ import Router from './router'
 import Header from 'components/header'
 import SideNav from 'components/sidenav'
 
+// @TODO non-dynamic parts of the header should live in the html so they can
+// be processed before the JS even tries to parse and fire in to life, for stuff
+// like the font loading this will help to eliminate the fout, although a load
+// state is likely in the end anyway so shouldn't be too much of an issue.
 const AppContainer = () => (
   <App>
     <Helmet>
