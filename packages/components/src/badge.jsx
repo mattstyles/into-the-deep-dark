@@ -45,6 +45,7 @@ const Badge = ({
       }
       .Badge--isInline {
         display: inline-block;
+        display: inline-flex;
         vertical-align: middle;
       }
       .Badge-text {

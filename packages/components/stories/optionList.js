@@ -80,6 +80,8 @@ class BadgeSelectableList extends Component {
         </OptionList>
         <div><Button onClick={this.onSelect(1)}>Add</Button></div>
         <div><Button onClick={this.onSelect(-1)}>Subtract</Button></div>
+        <div><Button onClick={this.onSelect(20)}>Add 20</Button></div>
+        <div><Button onClick={this.onSelect(-20)}>Subtract 20</Button></div>
         <style jsx>{`
           div {
             width: 200px;

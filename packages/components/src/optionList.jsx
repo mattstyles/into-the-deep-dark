@@ -104,18 +104,23 @@ export const NavOption = ({
       }
       a :global(.Badge) {
         opacity: 0;
-        transition: opacity ease-out ${theme.transition.main}ms;
-        width: ${iconSize * 0.75}rem;
-        height: ${iconSize * 0.75}rem;
+        transition: opacity ease-out ${theme.transition.main}ms, transform cubic-bezier(.05, .35, .8, 1.7) ${theme.transition.main}ms;
+        width: auto;
+        padding: 0 ${badge < 10 ? 0 : 0.25}rem;
+        min-width: ${iconSize * 0.8}rem;
+        height: ${iconSize * 0.8}rem;
         margin-left: ${theme.basePadding * 2}rem;
         margin-right: ${theme.basePadding * 2}rem;
+        transform: scale(0.5) translateY(${iconSize * 0.25}rem);
       }
       a :global(.Badge--isVisible) {
         opacity: 1;
+        transform: scale(1) translateY(0);
       }
       a :global(.Badge-text) {
         font-size: ${theme.baseFontSize * 0.8}rem;
-        font-family: ${theme.fonts.fb};
+        /*font-family: ${theme.fonts.fb};*/
+        opacity: ${badge ? 1 : 0};
       }
       li {
         position: relative;
