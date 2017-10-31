@@ -1,22 +1,24 @@
 
-import {compose, slice, concat, findIndex} from 'lodash/fp'
+import {findIndex, map} from 'lodash/fp'
 
-const _replace = (predicate, replacer, data, composer) => {
+const _replaceMapper = (predicate, replacer) => map(item => {
+  return predicate(item)
+    ? replacer(item)
+    : item
+})
+const _replace = (predicate, replacer, data, mapper) => {
   const index = findIndex(predicate, data)
   if (index < 0) {
     return data
   }
-  const elem = data[index]
-  return compose(
-    concat(slice(0, index, data)),
-    concat(replacer(elem)),
-    slice(index + 1, data.length)
-  )(data)
+  mapper = mapper || _replaceMapper(predicate, replacer)
+  return mapper(data)
 }
 
 export const replace = (predicate, replacer, data) => {
   if (!data) {
-    return data => _replace(predicate, replacer, data)
+    const mapper = _replaceMapper(predicate, replacer)
+    return data => _replace(predicate, replacer, data, mapper)
   }
   return _replace(predicate, replacer, data)
 }

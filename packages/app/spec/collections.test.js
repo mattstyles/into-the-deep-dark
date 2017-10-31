@@ -44,3 +44,25 @@ tape('Should replace based on a predicate function', t => {
     [0, 1, 2, 'foo']
   ), 'Replaces at the end')
 })
+
+tape('Should return a mapper that can replace an item', t => {
+  t.plan(3)
+
+  const data = [0, 1, 2, 3]
+  const mapHead = replace(findNumber(0), convert('foo'))
+  const mapMiddle = replace(findNumber(2), convert('foo'))
+  const mapTail = replace(findNumber(3), convert('foo'))
+
+  t.ok(isEqual(
+    mapHead(data),
+    ['foo', 1, 2, 3]
+  ), 'Replaces at the start')
+  t.ok(isEqual(
+    mapMiddle(data),
+    [0, 1, 'foo', 3]
+  ), 'Replaces in the middle')
+  t.ok(isEqual(
+    mapTail(data),
+    [0, 1, 2, 'foo']
+  ), 'Replaces at the end')
+})

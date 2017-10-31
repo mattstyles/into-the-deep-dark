@@ -3,6 +3,9 @@ import {Scrollable} from '@idd/components'
 
 import Message from './message'
 
+// @TODO should scroll selected message to visible on mount?
+// possibly not though, not sure, maybe it should always be at the top on
+// mount as that is where new messages will come in.
 const MessagePump = ({
   messages,
   selectedId,
