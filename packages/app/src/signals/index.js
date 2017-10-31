@@ -3,8 +3,11 @@ import {Signal} from 'raid'
 import {adaptor} from 'raid-addons'
 import {initial} from 'raid-navigator'
 
+import messages from 'core/messages/initial'
+
 const state = {
-  ...initial
+  ...initial,
+  messages
 }
 
 export const signal = Signal.of(state)

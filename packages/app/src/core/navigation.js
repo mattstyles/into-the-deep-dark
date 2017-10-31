@@ -19,16 +19,12 @@ const isLast = (index, stack) => ({
 export const getCurrentRoute = createSelector(
   getCurrentStackIndex,
   getStack,
-  (index, stack) => ({
-    route: stack[index]
-  })
+  (index, stack) => stack[index]
 )
 export const getCurrentPath = createSelector(
   getCurrentStackIndex,
   getStack,
-  (index, stack) => ({
-    currentPath: stack[index].pathname
-  })
+  (index, stack) => stack[index].pathname
 )
 
 export const Navigation = connect(

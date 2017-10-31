@@ -5,12 +5,19 @@ import oc from 'open-color'
 import {theme} from '@idd/components'
 
 const Message = ({
+  id,
   title,
-  body,
+  short,
   isRead,
+  isSelected,
   onClick
 }) => (
-  <li className='root'>
+  <li
+    className={cx('root', {
+      'isSelected': isSelected
+    })}
+    onClick={event => onClick(id)}
+  >
     <div className='status'>
       <div className={cx('indicator', {
         'isRead': isRead
@@ -18,7 +25,7 @@ const Message = ({
     </div>
     <div className='content'>
       <h2>{title}</h2>
-      <div className='body'>{body}</div>
+      <div className='body'>{short}</div>
     </div>
     <style jsx>{`
       .root {
@@ -32,6 +39,16 @@ const Message = ({
       .root:hover {
         cursor: pointer;
         background: rgba(255, 255, 255, 0.05);
+      }
+      .root.isSelected {
+        background: ${theme.color.primaryDark};
+        text-shadow: ${theme.fonts.onLightShadow};
+      }
+      .root.isSelected h2 {
+        color: ${oc.gray[3]};
+      }
+      .root.isSelected .body {
+        color: ${oc.gray[0]};
       }
       .status {
         width: 3rem;

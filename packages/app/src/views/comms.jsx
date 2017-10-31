@@ -1,9 +1,12 @@
 
-import {View, Pane, OptionList, NavOption, theme, H1} from '@idd/components'
+import {createStructuredSelector} from 'reselect'
+import {View, Pane, OptionList, NavOption, theme, H1, P} from '@idd/components'
 import {push} from 'raid-navigator'
 
 import {connect} from 'signals'
 import {getCurrentPath} from 'core/navigation'
+import {getSelectedMessageId, getMessages, getCurrentMessage} from 'core/messages/selectors'
+import actions from 'core/messages/actions'
 import MessagePump from 'components/messages/messagePump'
 
 const options = [
@@ -39,21 +42,36 @@ const CommsNav = ({currentPath}) => (
   </div>
 )
 
-const CommsView = ({currentPath}) => (
+const CommsView = ({
+  currentPath,
+  messages,
+  currentMessageId,
+  currentMessage
+}) => (
   <View main>
     <CommsNav currentPath={currentPath} />
     <Pane split>
       <Pane flex={0.3} styles={{minWidth: '25rem'}}>
-        <MessagePump />
+        <MessagePump
+          messages={messages}
+          selectedId={currentMessageId}
+          onClick={actions.select.of}
+        />
       </Pane>
       <View isPadded>
-        <H1>{`Comms ${currentPath} ${currentPath === options[0].route}`}</H1>
+        <H1>{currentMessage.title}</H1>
+        <P>{currentMessage.body}</P>
       </View>
     </Pane>
   </View>
 )
 
 export default connect(
-  getCurrentPath,
+  createStructuredSelector({
+    currentPath: getCurrentPath,
+    messages: getMessages,
+    currentMessageId: getSelectedMessageId,
+    currentMessage: getCurrentMessage
+  }),
   CommsView
 )

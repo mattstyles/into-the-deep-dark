@@ -7,6 +7,7 @@
   "scripts": {
     "clean": "rimraf dist && mkdirp dist",
     "lint": "standard",
+    "test": "NODE_PATH=src tape -r babel-register spec/*.test.js",
     "prebuild": "npm run clean",
     "build": "NODE_PATH=src NODE_ENV=production browserify --extension jsx src/main.js | uglifyjs -cm > dist/main.js && ncp src/index.html dist/index.html && ncp src/assets dist/assets",
     "predeploy": "npm run build",
@@ -62,6 +63,7 @@
     "babel-plugin-transform-react-require": "^1.0.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-urban": "^1.0.0",
+    "babel-register": "^6.26.0",
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
     "budo": "^9.4.7",
@@ -73,7 +75,8 @@
     "ncp": "^2.0.0",
     "rimraf": "^2.6.1",
     "standard": "^10.0.3",
-    "styled-jsx": "^2.0.0"
+    "styled-jsx": "^2.0.0",
+    "tape": "^4.8.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",

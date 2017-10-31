@@ -79,14 +79,14 @@ export const NavOption = ({
       a :global(.Icon) {
         transform-origin: center;
         transform: scale(0.8);
-        transition: transform ${theme.transition.main}ms;
+        transition: transform ease-out ${theme.transition.main}ms;
         margin-left: ${theme.basePadding * 0.5}rem;
         margin-right: ${theme.basePadding * 0.5}rem;
       }
       a:hover :global(i) {
         transform-origin: center;
         transform: scale(1);
-        transition: transform ${theme.transition.main}ms;
+        transition: transform ease-out ${theme.transition.main}ms;
       }
       a :global(.Option) {
         display: inline-block;

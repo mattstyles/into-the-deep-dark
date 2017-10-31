@@ -54,6 +54,7 @@ const OptionSelected = ({
 
 OptionSelected.defaultProps = {
   color: theme.color.primary,
+  // color: theme.gradients.primary,
   isSelected: false,
   isHorizontal: false
 }

@@ -1,4 +1,5 @@
 
+import {createStructuredSelector} from 'reselect'
 import {OptionList, NavOption, IconOption} from '@idd/components'
 import {push} from 'raid-navigator'
 import get from 'components/icons'
@@ -78,6 +79,8 @@ const SideNav = ({route: {pathname}}) => (
 )
 
 export default connect(
-  getCurrentRoute,
+  createStructuredSelector({
+    route: getCurrentRoute
+  }),
   SideNav
 )

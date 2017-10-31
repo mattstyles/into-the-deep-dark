@@ -5,6 +5,7 @@ import Message from './message'
 
 const MessagePump = ({
   messages,
+  selectedId,
   onClick
 }) => (
   <Scrollable vertical styles={{
@@ -12,17 +13,16 @@ const MessagePump = ({
     background: 'rgba(0, 0, 0, 0.1)'
   }}>
     <ul>
-      <Message
-        title='Warning'
-        body='Power reserves at critical levels'
-        onClick={onClick}
-      />
-      <Message
-        title='Engineering'
-        body='Shipyard upgrade has been completed. Engineers are now able to manufacture grade III craft and components.'
-        onClick={onClick}
-        isRead
-      />
+      {
+        messages.map(msg => (
+          <Message
+            key={msg.id}
+            {...msg}
+            onClick={onClick}
+            isSelected={msg.id === selectedId}
+          />
+        ))
+      }
     </ul>
     <style jsx>{`
       ul {

@@ -18,7 +18,8 @@ const theme = {
   fonts: {
     fb: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;`,
     main: `'Gotham Rounded SSm A', 'Gotham Rounded SSm B', Raleway`,
-    heading: `'Tungsten Narrow A', 'Tungsten Narrow B', League Gothic`
+    heading: `'Tungsten Narrow A', 'Tungsten Narrow B', League Gothic`,
+    onLightShadow: `0 1px rgba(0, 0, 0, 0.2)`
   },
 
   color: {
