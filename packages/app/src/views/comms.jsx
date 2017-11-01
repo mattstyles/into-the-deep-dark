@@ -9,6 +9,8 @@ import {getSelectedMessageId, getMessages, getCurrentMessage} from 'core/message
 import actions from 'core/messages/actions'
 import MessagePump from 'components/messages/messagePump'
 
+import Marky from './marky'
+
 const options = [
   {text: 'Overview', route: '/comms'},
   {text: 'Diplomacy', route: '/comms/diplomacy'}
@@ -59,6 +61,7 @@ const CommsView = ({
         />
       </Pane>
       <View isPadded>
+        <Marky />
         <H1>{currentMessage.title}</H1>
         <P>{currentMessage.body}</P>
       </View>

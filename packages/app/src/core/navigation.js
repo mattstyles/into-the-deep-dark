@@ -38,31 +38,38 @@ export const Navigation = connect(
   Navigator
 )
 
-export const Link = ({children, route, state}) => (
-  <a
-    href={route}
-    onClick={event => {
-      event.preventDefault()
-      push(route, state)
-    }}
-  >
-    {children}
-    <style jsx>{`
-      a {
-        text-decoration: none;
-        border-bottom: 1px solid ${oc.gray[6]};
-        transition: color ${theme.transition.main}ms, border-color ${theme.transition.main}ms;
-      }
-      a:visited {
-        color: inherit;
-      }
-      a:hover {
-        color: ${oc.green[4]};
-        border-color: ${oc.green[7]};
-      }
-    `}</style>
-  </a>
-)
+export const Link = ({
+  children,
+  route,
+  state
+}) => {
+  return (
+    <a
+      href={route}
+      onClick={event => {
+        event.preventDefault()
+        push(route, state)
+      }}
+    >
+      {children}
+      <style jsx>{`
+        a {
+          text-decoration: none;
+          border-bottom: 1px solid ${oc.gray[6]};
+          transition: color ${theme.transition.main}ms, border-color ${theme.transition.main}ms;
+          cursor: pointer;
+        }
+        a:visited {
+          color: inherit;
+        }
+        a:hover {
+          color: ${oc.green[4]};
+          border-color: ${oc.green[7]};
+        }
+      `}</style>
+    </a>
+  )
+}
 
 const onNavClick = (isDisabled, onClick) => event => {
   if (isDisabled) {

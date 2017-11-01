@@ -98,6 +98,8 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-helmet": "^5.2.0",
+    "react-markdown": "^2.5.0",
+    "remarkable": "^1.7.1",
     "reselect": "^2.5.4"
   }
 }
