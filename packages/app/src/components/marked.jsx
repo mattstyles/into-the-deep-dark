@@ -25,16 +25,40 @@ const MarkHead = ({
   return (heading && heading({children})) || null
 }
 
-const elements = {
-  heading: MarkHead,
-  paragraph: P,
-  link: MarkLink
+const literalEl = {
+  open: '<div><',
+  close: '/></div>'
+}
+const CustomElement = ({
+  literal
+}) => {
+  const el = literal
+    .slice(
+      literalEl.open.length,
+      literal.length - literalEl.close.length
+    )
+    .replace(/\s/, '')
+  console.warn(`[marked] unrendered custom element: '${el}'`)
+  return null
 }
 
-export default ({source}) => {
-  console.log(source)
+const elements = {
+  Heading: MarkHead,
+  paragraph: P,
+  link: MarkLink,
+  htmlblock: CustomElement
+}
+
+// @TODO allow adding custom blocks, this adds something to the renderers
+// object that matches on htmlblocks. <div><Custom /></div> can then be used,
+// the node name is grabbed from literal that the renderer spits out and the
+// any custom block function here would take that nodeName, match it to a
+// custom react element and pre-pop its props i.e. for a custom message the
+// custom block function would add all the current message members as the
+// element props.
+export default ({source, renderers}) => {
   return <ReactMarkdown
     source={source}
-    renderers={elements}
+    renderers={Object.assign({}, elements, renderers)}
   />
 }

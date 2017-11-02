@@ -32,6 +32,8 @@ Captain Amir Zhohani will request docking permission when within range. The trad
       body: `
 # Operations
 
+<div><Custom /></div>
+
 Air quality is now below 20% and still falling.
       `
     })
