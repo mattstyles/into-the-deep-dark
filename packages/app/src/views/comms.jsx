@@ -1,15 +1,16 @@
 
+import oc from 'open-color'
 import {createStructuredSelector} from 'reselect'
-import {View, Pane, OptionList, NavOption, theme, H1, P} from '@idd/components'
+import {View, Pane, OptionList, NavOption, theme} from '@idd/components'
 import {push} from 'raid-navigator'
 
 import {connect} from 'signals'
 import {getCurrentPath} from 'core/navigation'
 import {getSelectedMessageId, getMessages, getCurrentMessage} from 'core/messages/selectors'
 import actions from 'core/messages/actions'
-import MessagePump from 'components/messages/messagePump'
 
-import Marky from './marky'
+import MessagePump from 'components/messages/messagePump'
+import Marked from 'components/marked'
 
 const options = [
   {text: 'Overview', route: '/comms'},
@@ -61,11 +62,21 @@ const CommsView = ({
         />
       </Pane>
       <View isPadded>
-        <Marky />
-        <H1>{currentMessage.title}</H1>
-        <P>{currentMessage.body}</P>
+        <div className='msgMeta'>{currentMessage.title}</div>
+        <Marked source={currentMessage.body} />
       </View>
     </Pane>
+    <style jsx>{`
+      .msgMeta {
+        font-size: ${theme.fonts.size.small}rem;
+        font-weight: 400;
+        font-family: ${theme.fonts.main};
+        color: ${oc.gray[6]};
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 4px 0 ${theme.basePadding}rem 0;
+      }
+    `}</style>
   </View>
 )
 

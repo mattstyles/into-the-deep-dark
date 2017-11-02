@@ -58,6 +58,7 @@ export const Link = ({
           border-bottom: 1px solid ${oc.gray[6]};
           transition: color ${theme.transition.main}ms, border-color ${theme.transition.main}ms;
           cursor: pointer;
+          color: inherit;
         }
         a:visited {
           color: inherit;
