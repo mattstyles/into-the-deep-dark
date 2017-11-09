@@ -1,21 +1,15 @@
 
 import oc from 'open-color'
 
-import {Back, Forward} from 'core/navigation'
 // import ScreenNavigation from './navigation'
-
-export const theme = {
-  height: 5.4,
-  padding: 0.8,
-  linkPadding: 1.4
-}
+import BrowserNavigation from 'components/navigation/BrowserNavigation'
+import theme from 'components/navigation/theme'
+import {TickControl} from 'components/tickControl'
 
 const Header = () => (
   <header>
-    <nav className='BrowserNavigation'>
-      <Back />
-      <Forward />
-    </nav>
+    <BrowserNavigation />
+    <TickControl />
     {/* <ScreenNavigation height={theme.height} /> */}
     <style jsx>{`
       header {
@@ -23,9 +17,6 @@ const Header = () => (
         background: ${oc.gray[8]};
         display: flex;
         flex-direction: row;
-      }
-      nav {
-        flex: 1;
       }
     `}</style>
   </header>

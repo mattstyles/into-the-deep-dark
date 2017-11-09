@@ -2,6 +2,7 @@
 import {createAction} from 'raid-fl'
 
 import raf from './rafstream'
+import {app} from 'core/constants'
 
 export const countToConsume = max => (acc, v) => {
   while (acc > max) {
@@ -76,4 +77,10 @@ export class Tick {
   }
 }
 
-export default Tick.of()
+export default Tick.of({
+  // 8 updates per second
+  rate: app.baseTickSpeed,
+  // If the window is unfocussed the elapsed time will accrue, this setting
+  // spits it out in one go
+  consume: true
+})

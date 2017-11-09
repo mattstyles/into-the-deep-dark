@@ -5,7 +5,7 @@ import {createSelector} from 'reselect'
 import {connect, signal} from 'signals'
 import {Navigator, push, back, forward} from 'raid-navigator'
 import {theme, Icon, Button} from '@idd/components'
-import {theme as navTheme} from 'components/header'
+import navTheme from 'components/navigation/theme'
 
 const getNavigation = state => state.navigation
 const getCurrentStackIndex = ({navigation}) => navigation.index

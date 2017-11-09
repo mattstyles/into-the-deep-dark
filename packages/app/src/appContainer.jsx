@@ -3,8 +3,8 @@ import {Helmet} from 'react-helmet'
 import {App, Pane} from '@idd/components'
 
 import Router from './router'
-import Header from 'components/header'
-import SideNav from 'components/sidenav'
+import Header from 'components/header/header'
+import SideNav from 'components/navigation/sidenav'
 
 // @TODO non-dynamic parts of the header should live in the html so they can
 // be processed before the JS even tries to parse and fire in to life, for stuff
