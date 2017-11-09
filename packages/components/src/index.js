@@ -5,6 +5,7 @@ export {default as Pane} from './pane'
 export {default as Scrollable} from './scrollable'
 
 export * from './button'
+export {default as ButtonGroup} from './buttonGroup'
 export * from './text'
 export {default as Icon} from './icon'
 export {default as Badge} from './badge'

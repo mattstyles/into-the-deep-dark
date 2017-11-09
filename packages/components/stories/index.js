@@ -1,5 +1,6 @@
 
 import './button'
+import './buttonGroup'
 import './icons'
 import './text'
 import './badge'
