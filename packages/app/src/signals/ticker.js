@@ -1,4 +1,6 @@
 
+import {createAction} from 'raid-fl'
+
 import raf from './rafstream'
 
 export const countToConsume = max => (acc, v) => {
@@ -27,7 +29,7 @@ export class Tick {
     return new Tick(opts)
   }
 
-  static action = '@@tick/tock'
+  static action = createAction('@@tick/tock')
 
   countToRate = (acc, v) => {
     if (this.opts.consume) {
@@ -54,12 +56,7 @@ export class Tick {
     return this.raf
       .scan(this.countToRate, 0)
       .filter(dt => dt > this.opts.rate)
-      .map(dt => ({
-        type: Tick.action,
-        payload: {
-          dt
-        }
-      }))
+      .map(Tick.action.of)
   }
 
   attach () {

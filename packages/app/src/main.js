@@ -21,13 +21,6 @@ if (process.env.DEBUG) {
 
 signal.register(messageUpdate)
 
-signal.register((state, event) => {
-  if (event.type === Tick.action) {
-    console.log('tick')
-  }
-  return state
-})
-
 signal.observe(state => {
   render(
     <AppContainer />,
