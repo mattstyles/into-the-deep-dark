@@ -77,6 +77,10 @@ export class Tick {
   }
 
   setRate (rate) {
+    if (rate === 0) {
+      console.warn('Setting Tick:rate to 0 will result in very bad things happening')
+      return
+    }
     this.opts.rate = rate
   }
 }
