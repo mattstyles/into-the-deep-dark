@@ -72,6 +72,10 @@ export class Tick {
     this.raf.resume()
   }
 
+  isPaused () {
+    return this.raf.isPaused
+  }
+
   setRate (rate) {
     this.opts.rate = rate
   }
