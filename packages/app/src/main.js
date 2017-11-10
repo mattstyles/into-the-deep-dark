@@ -14,14 +14,14 @@ isIosSafari()
 
 const el = document.querySelector('.js-main')
 
+signal.register(messageUpdate)
+signal.register(tickUpdate)
+
 if (process.env.DEBUG) {
   signal.register(debug({
     blacklist: [Tick.action]
   }))
 }
-
-signal.register(messageUpdate)
-signal.register(tickUpdate)
 
 signal.observe(state => {
   render(

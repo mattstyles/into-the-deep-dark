@@ -12,9 +12,10 @@ const ButtonGroup = ({
   styles,
   options,
   selectedId,
-  isHorizontal,
+  isVertical,
   iconSize,
-  onClick
+  onClick,
+  tight
 }) => (
   <ul style={styles} className={cx(classes)}>
     {
@@ -44,7 +45,7 @@ const ButtonGroup = ({
         margin: 0;
         padding: 0;
         display: flex;
-        flex-direction: ${isHorizontal ? 'row' : 'column'};
+        flex-direction: ${isVertical ? 'column' : 'row'};
       }
       li {
         position: relative;
@@ -55,9 +56,9 @@ const ButtonGroup = ({
         width: 100%;
         background: rgba(0, 0, 0, 0);
         transition: background ease-out ${theme.transition.main}ms;
+        padding: ${iconSize * tight ? 0.6 : 1}rem;
       }
       li:hover :global(.Option) {
-        background: blue;
         background: rgba(255, 255, 255, 0.1);
       }
       li :global(.OptionIcon) {
@@ -81,8 +82,9 @@ ButtonGroup.defaultProps = {
   classes: null,
   styles: {},
   iconSize: 2.2,
-  isHorizontal: true,
-  onClick: () => {}
+  isVertical: false,
+  onClick: () => {},
+  tight: false
 }
 ButtonGroup.propTypes = {
   options: PropTypes.arrayOf(
@@ -94,8 +96,9 @@ ButtonGroup.propTypes = {
   selectedId: PropTypes.any.isRequired,
   styles: PropTypes.object,
   iconSize: PropTypes.number,
-  isHorizontal: PropTypes.bool,
-  onClick: PropTypes.func
+  isVertical: PropTypes.bool,
+  onClick: PropTypes.func,
+  tight: PropTypes.bool
 }
 
 export default ButtonGroup

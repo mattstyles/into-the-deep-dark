@@ -1,22 +1,43 @@
 
 import {createStructuredSelector} from 'reselect'
+import {ButtonGroup, theme} from '@idd/components'
 
-import {connect, dispatch} from 'signals'
+import {connect} from 'signals'
 import {getTickModifier} from './selectors'
 import actions from './actions'
 
-const dispatchAction = event => dispatch(actions.setAppSpeed.of(2))
+const tickOptions = [
+  {icon: 'ARROW', id: 0, modifier: 0},
+  {icon: 'CHECK', id: 1, modifier: 1},
+  {icon: 'SETTINGS', id: 2, modifier: 2},
+  {icon: 'HOME', id: 3, modifier: 3}
+]
+
+const onSelect = option => {
+  actions.setAppSpeed.of(option.modifier)
+}
 
 const TickControl = ({tickModifier}) => (
   <div
     className='root'
-    onClick={dispatchAction}
   >
-    Hello ticker {tickModifier}
+    <ButtonGroup
+      classes='Ticker'
+      options={tickOptions}
+      selectedId={tickModifier}
+      onClick={onSelect}
+      iconSize={1.2}
+      height={2.8}
+      tight
+    />
     <style jsx>{`
       .root {
-        font-size: 1.2rem;
-        color: rgb(244, 48, 22);
+
+      }
+      div :global(.Ticker) {
+        margin: 0.4rem;
+        border-radius: ${theme.borderRadius}px;
+        overflow: hidden;
       }
     `}</style>
   </div>
