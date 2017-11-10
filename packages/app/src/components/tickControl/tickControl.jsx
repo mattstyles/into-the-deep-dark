@@ -7,10 +7,10 @@ import {getTickModifier} from './selectors'
 import actions from './actions'
 
 const tickOptions = [
-  {icon: 'ARROW', id: 0, modifier: 0},
-  {icon: 'CHECK', id: 1, modifier: 1},
-  {icon: 'SETTINGS', id: 2, modifier: 2},
-  {icon: 'HOME', id: 3, modifier: 3}
+  {icon: 'PAUSE', id: 0, modifier: 0},
+  {icon: 'PLAY', id: 1, modifier: 1},
+  {icon: 'PLAY2', id: 2, modifier: 2},
+  {icon: 'PLAY3', id: 3, modifier: 3}
 ]
 
 const onSelect = option => {
