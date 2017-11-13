@@ -1,5 +1,5 @@
 
 export const app = {
   constant: 'app:constant',
-  baseTickSpeed: 1000 / 8
+  baseTickSpeed: 1000 / 2
 }

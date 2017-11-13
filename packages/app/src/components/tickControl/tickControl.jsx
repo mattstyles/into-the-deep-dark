@@ -6,11 +6,15 @@ import {connect} from 'signals'
 import {getTickModifier} from './selectors'
 import actions from './actions'
 
+// Default update is 2 per second, defined in core/constants/baseTickSpeed
 const tickOptions = [
   {icon: 'PAUSE', id: 0, modifier: 0},
+  // 2 per second
   {icon: 'PLAY', id: 1, modifier: 1},
-  {icon: 'PLAY2', id: 2, modifier: 2},
-  {icon: 'PLAY3', id: 3, modifier: 3}
+  // 4 per second
+  {icon: 'PLAY2', id: 2, modifier: 0.5},
+  // 8 per second
+  {icon: 'PLAY3', id: 3, modifier: 0.25}
 ]
 
 const onSelect = option => {
