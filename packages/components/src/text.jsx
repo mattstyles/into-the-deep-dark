@@ -102,7 +102,13 @@ export const TextBlock = ({children, styles, classes}) => (
   </div>
 )
 
-export const Text = ({children, styles, classes, align, block}) => (
+const getTextSize = size => {
+  if (typeof size === 'number') {
+    return size
+  }
+  return theme.fonts.size[size] || theme.baseFontSize
+}
+export const Text = ({children, styles, classes, align, block, size}) => (
   <span
     className={cx({
       align: align,
@@ -114,7 +120,7 @@ export const Text = ({children, styles, classes, align, block}) => (
     <style jsx>{`
       span {
         font-family: ${theme.fonts.main};
-        font-size: ${theme.baseFontSize}rem;
+        font-size: ${getTextSize(size)}rem;
         line-height: ${theme.baseLineHeight};
         color: ${oc.gray[0]};
       }
@@ -129,11 +135,16 @@ export const Text = ({children, styles, classes, align, block}) => (
 )
 Text.defaultProps = {
   align: false,
-  block: false
+  block: false,
+  size: 'base'
 }
 Text.propTypes = {
   align: PropTypes.bool,
-  block: PropTypes.bool
+  block: PropTypes.bool,
+  size: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf(['base', 'small', 'vsmall'])
+  ])
 }
 
 export const Block = ({children, classes, styles}) => (

@@ -2,7 +2,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import {App, View, P, H1, H2, H3, TextBlock, Text} from '../src'
+import {App, View, P, H1, H2, H3, TextBlock, Text, Icon} from '../src'
 
 storiesOf('Text', module)
   .add('Paragraph', () => (
@@ -45,5 +45,30 @@ storiesOf('Text', module)
         <Text>Second block </Text>
         <span>Regular span </span>
       </div>
+      <div>
+        <Text align>Some aligned text</Text>
+        <Icon
+          styles={{width: 24, height: 24, marginLeft: 8}}
+          icon='CHECK'
+          inline
+        />
+      </div>
+      <div>
+        <Text block>Block text</Text>
+        <Text block>has display block</Text>
+      </div>
+      <div>
+        <Text size={2.2}>Custom size can be set on text</Text>
+        <Text block>Size also accepts a few strings:</Text>
+        <Text block size='base'>base</Text>
+        <Text block size='small'>small</Text>
+        <Text block size='vsmall'>vsmall</Text>
+        <Text block size='unknown'>Defaults to base size and spitting out a PropTypes warning in the console.</Text>
+      </div>
+      <style jsx>{`
+        div {
+          margin-bottom: 20px;
+        }
+      `}</style>
     </App>
   ))
