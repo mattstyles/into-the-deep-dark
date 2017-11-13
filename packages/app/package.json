@@ -6,7 +6,7 @@
   "main": "dist/index.html",
   "scripts": {
     "clean": "rimraf dist && mkdirp dist",
-    "lint": "standard",
+    "lint": "standard src spec",
     "test": "NODE_PATH=src tape -r babel-register -r ./spec/setup spec/*.test.js",
     "bench": "node -r @std/esm bench/collections.js",
     "prebuild": "npm run clean",
