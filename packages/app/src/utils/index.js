@@ -1,8 +1,18 @@
 
-import {PureComponent} from 'react'
+import {Component} from 'react'
+import {isEqual} from 'lodash'
 
-export const Pure = Component => class extends PureComponent {
+/**
+ * Using React.PureComponent still triggered renders, presumably it does an
+ * equivalency check but updates are always returning new objects, so a
+ * shallow equals is required.
+ */
+export const Pure = Comp => class extends Component {
+  shouldComponentUpdate (prev) {
+    return !isEqual(prev, this.props)
+  }
+
   render () {
-    return Component(this.props)
+    return Comp(this.props)
   }
 }
