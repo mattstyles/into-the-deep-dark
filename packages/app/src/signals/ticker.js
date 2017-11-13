@@ -1,5 +1,5 @@
 
-import {createAction} from 'raid-fl'
+import {createAction} from 'raid-fl/compat'
 
 import raf from './rafstream'
 import {app} from 'core/constants'
