@@ -1,18 +1,8 @@
 
-import {connect} from 'raid-fl/compat'
-import {zipObject} from 'lodash'
+import {createActions} from 'utils/actions'
 
-import {signal} from 'signals'
-
-const createActions = connect(signal)
-
-const actions = [
+export default createActions(
   'select',
   'create',
   'delete'
-]
-
-export default zipObject(
-  actions,
-  createActions(actions)
 )

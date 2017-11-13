@@ -7,7 +7,6 @@ import {replace} from 'utils/collections'
 const messageState = patch('messages')
 const getById = id => msg => msg.id === id
 
-// @TODO set isRead to true for the selected message
 const onSelect = messageState((state, event) => ({
   ...state,
   messages: replace(
