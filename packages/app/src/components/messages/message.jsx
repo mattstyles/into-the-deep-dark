@@ -70,7 +70,7 @@ const Message = ({
       }
       h2 {
         font-family: ${theme.fonts.main};
-        font-size: ${theme.baseFontSize * 0.8}rem;
+        font-size: ${theme.fonts.size.small}rem;
         font-weight: 400;
         letter-spacing: 1px;
         color: ${oc.gray[6]};
@@ -79,7 +79,7 @@ const Message = ({
       }
       .body {
         font-family: ${theme.fonts.main};
-        font-size: ${theme.baseFontSize}rem;
+        font-size: ${theme.fonts.size.base}rem;
         color: ${oc.gray[2]};
         line-height: ${theme.baseLineHeight};
       }

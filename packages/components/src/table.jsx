@@ -5,6 +5,7 @@ import cx from 'classnames'
 import oc from 'open-color'
 
 import theme from './theme'
+import {setFontSizeInteger} from './theme/utils'
 import {noop} from './utils'
 import Scrollable from './scrollable'
 
@@ -86,7 +87,7 @@ const Row = ({
         background: ${oc.gray[9]};
         color: ${oc.gray[6]};
         text-transform: uppercase;
-        font-size: ${theme.baseFontSize * 0.7}rem;
+        font-size: ${setFontSizeInteger(0.7)}rem;
         font-weight: 500;
         border-bottom: 2px solid rgba(0, 0, 0, 0.25);
         cursor: auto;
@@ -209,7 +210,7 @@ class Table extends Component {
         <style jsx>{`
           .Table {
             font-family: ${theme.fonts.main};
-            font-size: ${theme.baseFontSize}rem;
+            font-size: ${theme.fonts.size.base}rem;
             color: ${oc.gray[0]};
             line-height: ${theme.baseLineHeight};
           }

@@ -40,31 +40,33 @@ storiesOf('Text', module)
   ))
   .add('Text', () => (
     <App>
-      <div>
-        <Text>First block </Text>
-        <Text>Second block </Text>
-        <span>Regular span </span>
-      </div>
-      <div>
-        <Text align>Some aligned text</Text>
-        <Icon
-          styles={{width: 24, height: 24, marginLeft: 8}}
-          icon='CHECK'
-          inline
-        />
-      </div>
-      <div>
-        <Text block>Block text</Text>
-        <Text block>has display block</Text>
-      </div>
-      <div>
-        <Text size={2.2}>Custom size can be set on text</Text>
-        <Text block>Size also accepts a few strings:</Text>
-        <Text block size='base'>base</Text>
-        <Text block size='small'>small</Text>
-        <Text block size='vsmall'>vsmall</Text>
-        <Text block size='unknown'>Defaults to base size and spitting out a PropTypes warning in the console.</Text>
-      </div>
+      <View isPadded>
+        <div>
+          <Text>First block </Text>
+          <Text>Second block </Text>
+          <span>Regular span </span>
+        </div>
+        <div>
+          <Text align>Some aligned text</Text>
+          <Icon
+            styles={{width: 24, height: 24, marginLeft: 8}}
+            icon='CHECK'
+            inline
+          />
+        </div>
+        <div>
+          <Text block>Block text</Text>
+          <Text block>has display block</Text>
+        </div>
+        <div>
+          <Text size={2.2}>Custom size can be set on text</Text>
+          <Text block>Size also accepts a few strings:</Text>
+          <Text block size='base'>base</Text>
+          <Text block size='small'>small</Text>
+          <Text block size='vsmall'>vsmall</Text>
+          <Text block size='unknown'>Defaults to base size and spitting out a PropTypes warning in the console.</Text>
+        </div>
+      </View>
       <style jsx>{`
         div {
           margin-bottom: 20px;

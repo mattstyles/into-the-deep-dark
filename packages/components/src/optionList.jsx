@@ -9,6 +9,7 @@ import {Text} from './text'
 import Icon from './icon'
 import Badge from './badge'
 import theme from './theme'
+import {setFontSizeInteger} from './theme/utils'
 import OptionSelected from './optionSelected'
 
 const OptionIcon = ({icon, iconSet, iconSize, inline, classes}) => (
@@ -92,7 +93,7 @@ export const NavOption = ({
         display: inline-block;
         line-height: ${height}rem;
         margin-left: ${theme.basePadding * (icon ? 0.5 : 1)}rem;
-        font-size: ${theme.baseFontSize * 0.8}rem;
+        font-size: ${setFontSizeInteger(0.8)}rem;
         vertical-align: middle;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -118,7 +119,7 @@ export const NavOption = ({
         transform: scale(1) translateY(0);
       }
       a :global(.Badge-text) {
-        font-size: ${theme.baseFontSize * 0.8}rem;
+        font-size: ${setFontSizeInteger(0.8)}rem;
         /*font-family: ${theme.fonts.fb};*/
         opacity: ${badge ? 1 : 0};
       }

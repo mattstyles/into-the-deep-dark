@@ -34,7 +34,7 @@ export const Button = ({
         background: ${theme.color.button.primary};
         color: ${oc.white};
         padding: 0 ${theme.basePadding * 3}rem;
-        font-size: ${theme.baseFontSize}rem;
+        font-size: ${theme.fonts.size.base}rem;
         line-height: 3;
         border: none;
         border-radius: ${theme.borderRadius}px;

@@ -4,6 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import theme from './theme'
+import {setFontSizeInteger} from './theme/utils'
 
 export const H1 = ({children, styles, classes}) => (
   <h1
@@ -14,12 +15,12 @@ export const H1 = ({children, styles, classes}) => (
     <style jsx>{`
       h1 {
         font-family: ${theme.fonts.heading};
-        font-size: ${theme.baseFontSize * 2.6}rem;
+        font-size: ${setFontSizeInteger(2.6)}rem;
         font-weight: 500;
         color: ${oc.gray[0]};
         line-height: 1.1;
         margin-top: 0rem;
-        margin-bottom: ${theme.baseFontSize * 1.2}rem;
+        margin-bottom: ${setFontSizeInteger(1.2)}rem;
       }
     `}</style>
   </h1>
@@ -34,12 +35,12 @@ export const H2 = ({children, styles, classes}) => (
     <style jsx>{`
       h2 {
         font-family: ${theme.fonts.heading};
-        font-size: ${theme.baseFontSize * 2}rem;
+        font-size: ${setFontSizeInteger(2)}rem;
         font-weight: 500;
         color: ${oc.gray[0]};
         line-height: 1.2;
         margin-top: 0rem;
-        margin-bottom: ${theme.baseFontSize * 0.8}rem;
+        margin-bottom: ${setFontSizeInteger(0.8)}rem;
       }
     `}</style>
   </h2>
@@ -54,12 +55,12 @@ export const H3 = ({children, styles, classes}) => (
     <style jsx>{`
       h3 {
         font-family: ${theme.fonts.main};
-        font-size: ${theme.baseFontSize * 1.1}rem;
+        font-size: ${setFontSizeInteger(1.1)}rem;
         font-weight: 500;
         color: ${oc.gray[4]};
         line-height: 1.3;
         margin-top: 0rem;
-        margin-bottom: ${theme.baseFontSize}rem;
+        margin-bottom: ${theme.fonts.size.base}rem;
         text-transform: uppercase;
         letter-spacing: 1px;
       }
@@ -76,10 +77,10 @@ export const P = ({children, styles, classes}) => (
     <style jsx>{`
       p {
         font-family: ${theme.fonts.main};
-        font-size: ${theme.baseFontSize}rem;
+        font-size: ${theme.fonts.size.base}rem;
         color: ${oc.gray[0]};
         line-height: ${theme.baseLineHeight};
-        margin-bottom: ${theme.baseFontSize * 0.6}rem;
+        margin-bottom: ${setFontSizeInteger(0.6)}rem;
         margin-top: 0;
       }
     `}</style>
@@ -96,7 +97,7 @@ export const TextBlock = ({children, styles, classes}) => (
       div :global(p + h1),
       div :global(p + h2),
       div :global(p + h3) {
-        margin-top: ${theme.baseFontSize * 2}rem
+        margin-top: ${setFontSizeInteger(2)}rem
       }
     `}</style>
   </div>
@@ -106,7 +107,7 @@ const getTextSize = size => {
   if (typeof size === 'number') {
     return size
   }
-  return theme.fonts.size[size] || theme.baseFontSize
+  return theme.fonts.size[size] || theme.fonts.size.base
 }
 export const Text = ({children, styles, classes, align, block, size}) => (
   <span
@@ -156,7 +157,7 @@ export const Block = ({children, classes, styles}) => (
     <style jsx>{`
       div {
         font-family: ${theme.fonts.main};
-        font-size: ${theme.baseFontSize}rem;
+        font-size: ${theme.fonts.size.base}rem;
         line-height: ${theme.baseLineHeight};
         color: ${oc.gray[0]};
       }

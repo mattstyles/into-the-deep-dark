@@ -2,7 +2,6 @@
 import oc from 'open-color'
 
 const theme = {
-  baseFontSize: 1.4,
   baseLineHeight: 1.6,
   basePadding: 1.2,
   borderRadius: 3,
