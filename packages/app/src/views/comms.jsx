@@ -20,7 +20,7 @@ const options = [
   {text: 'Diplomacy', route: '/comms/diplomacy'}
 ]
 
-const CommsNav = ({currentPath}) => (
+export const CommsNav = ({currentPath}) => (
   <div>
     <OptionList isHorizontal height={3.6}>
       {
