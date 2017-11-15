@@ -7,7 +7,7 @@ import {Navigator, push, back, forward} from 'raid-navigator'
 import {theme, Icon, Button} from '@idd/components'
 import navTheme from 'components/navigation/theme'
 
-const getNavigation = state => state.navigation
+export const getNavigation = state => state.navigation
 const getCurrentStackIndex = ({navigation}) => navigation.index
 const getStack = ({navigation}) => navigation.stack
 const isFirst = (index) => ({

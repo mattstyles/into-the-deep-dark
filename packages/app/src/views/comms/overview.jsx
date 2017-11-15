@@ -1,10 +1,7 @@
 
-// import {isEqual} from 'lodash'
-// import React, {PureComponent, Component} from 'react'
 import oc from 'open-color'
 import {createStructuredSelector} from 'reselect'
-import {View, Pane, OptionList, NavOption, theme} from '@idd/components'
-import {push} from 'raid-navigator'
+import {View, Pane, theme} from '@idd/components'
 
 import {connect} from 'signals'
 import {getCurrentPath} from 'core/navigation'
@@ -15,49 +12,14 @@ import {Pure} from 'utils'
 import MessagePump from 'components/messages/messagePump'
 import Marked from 'components/marked'
 
-const options = [
-  {text: 'Overview', route: '/comms'},
-  {text: 'Diplomacy', route: '/comms/diplomacy'}
-]
-
-export const CommsNav = ({currentPath}) => (
-  <div>
-    <OptionList isHorizontal height={3.6}>
-      {
-        options.map(opt => (
-          <NavOption
-            key={opt.text}
-            route={opt.route}
-            text={opt.text}
-            isSelected={currentPath === opt.route}
-            onClick={push}
-          />
-        ))
-      }
-    </OptionList>
-    <style jsx>{`
-      div {
-        background: ${theme.color.header};
-      }
-      div :global(.Option) {
-        text-transform: none;
-        letter-spacing: 0;
-        font-size: 1.2rem;
-      }
-    `}</style>
-  </div>
-)
-
-const CommsView = ({
+const CommsOverviewView = ({
   currentPath,
   messages,
   currentMessageId,
   currentMessage
 }) => {
-  // console.log('rendering!')
   return (
     <View main>
-      <CommsNav currentPath={currentPath} />
       <Pane split>
         <Pane flex={0.3} styles={{minWidth: '25rem'}}>
           <MessagePump
@@ -93,5 +55,5 @@ export default connect(
     currentMessageId: getSelectedMessageId,
     currentMessage: getCurrentMessage
   }),
-  Pure(CommsView)
+  Pure(CommsOverviewView)
 )

@@ -1,6 +1,7 @@
 
 import oc from 'open-color'
 import {View, H1, Button, Icon, Text, OptionList, NavOption} from '@idd/components'
+import {push} from 'raid-navigator'
 
 import {connect} from 'signals'
 import {Link, getCurrentPath} from 'core/navigation'
@@ -16,10 +17,17 @@ const SettingsView = ({currentPath}) => (
         <NavOption
           route='/settings'
           text='Settings'
+          onClick={push}
         />
         <NavOption
           route='/404'
           text='404'
+          onClick={push}
+        />
+        <NavOption
+          route='/comms/diplomacy'
+          text='comms/diplomacy'
+          onClick={push}
         />
       </OptionList>
       <style jsx>{`
