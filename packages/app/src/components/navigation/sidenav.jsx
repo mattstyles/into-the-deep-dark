@@ -2,10 +2,11 @@
 import {createStructuredSelector} from 'reselect'
 import {OptionList, NavOption, IconOption} from '@idd/components'
 import {push} from 'raid-navigator'
-import get from 'components/icons'
 
+import get from 'components/icons'
 import {connect} from 'signals'
 import {getCurrentRoute} from 'core/navigation'
+import {contains} from 'utils/string'
 
 const styling = {
   background: 'rgb(27, 31, 34)'
@@ -37,7 +38,7 @@ const SideNav = ({route: {pathname}}) => (
               iconSet={get}
               iconSize={2.2}
               route={opt.route}
-              isSelected={pathname === opt.route}
+              isSelected={contains(pathname, opt.route)}
               onClick={push}
             />
           ))
