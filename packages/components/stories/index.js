@@ -9,6 +9,7 @@ import './layout'
 import './optionList'
 import './table'
 import './gradients'
+import './form/input'
 
 import {isIosSafari} from '../src'
 
