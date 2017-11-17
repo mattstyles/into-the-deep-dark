@@ -57,20 +57,16 @@ storiesOf('Form', module)
   ))
   .add('Input placeholder styling', () => (
     <App>
-      <Input
+      <ConnectedInput
         placeholder='This is some placeholder text'
-        value=''
-        onChange={() => {}}
       />
     </App>
   ))
   .add('Custom container', () => (
     <App>
-      <Input
+      <ConnectedInput
         Container={CustomContainer}
         styles={{flex: 1}}
-        value='foo'
-        onChange={() => {}}
       />
     </App>
   ))
