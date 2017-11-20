@@ -14,6 +14,7 @@ export {default as OptionSelected} from './optionSelected'
 export * from './optionList'
 export {default as Table} from './table'
 export {default as Input} from './form/input'
+export {default as FilterList} from './filterList'
 
 export {default as theme} from './theme'
 

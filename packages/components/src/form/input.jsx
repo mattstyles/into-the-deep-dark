@@ -59,7 +59,7 @@ const Input = ({
 )
 
 Input.defaultProps = {
-  Container: 'span',
+  Container: 'div',
   placeholder: '',
   autoSubmit: false,
   blurOnSubmit: false,
