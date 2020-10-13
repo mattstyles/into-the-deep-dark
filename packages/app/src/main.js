@@ -5,21 +5,19 @@ import { debug, scope } from '@raid/addons'
 import { signal } from 'signals'
 import { App } from 'components/app'
 import { Navigation } from 'components/navigation'
-import { createTick } from 'core/streams'
+import { updateTick, update as tickUpdate } from 'core/tick'
 
 const el = document.querySelector('.js-main')
 
 if (process.env.DEBUG) {
   // Update ticks destroy logs so silence any event.type containing tick
-  const scoped = scope((state, event) => !/tick/i.test(event.type))
+  const scoped = scope((state, event) => !/silent/i.test(event.type))
   signal.register(scoped(debug('[app]')))
   // signal.register(debug('[all]'))
 }
 
-signal.mount(createTick({
-  rate: 1000 / 8,
-  type: '@itdd/updateTick'
-}))
+signal.mount(updateTick.createStream())
+signal.register(tickUpdate)
 
 signal.observe(state => {
   render(

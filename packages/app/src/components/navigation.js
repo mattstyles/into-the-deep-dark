@@ -5,6 +5,7 @@ import { connect, signal } from 'signals'
 import { routes, history, getNavigation } from 'core/routing'
 
 import { Home } from 'views/home'
+import { Test } from 'views/test'
 
 const AppNavigation = ({
   navigation
@@ -17,6 +18,7 @@ const AppNavigation = ({
       storage={null}
     >
       <Home route={routes.home} />
+      <Test route={routes.test} />
     </Navigator>
   )
 }
