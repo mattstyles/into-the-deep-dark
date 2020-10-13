@@ -1,2 +1,2 @@
 
-export const getApp = ({app}) => app
+export const getMessage = ({ message }) => message
