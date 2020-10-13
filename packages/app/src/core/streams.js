@@ -1,5 +1,4 @@
 
-// import raf from 'raf-stream'
 import raf from 'raf'
 import EventEmitter from 'eventemitter3'
 import { fromEvent } from 'most'
@@ -76,42 +75,3 @@ export const createTick = (options) => {
     type
   })
 }
-
-// export const createTick = (options) => {
-//   const { rate, type } = { ...defaults, ...options }
-//   const collector = new EventEmitter()
-//   const tick = raf()
-//   let current = 0
-//   let variableRate = rate
-//   tick.on('data', (dt) => {
-//     current = current + dt
-//     if (current > variableRate) {
-//       collector.emit('tick', current)
-//       current = 0
-//     }
-//   })
-//
-//   const stream = fromEvent('tick', collector)
-//     .map(dt => {
-//       return {
-//         type,
-//         payload: {
-//           dt
-//         }
-//       }
-//     })
-//
-//   return {
-//     pause: () => {
-//       tick.pause()
-//     },
-//     resume: () => {
-//       tick.resume()
-//     },
-//     setRate: (rate) => {
-//       variableRate = rate
-//     },
-//
-//     stream
-//   }
-// }

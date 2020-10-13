@@ -13,25 +13,6 @@
     "deploy": "gh-pages -d dist",
     "dev": "NODE_PATH=src DEBUG=true parcel src/index.html"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "styled-components",
-      "transform-react-require",
-      "lodash",
-      [
-        "module-resolver",
-        {
-          "root": [
-            "./src"
-          ]
-        }
-      ]
-    ]
-  },
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
