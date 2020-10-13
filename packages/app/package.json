@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "@itdd/app",
   "private": true,
   "version": "0.0.0",
   "description": "Into the deep dark",
@@ -41,18 +41,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matt.styles/app.git"
+    "url": "git+https://github.com/matt.styles/into-the-deep-dark",
+    "directory": "packages/app"
   },
   "keywords": [
-    "raid",
-    "react"
+    "itdd",
+    "into the deep dark"
   ],
-  "author": "matt.styles",
+  "author": {
+    "name": "Matt Styles",
+    "url": "https://github.com/mattstyles"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matt.styles/app/issues"
+    "url": "https://github.com/mattstyles/into-the-deep-dark/issues"
   },
-  "homepage": "https://matt.styles.github.io/app",
+  "homepage": "https://github.com/mattstyles/into-the-deep-dark",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.1",
@@ -69,15 +76,11 @@
     "mkdirp": "^1.0.4",
     "parcel-bundler": "^1.12.4",
     "rimraf": "^3.0.2",
-    "standard": "^14.3.3",
-    "styled-jsx": "^3.3.0"
+    "standard": "^14.3.3"
   },
   "dependencies": {
     "@raid/addons": "^6.0.0",
-    "@raid/app-kit": "^0.20.0",
-    "@raid/basic-kit": "^0.18.2",
     "@raid/hooks": "^6.0.0",
-    "@raid/kit": "^0.20.0",
     "@raid/navigator": "^6.0.0",
     "@raid/streams": "^6.0.0",
     "@styled-system/css": "5.1.5",

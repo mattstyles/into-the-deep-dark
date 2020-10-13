@@ -4,5 +4,18 @@
     "packages/*"
   ],
   "version": "independent",
-  ""
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "version": {
+      "message": "publish :metal: %s"
+    },
+    "create": {
+      "publishConfig": {
+        "access": "public"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/mattstyles/into-the-deep-dark"
+    }
+  }
 }

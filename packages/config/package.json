@@ -1,0 +1,11 @@
+{
+  "name": "@itdd/config",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@raid/rk": "^0.20.0",
+    "standard": "^14.3.4"
+  }
+}
