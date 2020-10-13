@@ -5,10 +5,12 @@
   "description": "The deepest and the darkest monorepo",
   "main": "index.js",
   "scripts": {
-    "setup": "lerna bootstrap",
+    "clean": "lerna clean",
+    "setup": "lerna bootstrap --concurrency=1",
     "precommit": "lerna run lint",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "(cd packages/app && npm start -- -o)"
+    "test": "lerna run test",
+    "dev": "lerna-watch app",
+    "start": "yarn workspace app start"
   },
   "repository": {
     "type": "git",
@@ -20,9 +22,57 @@
     "url": "https://github.com/mattstyles/into-the-deep-dark/issues"
   },
   "homepage": "https://github.com/mattstyles/into-the-deep-dark#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "standard"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "**/node_modules/**",
+      "**/lib/"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "styled-components",
+      "transform-react-require",
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": false
+        }
+      ]
+    ]
+  },
   "devDependencies": {
-    "husky": "^0.14.3",
-    "lerna": "^2.4.0",
-    "standard": "^10.0.3"
+    "@babel/core": "^7.10.3",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "babel-plugin-transform-react-require": "^1.0.1",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "lerna-watch": "^1.0.0-alpha.2",
+    "lint-staged": "^10.2.11",
+    "rollup": "^2.18.1",
+    "rollup-plugin-filesize": "^9.0.1",
+    "rollup-plugin-terser": "^6.1.0",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "@rollup/plugin-babel": "^5.0.4"
   }
 }

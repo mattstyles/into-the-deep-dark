@@ -2,10 +2,10 @@
   "name": "into-the-deep-dark",
   "private": true,
   "version": "0.0.0",
-  "description": "@TODO description",
+  "description": "The deepest and the darkest life simulator",
   "main": "dist/index.html",
   "scripts": {
-    "clean": "rimraf dist && mkdirp dist",
+    "clean": "rimraf dist",
     "lint": "standard src spec",
     "test": "NODE_PATH=src tape -r babel-register -r ./spec/setup spec/*.test.js",
     "bench": "node -r @std/esm bench/collections.js",
