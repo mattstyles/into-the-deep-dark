@@ -3,10 +3,13 @@
   "private": true,
   "description": "specific components for into the deep dark",
   "version": "0.0.1",
-  "main": "lib/index.js",
+  "main": "lib/itdd-components.js",
+  "module": "lib/itdd-components.esm.js",
   "author": "Matt Styles",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production rk build -t ui",
+    "watch": "rk watch -t ui"
   }
 }

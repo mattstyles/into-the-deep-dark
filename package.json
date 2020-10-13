@@ -12,8 +12,8 @@
     "precommit": "lerna run lint",
     "build": "lerna run build",
     "test": "lerna run test",
-    "dev": "lerna-watch app",
-    "start": "yarn workspace @itdd/app start",
+    "dev": "lerna-watch @itdd/app",
+    "start": "yarn workspace @itdd/app dev",
     "components": "start-storybook -p 6006"
   },
   "repository": {

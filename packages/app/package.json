@@ -11,7 +11,7 @@
     "build": "NODE_PATH=src NODE_ENV=production parcel build src/index.html",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "start": "NODE_PATH=src DEBUG=true parcel src/index.html"
+    "dev": "NODE_PATH=src DEBUG=true parcel src/index.html"
   },
   "babel": {
     "presets": [

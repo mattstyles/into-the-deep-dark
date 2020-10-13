@@ -1,6 +1,8 @@
 
 import { createStructuredSelector } from 'reselect'
-import { View, Text } from '@raid/kit'
+import { View, H1 } from '@raid/kit'
+
+import { TestComponent } from '@itdd/components'
 
 import { connect } from 'signals'
 import { getMessage } from 'core/selectors'
@@ -13,7 +15,8 @@ export const Home = connect(
   viewSelector,
   ({ message }) => (
     <View>
-      <Text as='h1'>{message}</Text>
+      <TestComponent>Testing dev environment</TestComponent>
+      <H1>{message}</H1>
     </View>
   )
 )
