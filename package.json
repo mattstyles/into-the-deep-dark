@@ -41,10 +41,10 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "create-raid-app": "^6.0.1",
-    "husky": "^4.2.5",
+    "husky": "^4.3.0",
     "lerna": "^3.22.1",
-    "lerna-watch": "^1.0.0-alpha.2",
-    "lint-staged": "^10.2.11",
+    "lerna-watch": "^1.0.0",
+    "lint-staged": "^10.4.0",
     "standard": "^14.3.4"
   }
 }
