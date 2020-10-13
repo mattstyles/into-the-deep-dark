@@ -13,7 +13,7 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "dev": "lerna-watch app",
-    "start": "yarn workspace app start",
+    "start": "yarn workspace @itdd/app start",
     "components": "start-storybook -p 6006"
   },
   "repository": {

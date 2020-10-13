@@ -1,16 +1,25 @@
 
 import { render } from 'react-dom'
-import { debug } from '@raid/addons'
+import { debug, scope } from '@raid/addons'
 
 import { signal } from 'signals'
 import { App } from 'components/app'
 import { Navigation } from 'components/navigation'
+import { createTick } from 'core/streams'
 
 const el = document.querySelector('.js-main')
 
 if (process.env.DEBUG) {
-  signal.register(debug('[app]'))
+  // Update ticks destroy logs so silence any event.type containing tick
+  const scoped = scope((state, event) => !/tick/i.test(event.type))
+  signal.register(scoped(debug('[app]')))
+  // signal.register(debug('[all]'))
 }
+
+signal.mount(createTick({
+  rate: 1000 / 8,
+  type: '@itdd/updateTick'
+}))
 
 signal.observe(state => {
   render(
