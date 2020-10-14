@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@raid/rk": "^0.20.0",
     "@storybook/addon-actions": "^6.0.26",
     "@storybook/addon-backgrounds": "^6.0.26",
     "@storybook/addon-docs": "^6.0.26",

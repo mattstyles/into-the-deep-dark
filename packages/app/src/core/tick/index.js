@@ -1,6 +1,6 @@
 
 import { safe, compress, patch } from '@raid/addons'
-import { createTick } from 'core/streams'
+import { Ticker } from '@itdd/ticker'
 
 export const actions = {
   tick: '@itdd/updateTick::silent',
@@ -9,7 +9,7 @@ export const actions = {
   change: '@itdd/updateTick/changeRate'
 }
 
-export const updateTick = createTick({
+export const updateTick = new Ticker({
   rate: 1000 / 8,
   type: actions.tick
 })

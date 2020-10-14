@@ -1,0 +1,31 @@
+{
+  "name": "@itdd/ticker",
+  "private": true,
+  "description": "component used to create timers connected to the animation frame",
+  "version": "0.0.1",
+  "main": "lib/itdd-ticker.js",
+  "module": "lib/itdd-ticker.esm.js",
+  "author": "Matt Styles",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production rk build -t ui",
+    "watch": "rk watch -t ui"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "**/node_modules/**",
+      "**/lib/"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "eventemitter3": "^4.0.7",
+    "most": "^1.9.0",
+    "raf": "^3.4.1"
+  }
+}
