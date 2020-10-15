@@ -1,5 +1,6 @@
 
 export const routes = {
   home: '/',
-  test: '/test'
+  test: '/test',
+  comms: '/comms'
 }

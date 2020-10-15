@@ -12,8 +12,7 @@ const initial = {
 }
 
 if (process.env.DEBUG) {
-  console.log('Initial State')
-  console.log(initial)
+  console.log('Initial State', initial)
 }
 
 export const signal = new Signal(initial)

@@ -1,0 +1,2 @@
+
+export { CommsView } from './view'

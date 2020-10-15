@@ -6,6 +6,7 @@ import { routes, history, getNavigation } from 'core/routing'
 
 import { Home } from 'views/home'
 import { Test } from 'views/test'
+import { CommsView } from '@itdd/mod-comms'
 
 const AppNavigation = ({
   navigation
@@ -19,6 +20,7 @@ const AppNavigation = ({
     >
       <Home route={routes.home} />
       <Test route={routes.test} />
+      <CommsView route={routes.comms} />
     </Navigator>
   )
 }
