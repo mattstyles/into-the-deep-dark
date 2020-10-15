@@ -1,0 +1,17 @@
+{
+  "name": "@itdd/mod-home",
+  "private": true,
+  "description": "Home page game module",
+  "version": "0.1.0",
+  "main": "lib/itdd-mod-home.js",
+  "module": "lib/itdd-mod-home.esm.js",
+  "scripts": {
+    "test": "echo 'Nope, do it' && exit 1",
+    "build": "NODE_ENV=prodcution rk build -t ui",
+    "watch": "rk watch -t ui"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}

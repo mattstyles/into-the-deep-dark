@@ -6,13 +6,15 @@ import { TestComponent } from '@itdd/components'
 import { Link } from '@itdd/router'
 
 import { connect } from 'kunai'
-import { getMessage } from 'core/selectors'
+import { selectors } from '@itdd/core'
+
+const { getMessage } = selectors
 
 const viewSelector = createStructuredSelector({
   message: getMessage
 })
 
-export const Home = connect(
+export const HomeView = connect(
   viewSelector,
   ({ message }) => (
     <View>

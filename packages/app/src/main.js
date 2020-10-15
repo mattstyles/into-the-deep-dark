@@ -4,12 +4,12 @@ import { debug, scope, safe } from '@raid/addons'
 
 import { signal } from 'kunai'
 import { App } from 'components/app'
-import { Navigator } from '@itdd/router'
+import { Navigator, routes } from '@itdd/router'
 // import { updateTick, update as tickUpdate } from 'core/tick'
 import { updateTick, update as tickUpdate } from '@itdd/tick'
 
-import { Home } from 'views/home'
-import { Test } from 'views/test'
+import { HomeView } from '@itdd/mod-home'
+import { TestView } from '@itdd/mod-test'
 import { CommsView } from '@itdd/mod-comms'
 
 const el = document.querySelector('.js-main')
@@ -32,9 +32,9 @@ signal.observe(state => {
   render(
     <App>
       <Navigator navigation={state.navigation}>
-        <Home route='/' />
-        <Test route='/test' />
-        <CommsView route='/comms' />
+        <HomeView route={routes.home} />
+        <TestView route={routes.test} />
+        <CommsView route={routes.comms} />
       </Navigator>
     </App>,
     el

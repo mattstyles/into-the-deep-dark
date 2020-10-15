@@ -1,0 +1,17 @@
+{
+  "name": "@itdd/mod-test",
+  "private": true,
+  "description": "Test game module",
+  "version": "0.1.0",
+  "main": "lib/itdd-mod-test.js",
+  "module": "lib/itdd-mod-test.esm.js",
+  "scripts": {
+    "test": "echo 'Nope, do it' && exit 1",
+    "build": "NODE_ENV=prodcution rk build -t ui",
+    "watch": "rk watch -t ui"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}

@@ -1,0 +1,2 @@
+
+export { TestView } from './view'

@@ -13,7 +13,7 @@ const viewSelector = createStructuredSelector({
   isRunning: state => state?.updateTick?.isRunning
 })
 
-export const Test = connect(
+export const TestView = connect(
   viewSelector,
   ({ updateDelta, isRunning }) => (
     <View mx='auto' width='100%' maxWidth='60rem' p={4}>
