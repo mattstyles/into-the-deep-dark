@@ -1,7 +1,8 @@
 
 import { safe, compress, patch } from '@raid/addons'
-import { Ticker } from '@itdd/ticker'
 import { init } from 'kunai'
+
+import { Ticker } from './tick'
 
 export const actions = {
   tick: '@itdd/updateTick::silent',
@@ -15,10 +16,6 @@ export const updateTick = new Ticker({
   rate: 1000 / 8,
   type: actions.tick
 })
-
-export const initialise = (signal) => {
-  signal.emit({ type: actions.init })
-}
 
 const rootKey = 'updateTick'
 export const initialState = {

@@ -1,5 +1,5 @@
 {
-  "name": "@itdd/ticker",
+  "name": "@itdd/tick",
   "private": true,
   "description": "component used to create timers connected to the animation frame",
   "version": "0.0.1",

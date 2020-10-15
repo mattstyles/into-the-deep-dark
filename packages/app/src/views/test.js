@@ -6,7 +6,7 @@ import {
 } from '@raid/kit'
 
 import { connect, emit } from 'kunai'
-import { actions } from 'core/tick'
+import { actions } from '@itdd/tick'
 
 const viewSelector = createStructuredSelector({
   updateDelta: state => state?.updateTick?.lastDelta,

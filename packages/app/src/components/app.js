@@ -1,8 +1,8 @@
 
 import { ThemeProvider } from 'styled-components'
-import { Reset, extend } from '@raid/kit'
+import { Reset } from '@raid/kit'
 
-const theme = extend()({})
+import { theme } from './theme'
 
 export const App = ({ state, children }) => (
   <ThemeProvider theme={theme}>

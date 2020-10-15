@@ -56,6 +56,7 @@
     "gh-pages": "^2.2.0",
     "mkdirp": "^1.0.4",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
     "rimraf": "^3.0.2",
     "standard": "^14.3.3"
   },
