@@ -2,7 +2,9 @@
 import { Signal } from 'raid'
 import { adaptor, safe, compress } from '@raid/addons'
 
-const initial = {}
+const initial = {
+  message: 'into the deep dark'
+}
 
 const action = '@itdd/kunai/init'
 

@@ -2,12 +2,14 @@
 import { render } from 'react-dom'
 import { debug, scope, safe } from '@raid/addons'
 
-// import { signal } from 'signals'
 import { signal } from 'kunai'
 import { App } from 'components/app'
-// import { Navigation } from 'components/navigation'
 import { Navigator } from '@itdd/router'
 import { updateTick, update as tickUpdate } from 'core/tick'
+
+import { Home } from 'views/home'
+import { Test } from 'views/test'
+import { CommsView } from '@itdd/mod-comms'
 
 const el = document.querySelector('.js-main')
 
@@ -23,21 +25,16 @@ if (process.env.DEBUG) {
 }
 
 signal.mount(updateTick.createStream())
-// initialise(signal)
 signal.register(tickUpdate)
 
-// signal.observe(state => {
-//   render(
-//     <App>
-//       <Navigation navigation={state.navigation} />
-//     </App>,
-//     el
-//   )
-// }, err => console.error(err))
 signal.observe(state => {
   render(
     <App>
-      <Navigator navigation={state.navigation} />
+      <Navigator navigation={state.navigation}>
+        <Home route='/' />
+        <Test route='/test' />
+        <CommsView route='/comms' />
+      </Navigator>
     </App>,
     el
   )

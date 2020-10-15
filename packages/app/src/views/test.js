@@ -5,7 +5,7 @@ import {
   Button, Text
 } from '@raid/kit'
 
-import { connect, emit } from 'signals'
+import { connect, emit } from 'kunai'
 import { actions } from 'core/tick'
 
 const viewSelector = createStructuredSelector({

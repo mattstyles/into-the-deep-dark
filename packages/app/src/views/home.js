@@ -1,11 +1,11 @@
 
 import { createStructuredSelector } from 'reselect'
-import { View, H1 } from '@raid/kit'
+import { View, H1, ButtonGroup } from '@raid/kit'
 
 import { TestComponent } from '@itdd/components'
-import { NavLink } from 'components/navLink'
+import { Link } from '@itdd/router'
 
-import { connect } from 'signals'
+import { connect } from 'kunai'
 import { getMessage } from 'core/selectors'
 
 const viewSelector = createStructuredSelector({
@@ -17,7 +17,11 @@ export const Home = connect(
   ({ message }) => (
     <View>
       <TestComponent>Testing dev environment</TestComponent>
-      <NavLink route='/test'>Test</NavLink>
+      <ButtonGroup>
+        <Link route='/'>Home</Link>
+        <Link route='/test'>Test</Link>
+        <Link route='/comms'>Comms</Link>
+      </ButtonGroup>
       <H1>{message}</H1>
     </View>
   )

@@ -2,8 +2,6 @@
 import { createActions } from '@raid/navigator'
 import { createMemoryHistory } from 'history'
 
-export { routes } from './routes'
-
 export const history = createMemoryHistory()
 export const actions = createActions(history)
 
@@ -13,9 +11,10 @@ export const events = {
 }
 
 export const push = ({
-  route
+  route,
+  state
 }) => {
-  actions.push(route)
+  actions.push(route, state)
 }
 
 export const pop = () => {

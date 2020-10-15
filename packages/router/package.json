@@ -17,6 +17,6 @@
   "dependencies": {
     "@raid/kit": "^0.20.0",
     "@raid/navigator": "^6.0.0",
-    "history": "^5.0.0"
+    "history": "^4.10.1"
   }
 }
