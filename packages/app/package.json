@@ -48,7 +48,6 @@
     "@babel/preset-env": "^7.10.1",
     "@babel/preset-react": "^7.10.1",
     "babel-eslint": "^10.1.0",
-    "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-styled-components": "^1.10.7",
     "babel-plugin-transform-react-require": "^1.0.1",
@@ -61,22 +60,6 @@
     "standard": "^14.3.3"
   },
   "dependencies": {
-    "@raid/addons": "^6.0.0",
-    "@raid/hooks": "^6.0.0",
-    "@raid/navigator": "^6.0.0",
-    "@raid/streams": "^6.0.0",
-    "@styled-system/css": "5.1.5",
-    "@styled-system/theme-get": "5.1.2",
-    "@styled-system/variant": "5.1.5",
-    "eventemitter3": "^4.0.0",
-    "lodash": "^4.17.15",
-    "most": "^1.8.0",
-    "prop-types": "^15.7.2",
-    "raf": "^3.4.1",
-    "raid": "^6.0.0",
-    "ramda": "^0.27.1",
-    "react-helmet": "^5.2.1",
-    "reselect": "4.0.0",
-    "styled-system": "5.1.5"
+    "@raid/kit": "^0.20.0"
   }
 }

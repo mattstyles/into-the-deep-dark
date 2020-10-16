@@ -1,0 +1,17 @@
+{
+  "name": "@itdd/hooks",
+  "private": true,
+  "description": "Component hooks",
+  "version": "0.1.0",
+  "main": "lib/itdd-hooks.js",
+  "module": "lib/itdd-hooks.esm.js",
+  "scripts": {
+    "test": "echo 'Nope, do it' && exit 1",
+    "build": "NODE_ENV=prodcution rk build -t core",
+    "watch": "rk watch -t core"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}

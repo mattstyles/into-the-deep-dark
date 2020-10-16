@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react'
 
-import { emit } from '../signals'
+import { emit } from 'kunai'
 
 export const useMount = (type, payload = null, deps = []) => {
   useEffect(() => {
