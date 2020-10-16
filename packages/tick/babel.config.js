@@ -1,5 +1,5 @@
 
-const { babel } = require('@itdd/config')
+const { babel } = require('@itdd/configBuild')
 
 babel.plugins.push('@babel/plugin-proposal-class-properties')
 

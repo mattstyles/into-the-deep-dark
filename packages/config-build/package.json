@@ -1,6 +1,7 @@
 {
-  "name": "@itdd/config",
+  "name": "@itdd/configBuild",
   "private": true,
+  "description": "Config for build time",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

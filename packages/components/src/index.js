@@ -2,6 +2,8 @@
 import styled from 'styled-components'
 import { css } from '@styled-system/css'
 
+export { Loading, LoadModal } from './loading'
+
 export const TestComponent = styled('div')(
   css({
     color: 'white',
