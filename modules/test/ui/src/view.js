@@ -7,19 +7,13 @@ import {
 
 import { Link, routes } from '@itdd/router'
 import { connect, emit } from 'kunai'
-import { actions } from '@itdd/tick'
-
-// If 2 modules contain the same dep it'll get hoisted to the core package,
-// rather than as a sub-chunk for each module.
-// import * as R from 'ramda'
-//
-// const foo = ['foo', 'bar', 'baz']
-// const findFoo = R.find(R.prop('foo'))
-// console.log(findFoo(foo))
+import { actions, selectors } from '@itdd/tick'
 
 const viewSelector = createStructuredSelector({
-  updateDelta: state => state?.updateTick?.lastDelta,
-  isRunning: state => state?.updateTick?.isRunning
+  // updateDelta: state => state?.updateTick?.lastDelta,
+  // isRunning: state => state?.updateTick?.isRunning
+  updateDelta: selectors.getUpdateDelta,
+  isRunning: selectors.getIsRunning
 })
 
 export const TestView = connect(

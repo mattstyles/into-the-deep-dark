@@ -13,15 +13,17 @@ const delay = ms => ({
 
 // This is a bit annoying as it must be a string and can not be a dynamic property for import to work properly when bundled
 const Comms = React.lazy(() => Promise.all([
-  import('@itdd/mod-comms'),
+  import('@comms/ui'),
   delay(defaultPageDelay)
 ]).then(([mod]) => mod))
+
 const Home = React.lazy(() => Promise.all([
   import('@itdd/mod-home'),
   delay(defaultPageDelay)
 ]).then(([mod]) => mod))
+
 const Test = React.lazy(() => Promise.all([
-  import('@itdd/mod-test'),
+  import('@test/ui'),
   delay(defaultPageDelay)
 ]).then(([mod]) => mod))
 

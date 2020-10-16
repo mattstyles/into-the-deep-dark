@@ -3,7 +3,6 @@ import { render } from 'react-dom'
 import { debug, scope, safe } from '@raid/addons'
 
 import { signal } from 'kunai'
-import { updateTick, update as tickUpdate } from '@itdd/tick'
 import { Page } from '@itdd/components'
 
 import { App } from 'components/app'
@@ -21,9 +20,6 @@ if (process.env.DEBUG) {
     window.state = state
   }))
 }
-
-signal.mount(updateTick.createStream())
-signal.register(tickUpdate)
 
 signal.observe(state => {
   render(

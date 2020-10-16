@@ -1,10 +1,10 @@
 {
-  "name": "@itdd/mod-comms",
+  "name": "@comms/ui",
   "private": true,
-  "description": "Communication game module",
+  "description": "Communication module ui package",
   "version": "0.1.0",
-  "main": "lib/itdd-mod-comms.js",
-  "module": "lib/itdd-mod-comms.esm.js",
+  "main": "lib/itdd-comms-ui.js",
+  "module": "lib/itdd-comms-ui.esm.js",
   "scripts": {
     "test": "echo 'Nope, do it' && exit 1",
     "build": "NODE_ENV=prodcution rk build -t ui",
@@ -15,6 +15,8 @@
     "standard": "^14.3.4"
   },
   "dependencies": {
-    "ramda": "^0.27.1"
+    "@itdd/components": "*",
+    "@itdd/router": "*",
+    "@raid/kit": "^0.20.0"
   }
 }

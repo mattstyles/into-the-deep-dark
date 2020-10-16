@@ -3,17 +3,22 @@
 [![Dependency Status](https://david-dm.org/mattstyles/into-the-deep-dark.svg)](https://david-dm.org/mattstyles/into-the-deep-dark)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
+
 # [into-the-deep-dark](https://mattstyles.github.io/into-the-deep-dark)
 
 It’s getting darker out there...
 
 ## Getting Started
 
+The project uses yarn to manage the workspaces.
+
 ```sh
-npm run setup
-cd packages/app
-npm start -- -o
+yarn
+yarn run setup
+yarn run dev
 ```
+
+The `dev` command starts watching all packages and launches the dev build of the application. This provides incremental rebuilds on changes, and will only rebuild those packages that have changed.
 
 ## Contributing
 

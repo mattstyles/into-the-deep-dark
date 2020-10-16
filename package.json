@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "description": "The deepest and the darkest monorepo",
   "workspaces": [
-    "packages/**"
+    "packages/**",
+    "modules/**"
   ],
   "scripts": {
     "clean": "lerna clean",

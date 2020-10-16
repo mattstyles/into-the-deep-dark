@@ -24,7 +24,10 @@
     "standard": "^14.3.4"
   },
   "dependencies": {
+    "@itdd/core": "*",
+    "@raid/addons": "^6.0.0",
     "eventemitter3": "^4.0.7",
+    "kunai": "*",
     "most": "^1.9.0",
     "raf": "^3.4.1"
   }
