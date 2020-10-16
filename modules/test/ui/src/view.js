@@ -1,8 +1,8 @@
 
 import { createStructuredSelector } from 'reselect'
 import {
-  View, Card, Stack, Grid, Box,
-  Button, Text
+  View, Card, Stack, Grid, Box, Flex,
+  Button, ButtonGroup, Text
 } from '@raid/kit'
 
 import { Link, routes } from '@itdd/router'
@@ -24,6 +24,18 @@ export const TestView = connect(
         <Box>
           <Link route={routes.home}>Home</Link>
         </Box>
+        <Card>
+          <Flex row alignItems='center'>
+            <Flex flex={1}>
+              <Text>Updates per second</Text>
+            </Flex>
+            <ButtonGroup>
+              <Button onClick={() => emit(actions.change, 1000 / 20)}>20ups</Button>
+              <Button onClick={() => emit(actions.change, 1000 / 8)}>8ups</Button>
+              <Button onClick={() => emit(actions.change, 2000)}>0.5ups</Button>
+            </ButtonGroup>
+          </Flex>
+        </Card>
         <Card>
           <Grid gridTemplateColumns='1fr 5fr' gridGap={4}>
             <Stack>

@@ -38,6 +38,10 @@ export class Ticker {
     raf(this.onTick)
   }
 
+  setRate (rate) {
+    this.rate = rate
+  }
+
   createStream () {
     return fromEvent(this.type, this.events)
       .map(dt => {
