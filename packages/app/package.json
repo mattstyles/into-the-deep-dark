@@ -60,6 +60,7 @@
     "standard": "^14.3.3"
   },
   "dependencies": {
+    "@raid-ui/theme-outrun": "^0.20.0",
     "@raid/kit": "^0.20.0"
   }
 }

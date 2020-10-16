@@ -4,6 +4,7 @@ import { debug, scope, safe } from '@raid/addons'
 
 import { signal } from 'kunai'
 import { updateTick, update as tickUpdate } from '@itdd/tick'
+import { Page } from '@itdd/components'
 
 import { App } from 'components/app'
 import { Navigation } from 'components/navigation'
@@ -27,7 +28,9 @@ signal.register(tickUpdate)
 signal.observe(state => {
   render(
     <App>
-      <Navigation navigation={state.navigation} />
+      <Page>
+        <Navigation navigation={state.navigation} />
+      </Page>
     </App>,
     el
   )

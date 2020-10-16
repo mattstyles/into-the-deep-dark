@@ -2,7 +2,7 @@
 import React, { Suspense } from 'react'
 
 import { Navigator, routes } from '@itdd/router'
-import { LoadModal } from '@itdd/components'
+import { Loading } from '@itdd/components'
 import config from '@itdd/configApp'
 
 const defaultPageDelay = config.pageLoadDelay
@@ -33,7 +33,7 @@ export const Navigation = ({
   navigation
 }) => {
   return (
-    <Suspense fallback={<LoadModal />}>
+    <Suspense fallback={<Loading sx={{ py: 10 }} />}>
       <Navigator navigation={navigation}>
         <Home route={routes.home} />
         <Test route={routes.test} />

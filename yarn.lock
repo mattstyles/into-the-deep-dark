@@ -2589,6 +2589,15 @@
     "@styled-system/css" "^5.1.5"
     prop-types "^15.7.2"
 
+"@raid-ui/theme-outrun@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@raid-ui/theme-outrun/-/theme-outrun-0.20.0.tgz#ee8a16e8ace8fd028c779350468ff8ca6f33a9b8"
+  integrity sha512-byzh0zZhc3ctbPRucZNhfvctJ2IBd6Q8ohk8+IjgNc9y3ymxiGm6Pem8Kyir0RMjBeRaXEELOJg9hR69D4NT7g==
+  dependencies:
+    "@raid-ui/core" "^0.20.0"
+    "@raid-ui/theme" "^0.20.0"
+    "@styled-system/theme-get" "^5.1.2"
+
 "@raid-ui/theme@^0.20.0":
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/@raid-ui/theme/-/theme-0.20.0.tgz#443761bf8108760f136976b50a8dda7c996fb9d8"
