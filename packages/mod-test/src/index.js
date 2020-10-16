@@ -1,2 +1,4 @@
 
-export { TestView } from './view'
+import { TestView } from './view'
+
+export default TestView

@@ -1,2 +1,4 @@
 
-export { CommsView } from './view'
+import { CommsView } from './view'
+
+export default CommsView

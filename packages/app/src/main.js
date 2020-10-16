@@ -1,4 +1,5 @@
 
+import React, { Suspense } from 'react'
 import { render } from 'react-dom'
 import { debug, scope, safe } from '@raid/addons'
 
@@ -8,9 +9,11 @@ import { Navigator, routes } from '@itdd/router'
 // import { updateTick, update as tickUpdate } from 'core/tick'
 import { updateTick, update as tickUpdate } from '@itdd/tick'
 
-import { HomeView } from '@itdd/mod-home'
-import { TestView } from '@itdd/mod-test'
-import { CommsView } from '@itdd/mod-comms'
+import { LazyView } from 'views/lazy'
+
+const Comms = React.lazy(() => import('@itdd/mod-comms'))
+const Home = React.lazy(() => import('@itdd/mod-home'))
+const Test = React.lazy(() => import('@itdd/mod-test'))
 
 const el = document.querySelector('.js-main')
 
@@ -31,11 +34,14 @@ signal.register(tickUpdate)
 signal.observe(state => {
   render(
     <App>
-      <Navigator navigation={state.navigation}>
-        <HomeView route={routes.home} />
-        <TestView route={routes.test} />
-        <CommsView route={routes.comms} />
-      </Navigator>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Navigator navigation={state.navigation}>
+          <Home route={routes.home} />
+          <Test route={routes.test} />
+          <Comms route={routes.comms} />
+          <LazyView route='/lazy' />
+        </Navigator>
+      </Suspense>
     </App>,
     el
   )

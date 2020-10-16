@@ -1,2 +1,4 @@
 
-export { HomeView } from './view'
+import { HomeView } from './view'
+
+export default HomeView
