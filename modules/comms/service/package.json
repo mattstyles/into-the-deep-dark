@@ -1,0 +1,19 @@
+{
+  "name": "@comms/service",
+  "private": true,
+  "description": "Communication module service package",
+  "version": "0.1.0",
+  "main": "lib/itdd-comms-service.js",
+  "module": "lib/itdd-comms-service.esm.js",
+  "scripts": {
+    "test": "echo 'Nope, do it' && exit 1",
+    "build": "NODE_ENV=prodcution rk build -t ui",
+    "watch": "rk watch -t ui"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+  }
+}

@@ -8,6 +8,7 @@ import {
 import { Link, routes } from '@itdd/router'
 import { connect, emit } from 'kunai'
 import { actions, selectors } from '@itdd/tick'
+import { actions as commsActions } from '@comms/core'
 
 const viewSelector = createStructuredSelector({
   // updateDelta: state => state?.updateTick?.lastDelta,
@@ -47,6 +48,12 @@ export const TestView = connect(
               <Text>update isRunning: <strong>{JSON.stringify(isRunning)}</strong></Text>
             </Stack>
           </Grid>
+        </Card>
+        <Card>
+          <Stack>
+            <Text>Comms</Text>
+            <Button onClick={() => emit(commsActions.addMessage)}>Add Message</Button>
+          </Stack>
         </Card>
       </Stack>
     </View>

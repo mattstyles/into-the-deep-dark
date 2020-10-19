@@ -1,0 +1,19 @@
+{
+  "name": "@comms/core",
+  "private": true,
+  "description": "Communication module core package",
+  "version": "0.1.0",
+  "main": "lib/itdd-comms-core.js",
+  "module": "lib/itdd-comms-core.esm.js",
+  "scripts": {
+    "test": "echo 'Nope, do it' && exit 1",
+    "build": "NODE_ENV=prodcution rk build -t ui",
+    "watch": "rk watch -t ui"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+  }
+}
