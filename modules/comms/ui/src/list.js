@@ -1,10 +1,15 @@
 
-import { Stack, Card, Pre } from '@raid/kit'
+import { Stack, Card, Pre, Text } from '@raid/kit'
+import { Markdown } from '@raid-ui/markdown'
 
 const messageDisplay = messages => messages.map(message => {
   return (
     <Card key={message.id}>
       <Pre inset>{JSON.stringify(message, null, '  ')}</Pre>
+      <Stack>
+        <Text as='h2'>{message.title}</Text>
+        <Markdown>{message.body}</Markdown>
+      </Stack>
     </Card>
   )
 })

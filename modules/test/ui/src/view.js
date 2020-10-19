@@ -11,8 +11,6 @@ import { actions, selectors } from '@itdd/tick'
 import { actions as commsActions } from '@comms/core'
 
 const viewSelector = createStructuredSelector({
-  // updateDelta: state => state?.updateTick?.lastDelta,
-  // isRunning: state => state?.updateTick?.isRunning
   updateDelta: selectors.getUpdateDelta,
   isRunning: selectors.getIsRunning
 })
@@ -20,7 +18,7 @@ const viewSelector = createStructuredSelector({
 export const TestView = connect(
   viewSelector,
   ({ updateDelta, isRunning }) => (
-    <View mx='auto' width='100%' maxWidth='60rem' p={4}>
+    <View isPadded>
       <Stack>
         <Box>
           <Link route={routes.home}>Home</Link>

@@ -62,6 +62,7 @@
     "standard": "^14.3.4"
   },
   "dependencies": {
+    "@raid-ui/markdown": "^0.20.0",
     "@raid/app-kit": "^0.20.0",
     "@raid/kit": "^0.20.0",
     "react": "^16.13.1",

@@ -29,7 +29,7 @@ export const CommsView = ({
   numMessages
 }) => {
   return (
-    <View>
+    <View isPadded>
       <H1>Comms</H1>
       <Text>{`Length: ${numMessages}`}</Text>
       <Spacer py={2} />
