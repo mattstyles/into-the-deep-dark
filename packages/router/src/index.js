@@ -13,3 +13,5 @@ export {
   push,
   pop
 } from './core'
+
+export * as selectors from './selectors'

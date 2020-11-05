@@ -1,18 +1,18 @@
 
-import { View, Stack } from '@raid/kit'
+import { Spacer } from '@raid/kit'
 
-import { Link, routes } from '@itdd/router'
+import { Aside } from './aside'
+import { Header } from './header'
+import { Nav } from './nav'
 
 export default ({
   sx
 }) => {
   return (
-    <View as='aside' sx={sx}>
-      <Stack>
-        <Link route={routes.home}>Home</Link>
-        <Link route={routes.test}>Test</Link>
-        <Link route={routes.comms}>Comms</Link>
-      </Stack>
-    </View>
+    <Aside sx={sx}>
+      <Header />
+      <Spacer py={6} />
+      <Nav />
+    </Aside>
   )
 }

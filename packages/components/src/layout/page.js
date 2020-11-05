@@ -10,11 +10,18 @@ const Sidecar = React.lazy(() => import('@itdd/sidecar'))
 
 const Layout = styled(Grid)(
   props => css({
-    gridTemplateColumns: '1fr 3fr',
+    gridTemplateColumns: '240px 3fr',
     gridTemplateAreas: "'aside content'",
     gridGap: 6
   })
 )
+
+const asideStyles = {
+  gridArea: 'aside',
+  position: 'sticky',
+  top: 0,
+  height: '100vh'
+}
 
 export const Page = ({
   children
@@ -23,7 +30,7 @@ export const Page = ({
     <Screen>
       <Layout>
         <Suspense fallback={<Loading />}>
-          <Sidecar sx={{ gridArea: 'aside' }} />
+          <Sidecar sx={asideStyles} />
         </Suspense>
         <View sx={{ gridArea: 'content' }}>
           {children}

@@ -15,6 +15,7 @@
     "standard": "^14.3.4"
   },
   "dependencies": {
+    "@itdd/router": "*",
     "@raid/kit": "^0.20.0",
     "@raid/navigator": "^6.0.0",
     "history": "^4.10.1"
