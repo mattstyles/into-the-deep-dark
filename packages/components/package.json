@@ -16,5 +16,10 @@
     "@styled-system/css": "^5",
     "react": "^16.8",
     "styled-components": "^5"
+  },
+  "dependencies": {
+    "@itdd/sidebar": "*",
+    "@raid/kit": "^0.20.0",
+    "@raid-ui/icons": "^0.20.0"
   }
 }

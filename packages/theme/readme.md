@@ -1,0 +1,4 @@
+
+# theme
+
+Application theme declaration.

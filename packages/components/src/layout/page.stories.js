@@ -5,7 +5,9 @@ import { Page } from './page'
 
 export default {
   title: 'Layout/Page',
-  decorators: [addBase()]
+  decorators: [addBase({
+    Layout: ({ children }) => children
+  })]
 }
 
 export const PageStory = () => {

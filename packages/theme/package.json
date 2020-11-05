@@ -1,0 +1,21 @@
+{
+  "name": "@itdd/theme",
+  "private": true,
+  "description": "App theme declaration",
+  "version": "0.1.0",
+  "main": "lib/itdd-theme.js",
+  "module": "lib/itdd-theme.esm.js",
+  "scripts": {
+    "test": "echo 'Nope, do it' && exit 1",
+    "build": "NODE_ENV=prodcution rk build -t core",
+    "watch": "rk watch -t core"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "@raid/kit": "^0.20.0",
+    "@raid-ui/theme-outrun": "^0.20.0"
+  }
+}
