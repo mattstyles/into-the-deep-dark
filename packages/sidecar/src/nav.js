@@ -8,11 +8,9 @@ import { Link, routes, selectors } from '@itdd/router'
 
 const { getCurrentRoutePath } = selectors
 
-const NavLink = styled(Link)(
+const StyledLink = styled(Link)(
   props => css({
-    color: props.isSelected ? 'text.100' : 'text.500'
-  }),
-  props => css({
+    color: props.isSelected ? 'text.100' : 'text.500',
     bg: 'transparent',
     py: 2,
     fontWeight: 600,
@@ -24,8 +22,23 @@ const NavLink = styled(Link)(
     }
   })
 )
-NavLink.defaultProps = {
+StyledLink.defaultProps = {
   variant: 'naked'
+}
+
+const NavLink = ({
+  route,
+  currentPath,
+  children
+}) => {
+  return (
+    <StyledLink
+      route={route}
+      isSelected={currentPath === route}
+    >
+      {children}
+    </StyledLink>
+  )
 }
 
 const NavComponent = ({
@@ -33,9 +46,9 @@ const NavComponent = ({
 }) => {
   return (
     <Stack as='nav'>
-      <NavLink route={routes.home} isSelected={currentPath === routes.home}>Home</NavLink>
-      <NavLink route={routes.test} isSelected={currentPath === routes.test}>Test</NavLink>
-      <NavLink route={routes.comms} isSelected={currentPath === routes.comms}>Comms</NavLink>
+      <NavLink route={routes.home} currentPath={currentPath}>Home</NavLink>
+      <NavLink route={routes.test} currentPath={currentPath}>Test</NavLink>
+      <NavLink route={routes.comms} currentPath={currentPath}>Comms</NavLink>
     </Stack>
   )
 }
