@@ -15,5 +15,8 @@
     "standard": "^14.3.4"
   },
   "dependencies": {
+    "@itdd/utils": "*",
+    "@raid/addons": "^6",
+    "reselect": "^4"
   }
 }

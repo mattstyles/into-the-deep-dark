@@ -6,7 +6,7 @@ import { TestComponent, Loading } from '@itdd/components'
 import { Link, routes } from '@itdd/router'
 
 import { connect } from 'kunai'
-import { selectors } from '@itdd/core'
+import { selectors } from '@itdd/utils'
 
 const { getMessage } = selectors
 

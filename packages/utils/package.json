@@ -1,10 +1,10 @@
 {
-  "name": "@itdd/core",
+  "name": "@itdd/utils",
   "private": true,
-  "description": "message and cache handlers",
+  "description": "Utility functions",
   "version": "0.1.0",
-  "main": "lib/itdd-core.js",
-  "module": "lib/itdd-core.esm.js",
+  "main": "lib/itdd-utils.js",
+  "module": "lib/itdd-utils.esm.js",
   "scripts": {
     "test": "echo 'Nope, do it' && exit 1",
     "build": "NODE_ENV=prodcution rk build -t core",

@@ -17,6 +17,9 @@ const objectTraverse = (v, _) => {
 /**
  * Returns an object that allows application of a default or unwrapping.
  * Evaluates eagerly :(.
+ * Note that null becomes a non-answer, if we need to evaluate against
+ * null then we need to change the typeof at 41 and also ensure that
+ * objectTraverse spits out undefined when the path can not be followed.
  * @param {string} path - the path through the object to the value
  * @returns {function}
  */
@@ -42,27 +45,6 @@ export const get = path => {
     }
   }
 }
-
-/**
- * Returns an object that allows application of a default or unwrapping.
- * Evaluates eagerly :(.
- * @param {string} path - the path through the object to the value
- * @param {object} obj - the object to traverse
- */
-// function get (path, obj) {
-//   const parts = path.split('.')
-//   const value = parts.reduce((v, _) => {
-//     return v && v[_]
-//       ? v[_]
-//       : null
-//   }, obj)
-//   return {
-//     unwrap: () => value,
-//     orElse: _ => typeof value === 'undefined' || value === null
-//       ? _
-//       : value
-//   }
-// }
 
 /**
  * Allows consumers to patch a partial path on to supply as a selector function

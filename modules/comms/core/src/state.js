@@ -1,6 +1,6 @@
 
 import { patch as corePatch } from '@raid/addons'
-import { patchSelector as selectorPatch } from '@itdd/core'
+import { patchSelector as selectorPatch } from '@itdd/utils'
 
 import { createModel } from './models'
 
