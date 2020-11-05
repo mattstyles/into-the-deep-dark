@@ -1,6 +1,6 @@
 
 import { createStructuredSelector } from 'reselect'
-import { View, H1, ButtonGroup } from '@raid/kit'
+import { View, H1, H2, ButtonGroup, Card, Spacer, Stack } from '@raid/kit'
 
 import { TestComponent, Loading } from '@itdd/components'
 import { Link, routes } from '@itdd/router'
@@ -26,7 +26,16 @@ export const HomeView = connect(
           <Link route={routes.comms}>Comms</Link>
         </ButtonGroup>
         <H1>{message}</H1>
+        <Stack>
+          <Card variant='darken'>
+            <H2>Card title</H2>
+          </Card>
+          <Card variant='lighten'>
+            <H2>Card title</H2>
+          </Card>
+        </Stack>
       </View>
+      <Spacer py={4} />
       <Loading />
     </>
   )
