@@ -23,6 +23,8 @@ const onChangeMessage = (id) => () => {
   })
 }
 
+const onAddMessage = () => emit(actions.addMessage)
+
 export const CommsView = ({
   messages,
   head,
@@ -34,7 +36,7 @@ export const CommsView = ({
       <Text>{`Length: ${numMessages}`}</Text>
       <Spacer py={2} />
       <ButtonGroup>
-        <Button onClick={() => emit(actions.addMessage)}>Add</Button>
+        <Button onClick={onAddMessage}>Add</Button>
         <Button onClick={onChangeMessage(head.id)}>Change</Button>
       </ButtonGroup>
       <Spacer py={2} />

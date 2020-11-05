@@ -16,9 +16,18 @@ const background = {
   900: 'hsl(262, 6%, 99%)'
 }
 
+const backgroundTokens = {
+  aside: `linear-gradient(115deg, ${outrun.colors.light['200']}, transparent)`
+}
+
 export const theme = extend(outrun)({
   colors: {
     background: background,
     primary: 'hsl(176, 60%, 51%)'
+  },
+  tokens: {
+    bg: {
+      ...backgroundTokens
+    }
   }
 })

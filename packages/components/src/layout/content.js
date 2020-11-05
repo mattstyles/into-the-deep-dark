@@ -4,12 +4,13 @@ import { css } from '@styled-system/css'
 import { themeGet } from '@styled-system/theme-get'
 import { View } from '@raid/kit'
 
-export const Aside = styled(View)(
+export const Content = styled(View)(
   props => css({
     p: themeGet('tokens.layout.padding')(props),
-    background: themeGet('tokens.bg.aside')(props)
+    background: themeGet('tokens.bg.content')(props),
+    backgroundAttachment: 'fixed'
   })
 )
-Aside.defaultProps = {
-  as: 'aside'
+Content.defaultProps = {
+  as: 'main'
 }

@@ -10,9 +10,11 @@ const data = dummy.reduce((obj, model) => {
   return obj
 }, {})
 
-// @TODO use an object with id keys and an order array of ids
-// we will need to do quite a few finds and the list could get fairly
-// large so the 0-time lookup is desirable
+/**
+ * Messages are structured as an object keyed by the id of the message data.
+ * The order is an array, holding the visual positions of the data in the
+ * message object table.
+ */
 const shape = {
   messages: data,
   order: dummy.map(model => model.id)
