@@ -2,7 +2,7 @@
 import { createStructuredSelector } from 'reselect'
 import { View, H1, H2, ButtonGroup, Card, Spacer, Stack } from '@raid/kit'
 
-import { TestComponent, Loading } from '@itdd/components'
+import { TestComponent, Loading, Heading, Text } from '@itdd/components'
 import { Link, routes } from '@itdd/router'
 
 import { connect } from 'kunai'
@@ -28,7 +28,9 @@ export const HomeView = connect(
         <H1>{message}</H1>
         <Stack>
           <Card variant='darken'>
-            <H2>Card title</H2>
+            <Heading variant='section'>Section title</Heading>
+            <Heading>Content heading</Heading>
+            <Text>Some body content</Text>
           </Card>
           <Card variant='lighten'>
             <H2>Card title</H2>

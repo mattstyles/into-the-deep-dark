@@ -8,8 +8,15 @@ const backgroundTokens = {
   content: `linear-gradient(135deg, ${outrun.colors.light['200']}, hsl(256, 58%, 16%, 0.6), transparent), radial-gradient(farthest-side at 80% 10%, hsla(329, 100%, 54%, 0.26), transparent 40%)`
 }
 
+const type = {
+  heading: {
+    muted: 'text.500'
+  }
+}
+
 export const tokens = {
   bg: {
     ...backgroundTokens
-  }
+  },
+  type
 }

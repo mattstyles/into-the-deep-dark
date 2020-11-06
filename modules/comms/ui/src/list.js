@@ -1,15 +1,17 @@
 
-import { Stack, Card, Pre, Text } from '@raid/kit'
+import { Stack, Card, Pre } from '@raid/kit'
 import { Markdown } from '@raid-ui/markdown'
+import { Heading } from '@itdd/components'
 
 const messageDisplay = messages => messages.map(message => {
   return (
     <Card key={message.id} variant='lighten'>
-      <Pre inset>{JSON.stringify(message, null, '  ')}</Pre>
       <Stack>
-        <Text as='h2'>{message.title}</Text>
+        <Heading variant='section'>{message.category}</Heading>
+        <Heading variant='h2'>{message.title}</Heading>
         <Markdown>{message.body}</Markdown>
       </Stack>
+      <Pre inset sx={{ whiteSpace: ['pre-wrap', 'pre-wrap'] }}>{JSON.stringify(message, null, '  ')}</Pre>
     </Card>
   )
 })

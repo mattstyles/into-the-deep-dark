@@ -4,7 +4,16 @@ import { patchSelector as selectorPatch } from '@itdd/utils'
 
 import { createModel } from './models'
 
+// Generate initial test data
 const dummy = Array(10).fill(0).map(_ => createModel())
+dummy.unshift(createModel({
+  category: 'Engineering',
+  title: 'Shipyard upgrade complete',
+  body: `Engineers can now create grade III components and craft parts.
+
+Materials like ardite, kevlar, and carbon composite can now be used to craft components.`
+}))
+// Recast the array as an associative object, keyed by id
 const data = dummy.reduce((obj, model) => {
   obj[model.id] = model
   return obj
