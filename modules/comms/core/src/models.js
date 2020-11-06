@@ -2,6 +2,8 @@
 import { generateUuid } from './id'
 
 /**
+ * @typedef Message
+ * @type {object}
  * @prop {string} id - unique identifier
  * @prop {string} category - messages belong a category enum
  * @prop {string} title - title for the message

@@ -1,8 +1,10 @@
 
 import { ThemeProvider } from 'styled-components'
-import { Reset, Screen } from '@raid/kit'
+import { Reset } from '@raid/kit'
 
 import { theme } from '@itdd/theme'
+
+import { Page } from './page'
 
 if (process.env.DEBUG) {
   window.theme = theme
@@ -11,8 +13,8 @@ if (process.env.DEBUG) {
 export const App = ({ state, children }) => (
   <ThemeProvider theme={theme}>
     <Reset />
-    <Screen>
+    <Page>
       {children}
-    </Screen>
+    </Page>
   </ThemeProvider>
 )

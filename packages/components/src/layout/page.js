@@ -1,13 +1,9 @@
 
-import React, { Suspense } from 'react'
 import { Screen, Grid } from '@raid/kit'
 import styled from 'styled-components'
 import { css } from '@styled-system/css'
 
-import { Loading } from '../loading'
 import { Content } from './content'
-
-const Sidecar = React.lazy(() => import('@itdd/sidecar'))
 
 const Layout = styled(Grid)(
   props => css({
@@ -25,14 +21,13 @@ const asideStyles = {
 }
 
 export const Page = ({
+  Aside,
   children
 }) => {
   return (
     <Screen>
       <Layout>
-        <Suspense fallback={<Loading />}>
-          <Sidecar sx={asideStyles} />
-        </Suspense>
+        <Aside sx={asideStyles} />
         <Content sx={{ gridArea: 'content' }}>
           {children}
         </Content>

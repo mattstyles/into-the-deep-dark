@@ -3,7 +3,6 @@ import { render } from 'react-dom'
 import { debug, scope, safe } from '@raid/addons'
 
 import { signal } from 'kunai'
-import { Page } from '@itdd/components'
 
 import { App } from 'components/app'
 import { Navigation } from 'components/navigation'
@@ -24,9 +23,7 @@ if (process.env.DEBUG) {
 signal.observe(state => {
   render(
     <App>
-      <Page>
-        <Navigation navigation={state.navigation} />
-      </Page>
+      <Navigation navigation={state.navigation} />
     </App>,
     el
   )
