@@ -1,4 +1,6 @@
 
+import styled from 'styled-components'
+import { css } from '@styled-system/css'
 import { createStructuredSelector } from 'reselect'
 import {
   View, Spacer,
@@ -8,7 +10,7 @@ import {
 import { connect, emit } from 'kunai'
 import { selectors, actions } from '@comms/core'
 
-import { MessageList } from './list'
+import { Main } from './main'
 
 const viewSelector = createStructuredSelector({
   messages: selectors.getMessages,
@@ -25,13 +27,24 @@ const onChangeMessage = (id) => () => {
 
 const onAddMessage = () => emit(actions.addMessage)
 
+const Layout = styled(View)(
+  css({
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
+    maxHeight: '100vh',
+    overflow: 'hidden',
+    px: 6
+  })
+)
+
 export const CommsView = ({
   messages,
   head,
   numMessages
 }) => {
   return (
-    <View isPadded>
+    <Layout>
       <H1>Comms</H1>
       <Text>{`Length: ${numMessages}`}</Text>
       <Spacer py={2} />
@@ -40,8 +53,8 @@ export const CommsView = ({
         <Button onClick={onChangeMessage(head.id)}>Change</Button>
       </ButtonGroup>
       <Spacer py={2} />
-      <MessageList messages={messages} />
-    </View>
+      <Main messages={messages} />
+    </Layout>
   )
 }
 CommsView.displayName = 'CommsView'

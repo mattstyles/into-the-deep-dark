@@ -6,9 +6,11 @@ import { View } from '@raid/kit'
 
 export const Content = styled(View)(
   props => css({
-    p: themeGet('tokens.layout.padding')(props),
+    // p: themeGet('tokens.layout.padding')(props),
     background: themeGet('tokens.bg.content')(props),
-    backgroundAttachment: 'fixed'
+    backgroundAttachment: 'fixed',
+    display: 'flex',
+    flexDirection: 'column'
   })
 )
 Content.defaultProps = {
