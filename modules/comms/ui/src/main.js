@@ -1,34 +1,42 @@
 
 import styled from 'styled-components'
 import { css } from '@styled-system/css'
-import { Grid, Box, Flex } from '@raid/kit'
+import { Flex, Spacer } from '@raid/kit'
 
 import { MessageList } from './list'
 
-const Layout = styled(Grid)(
+const Layout = styled(Flex)(
   props => css({
-    gridTemplateColumns: '1fr 4fr',
-    gridGap: 6,
-    flex: 1
+    flexDirection: 'row',
+    flex: 1,
+    overflowY: 'hidden'
   })
 )
 
-const Wrapper = styled(Flex)(
+const Overview = styled(Flex)(
   css({
-    flex: 1,
+    flex: 0.25,
     overflowY: 'auto'
   })
 )
+
+const Detail = styled(Flex)({
+  flex: 1
+})
 
 export const Main = ({
   messages
 }) => {
   return (
-    <Wrapper>
-      <Layout>
+    <Layout>
+      <Overview>
         <MessageList messages={messages} />
-        <Box bg='positive.400' />
-      </Layout>
-    </Wrapper>
+      </Overview>
+      <Spacer px={3} />
+      <Detail>
+        <Flex flex={1} bg='positive.400' />
+        <Spacer pb={4} />
+      </Detail>
+    </Layout>
   )
 }

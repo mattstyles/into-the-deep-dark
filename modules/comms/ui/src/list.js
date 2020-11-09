@@ -5,7 +5,7 @@ import { Heading } from '@itdd/components'
 
 const messageDisplay = messages => messages.map(message => {
   return (
-    <Card key={message.id} variant='lighten'>
+    <Card key={message.id} variant='lighten' sx={{ mb: 4 }}>
       <Stack>
         <Heading variant='section'>{message.category}</Heading>
         <Heading variant='h2'>{message.title}</Heading>
@@ -20,9 +20,9 @@ export const MessageList = ({
   messages
 }) => {
   return (
-    <Stack>
+    <>
       {messageDisplay(messages)}
-    </Stack>
+    </>
   )
 }
 MessageList.displayName = 'MessageList'
