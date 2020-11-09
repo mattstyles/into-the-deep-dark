@@ -7,7 +7,7 @@
   "module": "lib/itdd-router.esm.js",
   "scripts": {
     "test": "echo 'Nope, do it' && exit 1",
-    "build": "NODE_ENV=prodcution rk build -t ui",
+    "build": "NODE_ENV=production rk build -t ui",
     "watch": "rk watch -t ui"
   },
   "license": "MIT",

@@ -21,7 +21,6 @@ const Container = styled(Card)(
     mx: 0,
     mb: 3,
     appearance: 'none',
-    cursor: 'pointer',
     textAlign: 'left',
     transition: `${getTransition('transform')(props)}, ${getTransition('background')(props)}`,
 

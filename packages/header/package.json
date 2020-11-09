@@ -1,10 +1,10 @@
 {
-  "name": "@comms/ui",
+  "name": "@itdd/header",
   "private": true,
-  "description": "Communication module ui package",
+  "description": "Main layout header bar",
   "version": "0.1.0",
-  "main": "lib/itdd-comms-ui.js",
-  "module": "lib/itdd-comms-ui.esm.js",
+  "main": "lib/itdd-header.js",
+  "module": "lib/itdd-header.esm.js",
   "scripts": {
     "test": "echo 'Nope, do it' && exit 1",
     "build": "NODE_ENV=production rk build -t ui",
@@ -13,10 +13,5 @@
   "license": "MIT",
   "devDependencies": {
     "standard": "^14.3.4"
-  },
-  "dependencies": {
-    "@itdd/components": "*",
-    "@itdd/router": "*",
-    "@raid/kit": "^0.20.0"
   }
 }

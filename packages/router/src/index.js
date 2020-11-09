@@ -10,8 +10,11 @@ export {
   actions,
   events,
   getNavigation,
+
   push,
-  pop
+  pop,
+  back,
+  forward
 } from './core'
 
 export * as selectors from './selectors'
