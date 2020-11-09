@@ -23,7 +23,15 @@ const onChangeMessage = patch((state, payload) => {
   return state
 })
 
+const onSelectMessage = patch((state, payload) => {
+  return {
+    ...state,
+    selectedId: payload.id
+  }
+})
+
 export const update = safe(compress({
   [actions.addMessage]: onAddMessage,
-  [actions.changeMessage]: onChangeMessage
+  [actions.changeMessage]: onChangeMessage,
+  [actions.selectMessage]: onSelectMessage
 }))

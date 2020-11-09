@@ -1,5 +1,6 @@
 
 export const actions = {
   addMessage: '@comms/addMessage',
-  changeMessage: '@comms/changeMessage'
+  changeMessage: '@comms/changeMessage',
+  selectMessage: '@comms/selectMessage'
 }

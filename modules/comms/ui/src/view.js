@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { css } from '@styled-system/css'
 import { createStructuredSelector } from 'reselect'
 import {
-  View, Spacer,
+  View, Spacer, Box,
   H1, Text, Button, ButtonGroup
 } from '@raid/kit'
 
@@ -11,12 +11,6 @@ import { connect, emit } from 'kunai'
 import { selectors, actions } from '@comms/core'
 
 import { Main } from './main'
-
-const viewSelector = createStructuredSelector({
-  messages: selectors.getMessages,
-  head: selectors.getMessageHead,
-  numMessages: selectors.getNumMessages
-})
 
 const onChangeMessage = (id) => () => {
   emit(actions.changeMessage, {
@@ -33,27 +27,37 @@ const Layout = styled(View)(
     flex: 1,
     flexDirection: 'column',
     maxHeight: '100vh',
-    overflow: 'hidden',
-    px: 6
+    overflowY: 'hidden',
+    px: 3
   })
 )
+
+const viewSelector = createStructuredSelector({
+  messages: selectors.getMessages,
+  head: selectors.getMessageHead,
+  numMessages: selectors.getNumMessages,
+  selectedMessage: selectors.getSelectedMessage
+})
 
 export const CommsView = ({
   messages,
   head,
-  numMessages
+  numMessages,
+  selectedMessage
 }) => {
   return (
     <Layout>
-      <H1>Comms</H1>
-      <Text>{`Length: ${numMessages}`}</Text>
+      <Box px={3}>
+        <H1>Comms</H1>
+        <Text>{`Length: ${numMessages}`}</Text>
+        <Spacer py={2} />
+        <ButtonGroup>
+          <Button onClick={onAddMessage}>Add</Button>
+          <Button onClick={onChangeMessage(head.id)}>Change</Button>
+        </ButtonGroup>
+      </Box>
       <Spacer py={2} />
-      <ButtonGroup>
-        <Button onClick={onAddMessage}>Add</Button>
-        <Button onClick={onChangeMessage(head.id)}>Change</Button>
-      </ButtonGroup>
-      <Spacer py={2} />
-      <Main messages={messages} />
+      <Main messages={messages} selectedMessage={selectedMessage} />
     </Layout>
   )
 }

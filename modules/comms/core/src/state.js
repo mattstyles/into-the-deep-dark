@@ -18,6 +18,7 @@ const data = dummy.reduce((obj, model) => {
   obj[model.id] = model
   return obj
 }, {})
+const order = dummy.map(model => model.id)
 
 /**
  * Messages are structured as an object keyed by the id of the message data.
@@ -26,7 +27,8 @@ const data = dummy.reduce((obj, model) => {
  */
 const shape = {
   messages: data,
-  order: dummy.map(model => model.id)
+  order: order,
+  selectedId: order[0]
 }
 
 const rootKey = 'comms'
