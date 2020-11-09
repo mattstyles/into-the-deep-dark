@@ -1,4 +1,5 @@
 
+import React, { Suspense } from 'react'
 import styled from 'styled-components'
 import { css } from '@styled-system/css'
 import { createStructuredSelector } from 'reselect'
@@ -9,8 +10,19 @@ import {
 
 import { connect, emit } from 'kunai'
 import { selectors, actions } from '@comms/core'
+import { Loading } from '@itdd/components'
 
 import { Main } from './main'
+
+const Header = React.lazy(() => import('@itdd/header'))
+
+const Head = ({ sx }) => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <Header sx={sx} />
+    </Suspense>
+  )
+}
 
 const onChangeMessage = (id) => () => {
   emit(actions.changeMessage, {
@@ -48,6 +60,7 @@ export const CommsView = ({
   return (
     <Layout>
       <Box px={3}>
+        <Head />
         <H1>Comms</H1>
         <Text>{`Length: ${numMessages}`}</Text>
         <Spacer py={2} />
